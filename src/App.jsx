@@ -1,5 +1,5 @@
 import './App.css'
-import Layout from "./components/navbar/Layout"
+import Layout from "./components/navbar/layout"
 
 function App() {
   return (
