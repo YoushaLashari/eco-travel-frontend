@@ -83,7 +83,7 @@ export const calculateDaysNumbers = (startDate: string | Date, endDate: string |
 };
 
 export const api_get = (link : string, token: string) => {
-    return axios.get(`http://127.0.0.1:8000/${link}`, {
+    return axios.get(`http://64.226.86.96/${link}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -91,7 +91,7 @@ export const api_get = (link : string, token: string) => {
 }
 
 export const api_post = (link : string, token: string) => {
-    return axios.post(`http://127.0.0.1:8000/${link}`, {
+    return axios.post(`http://64.226.86.96/${link}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

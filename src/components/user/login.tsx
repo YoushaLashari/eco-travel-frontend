@@ -80,7 +80,7 @@ export default function Login(){
             setIsLoading(true);
 
             try{
-                const response = await axios.post('http://127.0.0.1:8000/users/login', data);
+                const response = await axios.post('http://64.226.86.96/users/login', data);
                 console.log(response);
                 
                 if(response.status === 200){

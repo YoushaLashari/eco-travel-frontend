@@ -8,7 +8,7 @@ export function GoogleAuth(){
     const credential = response.credential;
 
     try {
-      const res = await axios.post("http://localhost:8000/users/auth/google-token", {
+      const res = await axios.post("http://64.226.86.96/users/auth/google-token", {
         id_token: credential,
       });
 

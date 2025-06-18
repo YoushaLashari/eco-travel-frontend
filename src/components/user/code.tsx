@@ -49,7 +49,7 @@ export default function Code(){
         }
 
         try{
-            const response = await axios.post('http://127.0.0.1:8000/users/verification', data);
+            const response = await axios.post('http://64.226.86.96/users/verification', data);
 
             if(response.status === 200){
                 localStorage.setItem('token', response.data.access_token);
