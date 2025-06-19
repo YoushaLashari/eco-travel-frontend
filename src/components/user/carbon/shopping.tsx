@@ -24,7 +24,7 @@ export default function Shopping({handleData, choosen}: CompensationProps){
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 text-center mt-3">
             {/* Vêtements d'occasion */}
-            <div
+            {/* <div
                 className={`rounded-lg drop-shadow-md p-4 border-shopping flex flex-col justify-between h-full ${choosen.name?.includes("Vêtements d'occasion") ? "bg-green-800" : "bg-white"}`}
             >
                 <label htmlFor="clothes" className="flex flex-col flex-grow cursor-pointer">
@@ -56,7 +56,6 @@ export default function Shopping({handleData, choosen}: CompensationProps){
                 </label>
             </div>
 
-            {/* Réduire les emballages */}
             <div
                 className={`rounded-lg drop-shadow-md p-4 border-shopping flex flex-col justify-between h-full ${choosen.name?.includes("Réduire les emballages") ? "bg-green-800" : "bg-white"}`}
             >
@@ -88,7 +87,7 @@ export default function Shopping({handleData, choosen}: CompensationProps){
                     />
                 </label>
             </div>
-            {/* Électronique durable */}
+            
             <div
                 className={`rounded-lg drop-shadow-md p-4 border-shopping flex flex-col justify-between h-full ${choosen.name?.includes("Électronique durable") ? "bg-green-800" : "bg-white"}`}
             >
@@ -119,7 +118,7 @@ export default function Shopping({handleData, choosen}: CompensationProps){
                         className="border rounded-full border-amber-700 text-blue-950 text-center h-12 hidden"
                     />
                 </label>
-            </div>
+            </div> */}
         </div>
     );
 }

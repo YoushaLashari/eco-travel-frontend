@@ -24,7 +24,7 @@ export default function Housing({handleData, choosen}: CompensationProps){
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 text-center mt-3 mb-5">
             {/* Réduire le chauffage */}
-            <div
+            {/* <div
                 className={`rounded-lg drop-shadow-md p-4 border-housing flex flex-col justify-between h-full ${choosen.name?.includes("Réduire le chauffage") ? "bg-green-800" : "bg-white"}`}
             >
                 <label htmlFor="heating" className="flex flex-col flex-grow cursor-pointer">
@@ -56,7 +56,6 @@ export default function Housing({handleData, choosen}: CompensationProps){
                 </label>
             </div>
 
-            {/* Ampoules basse consommation */}
             <div
                 className={`rounded-lg drop-shadow-md p-4 border-housing flex flex-col justify-between h-full ${choosen.name?.includes("Ampoules basse consommation") ? "bg-green-800" : "bg-white"}`}
             >
@@ -88,7 +87,7 @@ export default function Housing({handleData, choosen}: CompensationProps){
                     />
                 </label>
             </div>
-            {/* Isolation des fenêtres */}
+
             <div
                 className={`rounded-lg drop-shadow-md p-4 border-housing flex flex-col justify-between h-full ${choosen.name?.includes("Isolation des fenêtres") ? "bg-green-800" : "bg-white"}`}
             >
@@ -119,7 +118,7 @@ export default function Housing({handleData, choosen}: CompensationProps){
                         className="border rounded-full border-amber-700 text-blue-950 text-center h-12 hidden"
                     />
                 </label>
-            </div>
+            </div> */}
         </div>
     );
 }

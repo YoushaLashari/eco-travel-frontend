@@ -24,7 +24,7 @@ export default function Transportation({handleData,choosen}: CompensationProps){
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 text-center mt-3">
             {/* Vélo pour trajets courts */}
-            <div
+            {/* <div
                 className={`rounded-lg drop-shadow-md p-4 border-transportation flex flex-col justify-between h-full ${choosen.name?.includes("Vélo pour trajets courts") ? "bg-green-800" : "bg-white"}`}
             >
                 <label htmlFor="bike" className="flex flex-col flex-grow cursor-pointer">
@@ -56,7 +56,6 @@ export default function Transportation({handleData,choosen}: CompensationProps){
                 </label>
             </div>
 
-            {/* Privilégier les transports en commun */}
             <div
                 className={`rounded-lg drop-shadow-md p-4 border-transportation flex flex-col justify-between h-full ${choosen.name?.includes("Privilégier les transports en commun") ? "bg-green-800" : "bg-white"}`}
             >
@@ -88,7 +87,7 @@ export default function Transportation({handleData,choosen}: CompensationProps){
                     />
                 </label>
             </div>
-            {/* Covoiturage régulier */}
+
             <div
                 className={`rounded-lg drop-shadow-md p-4 border-transportation flex flex-col justify-between h-full ${choosen.name?.includes("Covoiturage régulier") ? "bg-green-800" : "bg-white"}`}
             >
@@ -119,7 +118,7 @@ export default function Transportation({handleData,choosen}: CompensationProps){
                         className="border rounded-full border-amber-700 text-blue-950 text-center h-12 hidden"
                     />
                 </label>
-            </div>
+            </div> */}
         </div>
     );
 }
