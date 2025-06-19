@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://64.226.86.96',
+    baseURL: 'https://fastapi.aimane-web-dev.com',
 });
 
 axiosInstance.interceptors.request.use(

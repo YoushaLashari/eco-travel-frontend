@@ -139,7 +139,7 @@ export default function Register(){
             setLoading(true);
 
             try{
-                const response = await axios.post("http://64.226.86.96/users/register", data);
+                const response = await axios.post("https://fastapi.aimane-web-dev.com/users/register", data);
                 
                 if(response.data.status === "success"){
                     setError({
