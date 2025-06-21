@@ -211,3 +211,18 @@ tr, th, td{
         inset: 1250px; 
     }
 }
+.react-international-phone-input-container .react-international-phone-input{
+    border-radius: var(--react-international-phone-border-radius, 8px) !important; 
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+    width: 90%;
+}
+.react-international-phone-country-selector-button{
+    padding-top: 18px !important;
+    padding-bottom: 18px !important;
+    border-radius: var(--react-international-phone-border-radius, 8px) !important; 
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}

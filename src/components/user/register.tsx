@@ -172,7 +172,7 @@ export default function Register(){
     
     return(
         <div className="mx-8">
-            <div className="flex flex-col items-center justify-center min-h-screen relative mt-8">
+            <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-0">
                 <div className={`hidden lg:block absolute bottom-5 ${width < 1400 ? "left-50" : "left-120"} `}>
                     <img src={mapRoute} alt="clipboard" className="w-20" />
                 </div>
@@ -184,8 +184,8 @@ export default function Register(){
                         <img src={bulb} alt="bulb" className="w-16" />
                     </div>
                 }
-                <Card className="w-full max-w-md p-8 mb-8">
-                    <CardContent className="flex flex-col">
+                <Card className="w-full max-w-md p-6 sm:p-8 mb-8 shadow-lg">
+                    <CardContent className="flex flex-col px-0">
                         <div className="text-center">
                             Logo
                             <h2 className="text-2xl font-semibold mb-6">Créer un compte</h2>
@@ -202,7 +202,7 @@ export default function Register(){
                         <label htmlFor="email" className="text-left text-sm text-gray-400 mb-1">Adresse email</label>
                         <Input 
                             placeholder="Entrez votre adresse email" 
-                            className="py-5 border-blue-950 text-blue-950 mb-1" 
+                            className="py-5 border-blue-950 text-blue-950 mb-1 text-sm" 
                             onChange={(e) => handleData("email", e.target.value)}
                             value={register.email}
                         />
@@ -210,14 +210,14 @@ export default function Register(){
                         <label htmlFor="name" className="text-left text-sm mb-1 text-gray-400">Nom et prénom</label>
                         <Input 
                             placeholder="Entrez votre nom complet" 
-                            className="py-5 border-blue-950 text-blue-950 mb-1" 
+                            className="py-5 border-blue-950 text-blue-950 mb-1 text-sm"  
                             onChange={(e) => handleData("name", e.target.value)}
                             value={register.name}
                         />
                         <span className="mb-4 text-sm text-red-500">{error && error.name}</span>
                         <label htmlFor="phone" className="text-left text-sm text-gray-400 mb-1">N° de téléphone</label>
                         <PhoneInput
-                            className="w-100 border-blue-950 text-blue-950 mb-1"
+                            className="border-blue-950 text-blue-950 mb-1 text-sm"
                             defaultCountry="fr"
                             value={phone}
                             onChange={(phone) => setPhone(phone)}
@@ -228,7 +228,7 @@ export default function Register(){
                             <Input 
                                 placeholder="Créez votre mot de passe" 
                                 type={passwordVisible ? "" : "password"} 
-                                className="py-5 border-blue-950 text-blue-950 mb-1" 
+                                className="py-5 border-blue-950 text-blue-950 mb-1 text-sm" 
                                 onChange={(e)=> handleData("password", e.target.value)}
                                 value={register.password}
                             />
@@ -250,7 +250,7 @@ export default function Register(){
                             <Input 
                                 placeholder="Confirmer votre mot de passe" 
                                 type={confirmPasswordVisible ? "" : "password"} 
-                                className="py-5 border-blue-950 text-blue-950 mb-1" 
+                                className="py-5 border-blue-950 text-blue-950 mb-1 text-sm" 
                                 onChange={(e)=> handleData("confirm", e.target.value)}
                                 value={register.confirm}
                             />
