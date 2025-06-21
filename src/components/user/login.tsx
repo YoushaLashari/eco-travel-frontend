@@ -110,7 +110,7 @@ export default function Login(){
         <div className="mx-8">
             <div className="flex flex-col items-center justify-center lg:min-h-[800px] min-h-[650px] px-4 sm:px-0">
                 <Card className="w-full max-w-md p-6 sm:p-8 mb-8 shadow-lg">
-                    <CardContent className="flex flex-col sm:px-0 lg:px-6">
+                    <CardContent className="flex flex-col px-0">
                         <div className="text-center">
                             Logo
                             <h2 className="text-2xl font-semibold mb-6">Se connecter</h2>
