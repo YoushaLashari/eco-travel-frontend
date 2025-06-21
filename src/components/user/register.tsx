@@ -171,7 +171,7 @@ export default function Register(){
     }
     
     return(
-        <div className="mx-8">
+        <div className="">
             <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-0 mt-5">
                 <div className={`hidden lg:block absolute bottom-5 ${width < 1400 ? "left-50" : "left-120"} `}>
                     <img src={mapRoute} alt="clipboard" className="w-20" />
