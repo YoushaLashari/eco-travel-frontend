@@ -172,7 +172,7 @@ export default function Register(){
     
     return(
         <div className="mx-8">
-            <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-0">
+            <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-0 mt-5">
                 <div className={`hidden lg:block absolute bottom-5 ${width < 1400 ? "left-50" : "left-120"} `}>
                     <img src={mapRoute} alt="clipboard" className="w-20" />
                 </div>
@@ -248,7 +248,7 @@ export default function Register(){
                         <label htmlFor="confirm" className="text-left text-sm mb-1 text-gray-400">Confirmer mot de passe</label>
                         <div className="relative w-full">
                             <Input 
-                                placeholder="Confirmer votre mot de passe" 
+                                placeholder="Confirmer le mot de passe" 
                                 type={confirmPasswordVisible ? "" : "password"} 
                                 className="py-5 border-blue-950 text-blue-950 mb-1 text-sm" 
                                 onChange={(e)=> handleData("confirm", e.target.value)}
