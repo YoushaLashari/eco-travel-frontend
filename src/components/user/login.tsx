@@ -127,7 +127,7 @@ export default function Login(){
                         <label htmlFor="email" className="text-left text-sm text-gray-400 mb-1">Adresse email</label>
                         <Input 
                             placeholder="Entrez votre adresse email" 
-                            className="py-3 sm:py-5 border-blue-950 text-blue-950 mb-1" 
+                            className="py-3 sm:py-5 border-blue-950 text-blue-950 mb-1 placeholder:text-sm"  
                             onChange={(e) => handleData("email", e.target.value)}
                             value={login.email}
                         />
@@ -137,7 +137,7 @@ export default function Login(){
                             <Input 
                                 placeholder="Créez votre mot de passe" 
                                 type={passwordVisible ? "" : "password"} 
-                                className="py-3 sm:py-5 border-blue-950 text-blue-950 mb-1" 
+                                className="py-3 sm:py-5 border-blue-950 text-blue-950 mb-1 placeholder:text-sm" 
                                 onChange={(e)=> handleData("password", e.target.value)}
                                 value={login.password}
                             />
