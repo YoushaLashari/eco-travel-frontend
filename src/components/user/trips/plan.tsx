@@ -259,7 +259,7 @@ export default function Plan(){
                         </div>
                     </>
                 }
-                <div className={`bg-main rounded-r-lg w-full ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"} `}>
+                <div className={`bg-main rounded-r-lg w-full ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"}`}>
                     <div className="mt-4 ml-10">
                         <button
                             className="lg:hidden text-blue-900"
@@ -272,8 +272,8 @@ export default function Plan(){
                             </svg>
                         </button>
                     </div>
-                    <div className={`ml-10 lg:mt-10 mt-5 ${steps !== 2 ? 'flex justify-center' : ''}`}>
-                        <div className={`${steps !== 2 ? 'w-full max-w-lg' : ''}`}>
+                    <div className={`ml-10 lg:mt-10 mt-5 mr-10 ${steps !== 2 ? 'flex justify-center' : ''}`}>
+                        <div className={`${steps !== 2 ? 'w-full max-w-lg' : ''}`}> 
                             {mainError && <div className="bg-red-500 text-white rounded-sm text-center py-2 mb-4">{mainError}</div>}
                             
                             {steps === 1 ?
@@ -336,7 +336,7 @@ export default function Plan(){
                                     <ClipLoader color="#3498db" loading={isLoading} size={50}/>
                                 </div>
                             ) : (
-                                <div className={`text-center ${steps === 2 ? "flex flex-wrap place-content-between mx-5" : steps > 2 ? "flex flex-wrap place-content-between w-100 mx-auto" : "w-100 mx-auto"}`}>
+                                <div className={`text-center ${steps === 2 ? "flex flex-wrap place-content-between mx-5" : steps > 2 ? "flex flex-wrap place-content-between w-full mx-auto" : "w-full mx-auto"}`}>
                                     {steps > 1 && <div 
                                         className="border border-green-900 rounded-full w-35 mt-9 py-1 cursor-pointer next-btn"
                                         onClick={() => setSteps(steps - 1)}
