@@ -110,7 +110,7 @@ export default function Login(){
         <div className="mx-8">
             <div className="flex flex-col items-center justify-center lg:min-h-[800px] min-h-[650px] px-4 sm:px-0">
                 <Card className="w-full max-w-md p-6 sm:p-8 mb-8 shadow-lg">
-                    <CardContent className="flex flex-col">
+                    <CardContent className="flex flex-col px-0">
                         <div className="text-center">
                             Logo
                             <h2 className="text-2xl font-semibold mb-6">Se connecter</h2>
@@ -130,6 +130,7 @@ export default function Login(){
                             className="py-5 border-blue-950 text-blue-950 mb-1" 
                             onChange={(e) => handleData("email", e.target.value)}
                             value={login.email}
+                            id="email"
                         />
                         <span className="mb-4 text-red-500 text-sm">{error && error.email}</span>
                         <label htmlFor="password" className="text-left text-sm mb-1 text-gray-400">Mot de passe</label>
@@ -140,6 +141,7 @@ export default function Login(){
                                 className="py-5 border-blue-950 text-blue-950 mb-1" 
                                 onChange={(e)=> handleData("password", e.target.value)}
                                 value={login.password}
+                                id="password"
                             />
                             {passwordVisible ? (
                                 <FiEyeOff 
