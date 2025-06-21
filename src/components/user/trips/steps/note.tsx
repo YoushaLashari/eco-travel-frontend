@@ -20,14 +20,16 @@ export function TripNote({handleData, trip, error}: TripNameProps){
     return(
         <div>
             <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
-                <span className="text-blue-950 mr-2">Ecrivez</span> 
-                <span className="text-color">Vos remarques (optionnel)</span>
+                <div>
+                    <span className="text-blue-950 mr-2">Ecrivez</span> 
+                    <span className="text-color">Vos remarques (optionnel)</span>
+                </div>
                 <img src={note} alt="note" className="w-6 sm:w-10" />
             </h2>
-            <div className="mx-auto w-100 mt-10">
+            <div className="mx-auto w-full mt-10">
                 <Textarea
                     onChange={(event) => handleData("notes", event.target.value)}
-                    className="border rounded border-amber-700 text-blue-950 p-3"
+                    className="border rounded border-amber-700 text-blue-950 p-3  w-full"
                     placeholder="Indiquez toute information supplémentaires ou vos préférences spécifiquues pour personaliser votre voyage"
                     value={trip.notes}
                 />

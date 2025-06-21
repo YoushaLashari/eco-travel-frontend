@@ -339,17 +339,17 @@ export default function Plan(){
                             ) : (
                                 <div className={`text-center ${steps === 2 ? "flex flex-wrap place-content-between mx-5" : steps > 2 ? "flex flex-wrap place-content-between w-full mx-auto" : "w-full mx-auto"}`}>
                                     {steps > 1 && <div 
-                                        className={`border border-green-900 rounded-full ${steps === 2 ? "w-25" : "w-35"} mt-9 py-1 cursor-pointer next-btn`}
+                                        className={`border border-green-900 rounded-full ${steps !== 1 ? "w-25" : "w-35"} mt-9 py-1 cursor-pointer next-btn`}
                                         onClick={() => setSteps(steps - 1)}
                                     >
                                         <FontAwesomeIcon icon={faAngleLeft}/> Retour
                                     </div>}
                                     <div 
-                                        className={`text-center border border-green-900 rounded-full ${steps === 2 ? "w-25" : "w-35"} mt-9 py-1 cursor-pointer next-btn flex place-content-center ${steps == 1 ? "float-right" : ""}`}
+                                        className={`text-center border border-green-900 rounded-full mt-9 py-1 cursor-pointer next-btn flex justify-center ${steps === 10 ? "w-30" : steps === 1 ? "w-35 float-right" : "w-25"}`}
                                         onClick={nextStep}
                                     >
-                                        <span>{steps === 9 ? "Confirmer" : steps === 10 ? "Sauvegarder" : "Suivant" }</span> 
-                                        <span className="ml-2 mt-custom">{steps !== 9 && steps !== 10 && <FontAwesomeIcon icon={faAngleRight} />}</span>
+                                        <span>{steps === 10 ? "Sauvegarder" : "Suivant" }</span> 
+                                        <span className={`${steps !== 10 ? 'ml-2' : ''} mt-custom`}>{steps !== 10 && <FontAwesomeIcon icon={faAngleRight} />}</span>
                                     </div>
                                 </div>
                             )}
