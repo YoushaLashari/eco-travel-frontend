@@ -88,7 +88,7 @@ const Dashboard = () => {
         {user && (
           <>
             {/* Desktop sidebar (visible on large screens) */}
-            <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-auto hidden lg:block">
+            <div className={`bg-white w-100 p-5 drop-shadow-md rounded-l-lg ${trips.length > 0 ? "h-auto" : "h-custom"} hidden lg:block`}>
               <NavbarAdmin />
             </div>
             {/* Mobile sidebar (visible when sidebarOpen is true) */}
