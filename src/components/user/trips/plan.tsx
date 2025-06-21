@@ -18,7 +18,6 @@ import { useUser } from "@/context/userContext";
 import { useWindowWidth } from "@/assets/helpers";
 import axiosInstance from "@/api/config";
 import React from "react";
-import { Navbar } from "@/components/navbar/navbar";
 import { NavbarAdmin } from "@/components/navbar/navbarAdmin";
 import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
 
@@ -255,7 +254,7 @@ export default function Plan(){
                             <NavbarAdmin />
                         </div>
                         {/* Mobile sidebar (visible when sidebarOpen is true) */}
-                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-125 p-5 drop-shadow-md h-custom block lg:hidden absolute top-0 z-50`}>
+                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-50`}>
                             <ResponsiveNavbarAdmin sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                         </div>
                     </>

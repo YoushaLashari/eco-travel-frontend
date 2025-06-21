@@ -64,7 +64,7 @@ export default function Details(){
                             <NavbarAdmin />
                         </div>
                         {/* Mobile sidebar (visible when sidebarOpen is true) */}
-                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-125 p-5 drop-shadow-md h-custom block lg:hidden absolute top-0 z-50`}>
+                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-50`}>
                             <ResponsiveNavbarAdmin sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                         </div>
                     </>

@@ -9,7 +9,6 @@ import earth from "/images/earth.svg";
 import React from 'react';
 import { useUser } from '@/context/userContext';
 import axiosInstance from '@/api/config';
-import { Navbar } from '../navbar/navbar';
 import { NavbarAdmin } from '../navbar/navbarAdmin';
 import { ResponsiveNavbarAdmin } from '../navbar/ResponsiveNavbarAdmin';
 import { calculateDurationDays, capitalizeWords, formatDate } from '@/assets/helpers';
