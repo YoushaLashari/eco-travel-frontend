@@ -113,7 +113,7 @@ export default function Login(){
                     <CardContent className="flex flex-col">
                         <div className="text-center">
                             Logo
-                            <h2 className="text-xl sm:text-2xl font-semibold mb-6">Se connecter</h2>
+                            <h2 className="text-2xl font-semibold mb-6">Se connecter</h2>
                         </div>
                         <GoogleOAuthProvider clientId={google_client}>
                             <GoogleAuth/>
@@ -127,7 +127,7 @@ export default function Login(){
                         <label htmlFor="email" className="text-left text-sm text-gray-400 mb-1">Adresse email</label>
                         <Input 
                             placeholder="Entrez votre adresse email" 
-                            className="w-[90%] sm:w-full py-3 sm:py-5 border-blue-950 text-blue-950 mb-1 placeholder:text-sm placeholder:text-gray-400" 
+                            className="py-5 border-blue-950 text-blue-950 mb-1" 
                             onChange={(e) => handleData("email", e.target.value)}
                             value={login.email}
                         />
@@ -137,7 +137,7 @@ export default function Login(){
                             <Input 
                                 placeholder="Créez votre mot de passe" 
                                 type={passwordVisible ? "" : "password"} 
-                                className="w-[90%] sm:w-full py-3 sm:py-5 border-blue-950 text-blue-950 mb-1 placeholder:text-sm placeholder:text-gray-400"
+                                className="py-5 border-blue-950 text-blue-950 mb-1" 
                                 onChange={(e)=> handleData("password", e.target.value)}
                                 value={login.password}
                             />
@@ -161,7 +161,7 @@ export default function Login(){
                         ) : (
                             <Button 
                                 onClick={sendData}
-                                className="w-[90%] sm:w-full bg-orange-500 text-white mb-4 rounded-full cursor-pointer"
+                                className="w-full bg-orange-500 text-white mb-4 rounded-full cursor-pointer"
                             >
                                 Se connecter
                             </Button>
