@@ -260,7 +260,7 @@ export default function Plan(){
                     </>
                 }
                 {/* <div className={`bg-main rounded-r-lg w-full pb-5 ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"}`}> */}
-                <div className={`bg-main rounded-r-lg w-full pb-5 ${steps !== 2 || width > 700 ? '' : ''}`}>
+                <div className={`bg-main rounded-r-lg w-full pb-5 ${(steps === 10 || steps === 2) && width <= 700 ? '' : 'h-custom'}`}>
                     <div className="mt-4 ml-10">
                         <button
                             className="lg:hidden text-blue-900"
