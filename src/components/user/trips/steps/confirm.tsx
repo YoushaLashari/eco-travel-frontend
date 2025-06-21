@@ -22,7 +22,7 @@ interface TripConfirmProps {
 export function TripConfirm({trip, startDate, endDate, adults, childrens}: TripConfirmProps){
     return(
         <div>
-            <h2 className="font-bold text-2xl flex place-content-center align-center">
+            <h2 className="font-bold text-xl lg:text-2xl place-content-center align-center">
                 <span className="text-blue-950 mr-2">Récapitulatif de votre</span> 
                 <span className="text-color">voyage</span>
             </h2>

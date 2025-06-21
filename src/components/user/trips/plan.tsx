@@ -259,22 +259,23 @@ export default function Plan(){
                         </div>
                     </>
                 }
-                <div className={`bg-main rounded-r-lg w-screen ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"} `}>
-                    <div className={`ml-10 mt-9 ${steps !== 2 ? 'flex justify-center' : ''}`}>
-                        <div className={`mt-5 ${steps !== 2 ? 'w-full max-w-lg' : ''}`}>
+                <div className={`bg-main rounded-r-lg w-full ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"} `}>
+                    <div className="mt-4 ml-10">
+                        <button
+                            className="lg:hidden text-blue-900"
+                            onClick={() => setSidebarOpen(!sidebarOpen)}
+                        >
+                            <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div className={`ml-10 lg:mt-10 mt-5 ${steps !== 2 ? 'flex justify-center' : ''}`}>
+                        <div className={`${steps !== 2 ? 'w-full max-w-lg' : ''}`}>
                             {mainError && <div className="bg-red-500 text-white rounded-sm text-center py-2 mb-4">{mainError}</div>}
-                            <div>
-                                <button
-                                    className="lg:hidden text-blue-900"
-                                    onClick={() => setSidebarOpen(!sidebarOpen)}
-                                >
-                                    <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                            d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                                        />
-                                    </svg>
-                                </button>
-                            </div>
+                            
                             {steps === 1 ?
                                 <TripName
                                     handleData = {handleData}

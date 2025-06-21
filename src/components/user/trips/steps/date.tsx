@@ -19,10 +19,10 @@ interface TripDateProps {
 export function TripDate({ handleDates, startDate, endDate, error }: TripDateProps) {
     return (
         <div>
-            <h2 className="font-bold text-2xl flex place-content-center align-center">
+            <h2 className="font-bold text-xl lg:text-2xl place-content-center align-center">
                 <span className="text-blue-950 mr-2">Choisissez vos</span> 
                 <span className="text-color">dates</span>
-                <img src={calendar} alt="calendar" className="w-10" />
+                <img src={calendar} alt="calendar" className="w-6 sm:w-10" />
             </h2>
             <div className="mx-auto w-100 mt-9 text-center">
                 <DatePicker

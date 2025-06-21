@@ -19,7 +19,7 @@ interface TripNameProps {
 export function TripName({handleData, trip, error}: TripNameProps){
     return(
         <div>
-            <h2 className="font-bold text-2xl">
+            <h2 className="font-bold text-xl lg:text-2xl">
                 <span className="text-blue-950 text-center">Créer votre itinéraire</span> 
                 <span className="text-color"> Eco résponsable</span>
             </h2>

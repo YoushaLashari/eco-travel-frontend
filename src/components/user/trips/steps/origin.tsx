@@ -19,10 +19,10 @@ interface TripNameProps {
 export function TripOrigin({handleData, trip, error}: TripNameProps){ 
     return(
         <div>
-            <h2 className="font-bold text-2xl flex place-content-center align-center">
+            <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
                 <span className="text-blue-950 mr-2">Choisissez votre</span> 
                 <span className="text-color">Destination de départ</span>
-                <img src={tripImage} alt="trip" className="w-10" />
+                <img src={tripImage} alt="trip" className="w-6 sm:w-10" />
             </h2>
             <div className="mx-auto w-100 mt-10">
                 <Input

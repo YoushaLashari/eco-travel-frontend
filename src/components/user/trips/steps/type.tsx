@@ -18,10 +18,10 @@ interface TripNameProps {
 export function TripType({handleData, trip}: TripNameProps){
     return(
         <div className="px-4 mt-5">
-            <h2 className="font-bold text-xl md:text-2xl flex flex-wrap justify-center items-center text-center">
+            <h2 className="font-bold text-xl lg:text-2xl flex flex-wrap justify-center items-center text-center">
                 <span className="text-blue-950 mr-2">Choisissez votre type de</span>
                 <span className="text-color mr-2">voyage</span>
-                <img src={earth} alt="earth" className="w-8 md:w-10" />
+                <img src={earth} alt="earth" className="w-6 sm:w-10" />
             </h2>
             <div className="mt-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full text-center">
                 {[

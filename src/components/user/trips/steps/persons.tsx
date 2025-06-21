@@ -12,10 +12,10 @@ interface TripPersonsProps {
 export function TripPerson({handleAdults, handleChildrens, adults, childrens}: TripPersonsProps){
     return(
         <div>
-            <h2 className="font-bold text-2xl flex place-content-center align-center">
+            <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
                 <span className="text-blue-950 mr-2">Choisissez</span> 
                 <span className="text-color">Nombre de personnes</span>
-                <img src={people} alt="people" className="w-10" />
+                <img src={people} alt="people" className="w-6 sm:w-10" />
             </h2>
             <div className="mx-auto w-100 mt-9">
                 <div className="flex items-end place-content-center">
