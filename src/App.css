@@ -225,6 +225,6 @@ tr, th, td{
     border-radius: var(--react-international-phone-border-radius, 8px) !important; 
     border-bottom-right-radius: 0 !important;
     border-top-right-radius: 0 !important;
-    padding-left: 4px !important;
-    padding-right: 4px !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }
