@@ -22,8 +22,8 @@ export function Navbar(){
                     {
                         (location.pathname === "/" || location.pathname === "/register") && (
                             <div className="text-color mt-4 lg:mt-0 flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4">
-                                <Link to="/" className={location.pathname === "/" ? "active" : ""}>Connexion</Link>
-                                <Link to="/register" className={location.pathname === "/register" ? "active" : ""}>Inscription</Link>
+                                <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>Connexion</Link>
+                                <Link to="/register" className={location.pathname === "/register" ? "active" : ""} onClick={() => setMenuOpen(false)}>Inscription</Link>
                             </div>
                         )
                     }
