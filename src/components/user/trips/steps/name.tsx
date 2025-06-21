@@ -26,7 +26,7 @@ export function TripName({handleData, trip, error}: TripNameProps){
             <div className="mx-auto w-100 mt-10">
                 <Input
                     onChange={(event) => handleData("name", event.target.value)}
-                    className="border rounded-full border-amber-700 text-blue-950 text-center h-12"
+                    className="border rounded-full border-amber-700 text-blue-950 text-center h-12 w-full"
                     placeholder="Donnez un nom à votre itinéraire"
                     value={trip.name}
                 />

@@ -259,90 +259,103 @@ export default function Plan(){
                         </div>
                     </>
                 }
-                <div className={`bg-main rounded-r-lg w-full ${steps === 10 && width < 1400 ? "pb-5" : "min-h-screen"} px-4 sm:px-6 md:px-10`}>
-  <div className={`mt-9 ${steps !== 2 ? "flex justify-center" : ""}`}>
-    <div className={`mt-5 w-full ${steps !== 2 ? "max-w-2xl" : ""}`}>
-      {/* Error display */}
-      {mainError && (
-        <div className="bg-red-500 text-white rounded-sm text-center py-2 mb-4">
-          {mainError}
-        </div>
-      )}
-
-      {/* Mobile menu button */}
-      <div>
-        <button className="lg:hidden text-blue-900" onClick={() => setSidebarOpen(!sidebarOpen)}>
-          <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Step Components */}
-      {steps === 1 ? (
-        <TripName handleData={handleData} trip={trip} error={error} />
-      ) : steps === 2 ? (
-        <TripType handleData={handleData} trip={trip} />
-      ) : steps === 3 ? (
-        <TripOrigin handleData={handleData} trip={trip} error={error} />
-      ) : steps === 4 ? (
-        <TripLocation handleData={handleData} trip={trip} error={error} />
-      ) : steps === 5 ? (
-        <TripTransport handleData={handleData} trip={trip} error={error} />
-      ) : steps === 6 ? (
-        <TripDate handleDates={handleDates} startDate={startDate} endDate={endDate} error={error} />
-      ) : steps === 7 ? (
-        <TripBudget handleData={handleData} trip={trip} error={error} />
-      ) : steps === 8 ? (
-        <TripPerson handleAdults={handleAdults} handleChildrens={handleChildrens} adults={adults} childrens={childrens} />
-      ) : steps === 9 ? (
-        <TripNote handleData={handleData} trip={trip} error={error} />
-      ) : (
-        <TripConfirm trip={trip} startDate={startDate} endDate={endDate} adults={adults} childrens={childrens} />
-      )}
-
-      {/* Loading / Navigation Buttons */}
-      {isLoading ? (
-        <div className="text-center">
-          <ClipLoader color="#3498db" loading={isLoading} size={50} />
-        </div>
-      ) : (
-        <div
-          className={`flex flex-wrap items-center justify-between gap-4 mt-8 ${
-            steps === 2 ? "mx-0" : "mx-auto max-w-2xl"
-          }`}
-        >
-          {steps > 1 && (
-            <div
-              className="border border-green-900 rounded-full px-6 py-2 cursor-pointer text-center text-sm sm:text-base"
-              onClick={() => setSteps(steps - 1)}
-            >
-              <FontAwesomeIcon icon={faAngleLeft} /> Retour
-            </div>
-          )}
-          <div
-            className={`border border-green-900 rounded-full px-6 py-2 cursor-pointer text-center flex items-center justify-center text-sm sm:text-base ${
-              steps === 1 ? "ml-auto" : ""
-            }`}
-            onClick={nextStep}
-          >
-            <span>
-              {steps === 9 ? "Confirmer" : steps === 10 ? "Sauvegarder" : "Suivant"}
-            </span>
-            {steps !== 9 && steps !== 10 && (
-              <FontAwesomeIcon icon={faAngleRight} className="ml-2" />
-            )}
-          </div>
-        </div>
-      )}
-    </div>
-  </div>
-</div>
+                <div className={`bg-main rounded-r-lg w-full ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"} `}>
+                    <div className="mt-4 ml-10">
+                        <button
+                            className="lg:hidden text-blue-900"
+                            onClick={() => setSidebarOpen(!sidebarOpen)}
+                        >
+                            <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                                />
+                            </svg>
+                        </button>
+                    </div>
+                    <div className={`ml-10 lg:mt-10 mt-5 ${steps !== 2 ? 'flex justify-center' : ''}`}>
+                        <div className={`${steps !== 2 ? 'w-full max-w-lg' : ''}`}>
+                            {mainError && <div className="bg-red-500 text-white rounded-sm text-center py-2 mb-4">{mainError}</div>}
+                            
+                            {steps === 1 ?
+                                <TripName
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> : steps === 2 ?
+                                <TripType
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                /> : steps === 3 ?
+                                <TripOrigin
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> : steps === 4 ?
+                                <TripLocation
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> : steps === 5 ?
+                                <TripTransport
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> : steps === 6 ?
+                                <TripDate
+                                    handleDates = {handleDates}
+                                    startDate = {startDate}
+                                    endDate = {endDate}
+                                    error = {error}
+                                /> : steps === 7 ?
+                                <TripBudget
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> : steps === 8 ?
+                                <TripPerson
+                                    handleAdults = {handleAdults}
+                                    handleChildrens = {handleChildrens}
+                                    adults = {adults}
+                                    childrens = {childrens}
+                                /> : steps === 9 ?
+                                <TripNote
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> :
+                                <TripConfirm
+                                    trip = {trip}
+                                    startDate = {startDate}
+                                    endDate = {endDate}
+                                    adults = {adults}
+                                    childrens = {childrens}
+                                />
+                            }
+                            {isLoading ? (
+                                <div className="text-center">
+                                    <ClipLoader color="#3498db" loading={isLoading} size={50}/>
+                                </div>
+                            ) : (
+                                <div className={`text-center ${steps === 2 ? "flex flex-wrap place-content-between mx-5" : steps > 2 ? "flex flex-wrap place-content-between w-100 mx-auto" : "w-100 mx-auto"}`}>
+                                    {steps > 1 && <div 
+                                        className="border border-green-900 rounded-full w-35 mt-9 py-1 cursor-pointer next-btn"
+                                        onClick={() => setSteps(steps - 1)}
+                                    >
+                                        <FontAwesomeIcon icon={faAngleLeft}/> Retour
+                                    </div>}
+                                    <div 
+                                        className={`text-center border border-green-900 rounded-full w-35 mt-9 py-1 cursor-pointer next-btn flex place-content-center ${steps == 1 ? "float-right" : ""}`}
+                                        onClick={nextStep}
+                                    >
+                                        <span>{steps === 9 ? "Confirmer" : steps === 10 ? "Sauvegarder" : "Suivant" }</span> 
+                                        <span className="ml-2 mt-custom">{steps !== 9 && steps !== 10 && <FontAwesomeIcon icon={faAngleRight} />}</span>
+                                    </div>
+                                </div>
+                            )}
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )
