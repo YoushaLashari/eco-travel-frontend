@@ -259,7 +259,8 @@ export default function Plan(){
                         </div>
                     </>
                 }
-                <div className={`bg-main rounded-r-lg w-full ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"}`}>
+                {/* <div className={`bg-main rounded-r-lg w-full pb-5 ${steps === 10 && width < 1400 ? "pb-5" : "h-custom"}`}> */}
+                <div className={`bg-main rounded-r-lg w-full pb-5 ${steps !== 2 || width > 700 ? 'h-custom' : ''}`}>
                     <div className="mt-4 ml-10">
                         <button
                             className="lg:hidden text-blue-900"
@@ -338,13 +339,13 @@ export default function Plan(){
                             ) : (
                                 <div className={`text-center ${steps === 2 ? "flex flex-wrap place-content-between mx-5" : steps > 2 ? "flex flex-wrap place-content-between w-full mx-auto" : "w-full mx-auto"}`}>
                                     {steps > 1 && <div 
-                                        className="border border-green-900 rounded-full w-35 mt-9 py-1 cursor-pointer next-btn"
+                                        className={`border border-green-900 rounded-full ${steps === 2 ? "w-25" : "w-35"} mt-9 py-1 cursor-pointer next-btn`}
                                         onClick={() => setSteps(steps - 1)}
                                     >
                                         <FontAwesomeIcon icon={faAngleLeft}/> Retour
                                     </div>}
                                     <div 
-                                        className={`text-center border border-green-900 rounded-full w-35 mt-9 py-1 cursor-pointer next-btn flex place-content-center ${steps == 1 ? "float-right" : ""}`}
+                                        className={`text-center border border-green-900 rounded-full ${steps === 2 ? "w-25" : "w-35"} mt-9 py-1 cursor-pointer next-btn flex place-content-center ${steps == 1 ? "float-right" : ""}`}
                                         onClick={nextStep}
                                     >
                                         <span>{steps === 9 ? "Confirmer" : steps === 10 ? "Sauvegarder" : "Suivant" }</span> 
