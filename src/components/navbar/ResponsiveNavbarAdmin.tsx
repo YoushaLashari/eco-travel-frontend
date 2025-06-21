@@ -67,7 +67,9 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                         <span className="ml-2">Dashboard Compensation</span>
                     </Link>
                 </div>
-                <div className="flex ml-5 mt-4 text-blue-800">
+                <div className="flex ml-5 mt-4 text-blue-800"
+                    onClick={() => setSidebarOpen(false)}
+                >
                     <span><FontAwesomeIcon icon={faPlane}/></span> 
                     <Link to="/plans" className="ml-2">Mes Planners</Link>
                 </div>
