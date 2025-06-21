@@ -130,7 +130,7 @@ const Dashboard = () => {
                   </Link>
                 </div>
               </div>
-              {location.state && <div className="p-4 bg-green-600 text-white rounded-lg mt-9 text-center">{location.state}</div>}
+              {location.state && <div className="p-4 bg-green-600 text-white rounded-lg mt-9 text-center mr-8">{location.state}</div>}
               <div className='lg:mt-10 mt-8 mr-8'>
                 <div className={`grid gap-4 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:${trips.length > 0 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                   <div className='bg-white rounded-lg p-5 flex shadow-md items-start'>
