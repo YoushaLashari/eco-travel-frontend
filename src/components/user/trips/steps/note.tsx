@@ -29,7 +29,7 @@ export function TripNote({handleData, trip, error}: TripNameProps){
             <div className="mx-auto w-full mt-10">
                 <Textarea
                     onChange={(event) => handleData("notes", event.target.value)}
-                    className="border rounded border-amber-700 text-blue-950 p-3  w-full"
+                    className="border rounded border-amber-700 text-blue-950 p-2 w-full"
                     placeholder="Indiquez toute information supplémentaires ou vos préférences spécifiquues pour personaliser votre voyage"
                     value={trip.notes}
                 />

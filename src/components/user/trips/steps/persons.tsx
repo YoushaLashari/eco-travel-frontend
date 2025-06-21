@@ -19,7 +19,7 @@ export function TripPerson({handleAdults, handleChildrens, adults, childrens}: T
                 </div>
                 <img src={people} alt="people" className="w-6 sm:w-10" />
             </h2>
-            <div className="mx-auto w-full mt-9">
+            <div className="mx-auto w-full mt-card">
                 <div className="flex items-end place-content-center">
                     <div 
                         onClick={(event) => handleAdults(event.currentTarget.id)}

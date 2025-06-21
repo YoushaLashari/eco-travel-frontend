@@ -193,6 +193,9 @@ tr, th, td{
     padding-left: 8px !important;
     padding-right: 8px !important;
 }
+.mt-card{
+    margin-top: calc(var(--spacing) * 19);
+}
 
 @media(min-width: 1000px){
     .h-table{

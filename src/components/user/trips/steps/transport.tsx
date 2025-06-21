@@ -21,8 +21,10 @@ export default function TripTransport({handleData, trip, error}: TripNameProps){
     return(
         <div>
             <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
-                <span className="text-blue-950 mr-2">Choisissez votre</span> 
-                <span className="text-color">Mode de transport</span>
+                <div>
+                    <span className="text-blue-950 mr-2">Choisissez votre</span> 
+                    <span className="text-color">Mode de transport</span>
+                </div>
                 <img src={tripImage} alt="trip" className="w-6 sm:w-10" />
             </h2>
             <div className="mx-auto w-full mt-10">
