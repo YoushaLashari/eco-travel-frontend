@@ -85,7 +85,7 @@ export default function Plans(){
 
     return (
         <div>
-            <div className='flex mt-8'>
+            <div className='flex mt-8 h-auto'>
                 {user && (
                     <>
                         {/* Desktop sidebar (visible on large screens) */}
@@ -111,11 +111,15 @@ export default function Plans(){
                             </svg>
                         </button>
                     </div>
-                    <div className='mx-10 mt-5'>
-                        <div className='grid grid-cols-4 gap-4'>
+                    <div className="mx-4 sm:mx-6 md:mx-10 mt-5">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                             {trips.length > 0 && trips.map((trip, index) => (
-                                <div key={index} onClick={()=> displayTrip (trip.id)} className='bg-blue-950 rounded-full py-2 px-10 text-white text-center cursor-pointer drop-shadow-md'>
-                                    <span className='ml-2'>{capitalizeWords(trip.name)}</span>
+                                <div
+                                    key={index}
+                                    onClick={() => displayTrip(trip.id)}
+                                    className="bg-blue-950 rounded-full py-2 px-6 sm:px-8 md:px-10 text-white text-center cursor-pointer drop-shadow-md"
+                                >
+                                    <span className="ml-2">{capitalizeWords(trip.name)}</span>
                                 </div>
                             ))}
                         </div>
@@ -125,7 +129,7 @@ export default function Plans(){
                             <Trip trip={trip}/>
                         </div> : 
                         <div className="flex justify-center items-center h-64">
-                            <div className="text-center text-6xl">Pas de voyage trouvé</div>
+                            <div className="text-center text-xl lg:text-6xl">Pas de voyage trouvé</div>
                         </div>
                     }
                 </div>
