@@ -260,15 +260,17 @@ export default function Details(){
                                 </div>
                             </div>
                             <div className="my-15">
-                                <h2 className="font-bold text-2xl flex place-content-center align-center">
-                                    <span className="text-blue-950 mr-2">Mesurez votre impact,</span> 
-                                    <span className="text-color">Réduisez votre empreinte</span>
-                                    <img src={earth} alt="budget" className="w-10" />
+                                <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
+                                    <div>
+                                        <span className="text-blue-950 mr-2">Mesurez votre impact,</span> 
+                                        <span className="text-color">Réduisez votre empreinte</span>
+                                    </div>
+                                     <img src={earth} alt="note" className="w-6 sm:w-10" />
                                 </h2>
                                 <div className="text-blue-950 text-center mt-3">
                                     <strong>Suivez votre progression et découvrez comment réduire votre impact</strong>
                                 </div>
-                                <Link to="/dashboard" className="mt-4 bg-color text-white text-center flex place-content-center w-1/5 mx-auto py-3 rounded-lg">
+                                <Link to="/dashboard" className="mt-4 bg-color text-white text-center flex place-content-center md:w-1/5 w-full mx-auto py-3 rounded-lg">
                                     <span>Mon plan de compensation</span>
                                 </Link>
                             </div>
