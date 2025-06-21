@@ -186,7 +186,7 @@ const Dashboard = () => {
                     </div>
                     <img src={earth} alt="budget" className="w-6 sm:w-10" />
                   </h2>
-                  <div className="mt-5 mx-5 overflow-x-auto">
+                  <div className="mt-5 overflow-x-auto">
                     <table className="border-collapse border border-gray-400 min-w-full table-auto">
                       <thead className="bg-blue-950 text-white">
                         <tr>
