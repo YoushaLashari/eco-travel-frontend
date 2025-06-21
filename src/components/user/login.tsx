@@ -108,7 +108,7 @@ export default function Login(){
 
     return(
         <div className="mx-8">
-            <div className="flex flex-col items-center justify-center min-h-[800px] px-4 sm:px-0">
+            <div className="flex flex-col items-center justify-center min-h-[800px] sm:min-h-[500px] px-4 sm:px-0">
                 <Card className="w-full max-w-md p-6 sm:p-8 mb-8 shadow-lg">
                     <CardContent className="flex flex-col">
                         <div className="text-center">
