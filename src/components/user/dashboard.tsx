@@ -180,12 +180,12 @@ const Dashboard = () => {
                   }
                 </div>
                 <div className='pt-15 pb-10'>
-                  <h2 className="font-bold text-2xl flex place-content-center align-center">
+                  <h2 className="font-bold lg:text-2xl sm:text-xl flex place-content-center align-center">
                     <div>
                       <span className="text-blue-950 mr-2">Mes plans,</span> 
                       <span className="text-color">de Compensation</span>
                     </div>
-                    <img src={earth} alt="budget" className="w-10" />
+                    <img src={earth} alt="budget" className="w-5 sm:w-10" />
                   </h2>
                   <div className="mt-5 mx-5 overflow-x-auto">
                     <table className="border-collapse border border-gray-400 min-w-full table-auto">
