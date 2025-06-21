@@ -16,7 +16,7 @@ interface Trip{
 
 export default function Trip({ trip } : {trip: Trip}){
     return(
-        <div className="mt-8 px-4 sm:px-6 md:px-10 h-auto">
+        <div className="mt-8 px-4 sm:px-6 md:px-10">
             {/* Heading */}
             <h2 className="font-bold text-xl sm:text-2xl flex flex-wrap items-center justify-center text-center">
                 <span className="text-blue-950 mr-2">Votre voyage, Pensé</span>

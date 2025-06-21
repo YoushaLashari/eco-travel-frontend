@@ -128,7 +128,7 @@ export default function Plans(){
                         <div className="mt-9 mx-10">
                             <Trip trip={trip}/>
                         </div> : 
-                        <div className="flex justify-center items-center h-custom">
+                        <div className="flex justify-center items-center">
                             <div className="text-center text-xl lg:text-6xl">Pas de voyage trouvé</div>
                         </div>
                     }
