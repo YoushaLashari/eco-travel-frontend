@@ -5,7 +5,7 @@ export default function Suggestions(){
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-5 mx-5">
             <div className="h-auto mt-8">
                 <p className="text-center mb-3">Conseils éco-responsables</p>
-                <table className="border-collapse border border-gray-400 w-full lg:h-full">
+                <table className="border-collapse border border-gray-400 w-full lg:h-full table-auto">
                     <thead>
                         <tr>
                             <th className="border border-gray-400 px-2 py-1">Catégories</th>
@@ -36,7 +36,7 @@ export default function Suggestions(){
             </div>
             <div className="h-auto mt-8">
                 <p className="text-center mb-3">Options de transport local</p>
-                <table className="border-collapse border border-gray-400 w-full lg:h-full">
+                <table className="border-collapse border border-gray-400 w-full lg:h-full table-auto">
                     <thead>
                         <tr>
                             <th className="border border-gray-400 px-2 py-1">Transport</th>

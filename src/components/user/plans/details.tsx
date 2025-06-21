@@ -71,7 +71,7 @@ export default function Details(){
                 }
                 {trip && 
                     <div className='bg-main rounded-r-lg w-screen'>
-                        <div>
+                        <div className="mt-4 ml-10">
                             <button
                                 className="lg:hidden text-blue-900"
                                 onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -83,13 +83,13 @@ export default function Details(){
                                 </svg>
                             </button>
                         </div>
-                        <h2 className="font-bold text-2xl text-center align-center mt-8">
+                        <h2 className="font-bold text-xl lg:text-2xl text-center align-center mt-8">
                             <span className="text-blue-950 mr-2">Itinéraire, Ecologique -</span> 
                             <span className="text-color">
                                 {capitalizeWords(trip.name)} ({calculateDurationDays(trip.start_date, trip.end_date)})
                             </span>
                         </h2>
-                        <div className="mt-5 text-center w-1/3 mx-auto">
+                        <div className="mt-5 text-center lg:w-1/3 w-3/4 mx-auto">
                             Découvrez la beauté naturelle de {capitalizeWords(trip.name)} à travers un voyage responsable et respectueux de l'environnement.
                         </div>
                         <div className="bg-white rounded-full py-3 flex items-center overflow-x-auto whitespace-nowrap mt-5 w-full max-w-md mx-auto">
@@ -117,7 +117,7 @@ export default function Details(){
                                         <span><FontAwesomeIcon icon={faLocation} /></span>
                                         <span className="ml-2"><strong>Centre d’Ubud, Bali</strong></span>
                                     </div>
-                                    <div className="mt-3 text-gray-500 text-sm ml-4 h-15">
+                                    <div className="mt-3 text-gray-500 text-sm ml-4 h-20">
                                         La forêt des singes est un espace tropical peuplé par plusieurs groupes de singes. Elle abrite également plus de 186 espèces végétales dont certaines sont rares.
                                     </div>
                                     <div className="text-blue-950 text-sm mt-3">
@@ -168,7 +168,7 @@ export default function Details(){
                                         <span><FontAwesomeIcon icon={faLocation} /></span>
                                         <span className="ml-2"><strong>Centre d’Ubud, Bali</strong></span>
                                     </div>
-                                    <div className="mt-3 text-gray-500 text-sm ml-4 h-15">
+                                    <div className="mt-3 text-gray-500 text-sm ml-4 h-20">
                                         De la cuisine balinaise authentique faite maison. Si vous souhaitez goûter à ce que les locaux mangent chez eux.
                                     </div>
                                     <div className="text-blue-950 text-sm mt-3">
@@ -207,7 +207,7 @@ export default function Details(){
                                         <span><FontAwesomeIcon icon={faLocation} /></span>
                                         <span className="ml-2"><strong>Village Pakudui, Bali</strong></span>
                                     </div>
-                                    <div className="mt-3 text-gray-500 text-sm ml-4 h-15">
+                                    <div className="mt-3 text-gray-500 text-sm ml-4 h-20">
                                         Les rizières en terrasse de la région de Bali sont inscrites à la liste du patrimoine culturel immatériel de l’UNESCO pour leur système d'irrigation traditionnel Subak.
                                     </div>
                                     <div className="text-blue-950 text-sm mt-3">
