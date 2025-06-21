@@ -85,7 +85,7 @@ export default function Plans(){
 
     return (
         <div>
-            <div className='flex mt-8 h-auto'>
+            <div className='flex mt-8'>
                 {user && (
                     <>
                         {/* Desktop sidebar (visible on large screens) */}
