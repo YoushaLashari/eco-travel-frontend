@@ -11,6 +11,7 @@ import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { google_client } from "@/assets/env";
+import { url } from "@/api/url";
 
 export default function Login(){
     const navigate = useNavigate();
@@ -80,7 +81,7 @@ export default function Login(){
             setIsLoading(true);
 
             try{
-                const response = await axios.post('https://fastapi.aimane-web-dev.com/users/login', data);
+                const response = await axios.post(`${url}/users/login`, data);
                 console.log(response);
                 
                 if(response.status === 200){

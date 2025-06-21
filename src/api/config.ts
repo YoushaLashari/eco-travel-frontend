@@ -1,7 +1,9 @@
 import axios from 'axios';
+import { url } from './url';
+
 
 const axiosInstance = axios.create({
-    baseURL: 'https://fastapi.aimane-web-dev.com',
+    baseURL: url,
 });
 
 axiosInstance.interceptors.request.use(

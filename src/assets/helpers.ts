@@ -1,3 +1,4 @@
+import { url } from "@/api/url";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -83,7 +84,7 @@ export const calculateDaysNumbers = (startDate: string | Date, endDate: string |
 };
 
 export const api_get = (link : string, token: string) => {
-    return axios.get(`https://fastapi.aimane-web-dev.com/${link}`, {
+    return axios.get(`${url}/${link}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },
@@ -91,7 +92,7 @@ export const api_get = (link : string, token: string) => {
 }
 
 export const api_post = (link : string, token: string) => {
-    return axios.post(`https://fastapi.aimane-web-dev.com/${link}`, {
+    return axios.post(`${url}/${link}`, {
         headers: {
             Authorization: `Bearer ${token}`,
         },

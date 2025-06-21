@@ -6,6 +6,7 @@ import { Navbar } from "../navbar/navbar";
 import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { url } from "@/api/url";
 
 export default function Code(){
     const location = useLocation();
@@ -49,7 +50,7 @@ export default function Code(){
         }
 
         try{
-            const response = await axios.post('https://fastapi.aimane-web-dev.com/users/verification', data);
+            const response = await axios.post(`${url}/users/verification`, data);
 
             if(response.status === 200){
                 localStorage.setItem('token', response.data.access_token);

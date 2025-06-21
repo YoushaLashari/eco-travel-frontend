@@ -20,6 +20,7 @@ import { Card, CardContent } from "../ui/card";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { google_client } from "@/assets/env";
+import { url } from "@/api/url";
 
 function useWindowWidth(){
     const [width, setWidth] = useState(window.innerWidth);
@@ -139,7 +140,7 @@ export default function Register(){
             setLoading(true);
 
             try{
-                const response = await axios.post("https://fastapi.aimane-web-dev.com/users/register", data);
+                const response = await axios.post(`${url}/users/register`, data);
                 
                 if(response.data.status === "success"){
                     setError({

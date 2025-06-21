@@ -1,0 +1,1 @@
+export const url = "https://fastapi.aimane-web-dev.com";
