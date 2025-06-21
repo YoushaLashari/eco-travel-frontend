@@ -132,8 +132,8 @@ const Dashboard = () => {
                 </div>
               </div>
               {location.state && <div className="p-4 bg-green-600 text-white rounded-lg mt-9 text-center">{location.state}</div>}
-              <div className='mt-10'>
-                <div className={`grid gap-4 my-5 mx-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:${trips.length > 0 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+              <div className='lg:mt-10 mt-8 mr-8'>
+                <div className={`grid gap-4 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:${trips.length > 0 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                   <div className='bg-white rounded-lg p-5 flex shadow-md items-start'>
                     <div>
                       <img src={carbon} alt="carbon" className='w-15' />
@@ -181,8 +181,10 @@ const Dashboard = () => {
                 </div>
                 <div className='pt-15 pb-10'>
                   <h2 className="font-bold text-2xl flex place-content-center align-center">
-                    <span className="text-blue-950 mr-2">Mes plans,</span> 
-                    <span className="text-color">de Compensation</span>
+                    <div>
+                      <span className="text-blue-950 mr-2">Mes plans,</span> 
+                      <span className="text-color">de Compensation</span>
+                    </div>
                     <img src={earth} alt="budget" className="w-10" />
                   </h2>
                   <div className="mt-5 mx-5 overflow-x-auto">
