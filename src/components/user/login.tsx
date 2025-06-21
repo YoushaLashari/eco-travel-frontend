@@ -108,12 +108,12 @@ export default function Login(){
 
     return(
         <div className="mx-8">
-            <div className="flex flex-col items-center justify-center min-h-screen relative">
-                <Card className="w-full max-w-md p-8 mb-8">
+            <div className="flex flex-col items-center justify-center min-h-screen px-4 sm:px-0">
+                <Card className="w-full max-w-md p-6 sm:p-8 mb-8 shadow-lg">
                     <CardContent className="flex flex-col">
                         <div className="text-center">
                             Logo
-                            <h2 className="text-2xl font-semibold mb-6">Se connecter</h2>
+                            <h2 className="text-xl sm:text-2xl font-semibold mb-6">Se connecter</h2>
                         </div>
                         <GoogleOAuthProvider clientId={google_client}>
                             <GoogleAuth/>
@@ -127,7 +127,7 @@ export default function Login(){
                         <label htmlFor="email" className="text-left text-sm text-gray-400 mb-1">Adresse email</label>
                         <Input 
                             placeholder="Entrez votre adresse email" 
-                            className="py-5 border-blue-950 text-blue-950 mb-1" 
+                            className="py-3 sm:py-5 border-blue-950 text-blue-950 mb-1" 
                             onChange={(e) => handleData("email", e.target.value)}
                             value={login.email}
                         />
@@ -137,7 +137,7 @@ export default function Login(){
                             <Input 
                                 placeholder="Créez votre mot de passe" 
                                 type={passwordVisible ? "" : "password"} 
-                                className="py-5 border-blue-950 text-blue-950 mb-1" 
+                                className="py-3 sm:py-5 border-blue-950 text-blue-950 mb-1" 
                                 onChange={(e)=> handleData("password", e.target.value)}
                                 value={login.password}
                             />
