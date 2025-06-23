@@ -61,7 +61,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                     checked={choosen.name?.includes("Réduire la viande rouge")}
                                     onCheckedChange={() => toggleCheckbox("name", "Réduire la viande rouge")}
                                 />
-                                <div className="absolute top-4 left-11.5">
+                                <div className="absolute top-4 left-11.5 hidden sm:block">
                                     {choosen.name?.includes("Réduire la viande rouge") && <FontAwesomeIcon icon={faCheck} color={"#22C55E"} />}
                                 </div>
                             </div>

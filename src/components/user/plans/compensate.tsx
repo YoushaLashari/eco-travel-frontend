@@ -227,24 +227,23 @@ export default function Compensate(){
                                 </div>
                             </div>
                             <div className="mt-9 bg-white flex flex-wrap sm:flex-nowrap justify-between rounded-lg shadow-md p-4 gap-4">
-    {adems.map((adem, index) => (
-        <div
-            key={index}
-            className={`flex-1 min-w-[120px] text-center cursor-pointer py-2 px-3 ${selected === adem.name ? "bg-active rounded-lg" : "opacity-70"} transition-all`}
-            onClick={() => toggleSelected(adem.name)}
-        >
-            <span><FontAwesomeIcon icon={ademInfo[adem.name].icon} /></span>
-            <span className="ms-2">{ademInfo[adem.name].label}</span>
-        </div>
-    ))}
-
-    <div 
-        className="flex-1 min-w-[120px] text-center cursor-pointer py-2 px-3"
-        onClick={() => toggleSelected("")}
-    >
-        <span><FontAwesomeIcon icon={faXmark}/></span>
-    </div>
-</div>
+                                {adems.map((adem, index) => (
+                                    <div
+                                        key={index}
+                                        className={`flex-1 min-w-[120px] text-center cursor-pointer py-2 px-3 ${selected === adem.name ? "bg-active rounded-lg" : "opacity-70"} transition-all`}
+                                        onClick={() => toggleSelected(adem.name)}
+                                    >
+                                        <span><FontAwesomeIcon icon={ademInfo[adem.name].icon} /></span>
+                                        <span className="ms-2">{ademInfo[adem.name].label}</span>
+                                    </div>
+                                ))}
+                                <div 
+                                    className="flex-1 min-w-[120px] text-center cursor-pointer py-2 px-3"
+                                    onClick={() => toggleSelected("")}
+                                >
+                                    <span><FontAwesomeIcon icon={faXmark}/></span>
+                                </div>
+                            </div>
                             <div className="mt-5">
                             {selected === "food" ?
                                 <Food handleData={handleData} choosen={choosen}/> : 
