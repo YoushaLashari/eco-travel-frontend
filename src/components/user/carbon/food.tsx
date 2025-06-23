@@ -44,7 +44,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                 }}
                                 className="p-2"
                             >                                
-                                <img src={meat} alt="meat" className="w-10" />
+                                <img src={meat} alt="meat" className="w-6 sm:w-10" />
                             </div>
                             <div>
                                 <div className="font-bold ml-2">Réduire la viande rouge</div>
