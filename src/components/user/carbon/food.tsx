@@ -27,13 +27,10 @@ export default function Food({handleData, choosen}: CompensationProps){
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 text-center mt-3">
             {/* Réduire la viande rouge */}
             <div
-                className={`
-                    rounded-lg drop-shadow-md p-4 flex flex-col justify-between h-full 
-                    ${choosen.name?.includes("Réduire la viande rouge") ? "bg-active border-active" : "bg-white border-food"}`
-                }
+                className={`rounded-lg drop-shadow-md p-4 flex flex-col justify-between h-full ${choosen.name?.includes("Réduire la viande rouge") ? "bg-active border-active" : "bg-white border-food"}`}
             >
                 <div className="flex flex-col flex-grow">
-                    <div className="flex place-content-between">
+                    <div className="flex place-content-between items-start">
                         <div className="flex items-center">
                             <div
                                 style={{
@@ -61,7 +58,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                     checked={choosen.name?.includes("Réduire la viande rouge")}
                                     onCheckedChange={() => toggleCheckbox("name", "Réduire la viande rouge")}
                                 />
-                                <div className="absolute top-4 left-11.5 hidden sm:block">
+                                <div className="absolute top-1 left-11.5 hidden sm:block">
                                     {choosen.name?.includes("Réduire la viande rouge") && <FontAwesomeIcon icon={faCheck} color={"#22C55E"} />}
                                 </div>
                             </div>
