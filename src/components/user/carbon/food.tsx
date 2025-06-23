@@ -44,7 +44,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                 <img src={meat} alt="meat" className="w-6 sm:w-10" />
                             </div>
                             <div>
-                                <div className="font-bold ml-2">Réduire la viande rouge</div>
+                                <div className="font-bold ml-3">Réduire la viande rouge</div>
                                     <div className="text-xs text-left ml-3 text-gray-500">
                                         Économie <span className="font-bold card-color">30kg CO<sub>2</sub></span>
                                         <span>/ 3mois</span>
@@ -124,7 +124,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                 <img src={apple} alt="apple" className="w-6 sm:w-10" />
                             </div>
                             <div>
-                                <div className="font-bold ml-2">Manger local et de saison</div>
+                                <div className="font-bold ml-3">Manger local et de saison</div>
                                     <div className="text-xs text-left ml-3 text-gray-500">
                                         Économie <span className="font-bold card-color">20kg CO<sub>2</sub></span>
                                         <span>/ 3mois</span>
@@ -190,7 +190,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                 }
             >
                 <div className="flex flex-col flex-grow">
-                    <div className="flex place-content-between">
+                    <div className="flex place-content-between items-start">
                         <div className="flex items-center">
                             <div
                                 style={{
@@ -204,7 +204,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                 <img src={recycle} alt="recycle" className="w-6 sm:w-10" />
                             </div>
                             <div>
-                                <div className="font-bold ml-2">Réduire le gaspillage</div>
+                                <div className="font-bold ml-3">Réduire le gaspillage</div>
                                     <div className="text-xs text-left ml-3 text-gray-500">
                                         Économie <span className="font-bold card-color">15kg CO<sub>2</sub></span>
                                         <span>/ 3mois</span>
