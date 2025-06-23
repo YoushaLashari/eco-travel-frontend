@@ -18,6 +18,7 @@ import axiosInstance from "@/api/config";
 import { NavbarAdmin } from "@/components/navbar/navbarAdmin";
 import { capitalizeWords } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
+import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
 
 type AdemKey = "food" | "miscellaneous" | "housing" | "social_services" | "transportation";
 
@@ -38,7 +39,7 @@ interface Adems{
 export default function Compensate(){
     const {id} = useParams();
     const navigate = useNavigate();
-    const { auth, loading } = useUser(); 
+    const { auth, loading, sidebarOpen, setSidebarOpen } = useUser(); 
     const [trip, setTrip] = useState<Trip | null>(null);
     const [adems, setAdems] = useState<Adems[]>([]);
     const [selected, setSelected] = useState<string | null>(null);
@@ -160,16 +161,37 @@ export default function Compensate(){
     }, [counter, stop]);
 
     return (
-        <div className="mx-8">
+        <div>
             <div className="flex mt-8">
-                <NavbarAdmin/>
+                {/* Desktop sidebar (visible on large screens) */}
+                <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-auto hidden lg:block">
+                    <NavbarAdmin />
+                </div>
+                {/* Mobile sidebar (visible when sidebarOpen is true) */}
+                <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-55`}>
+                    <ResponsiveNavbarAdmin sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                </div>
                 {trip && 
                     <div className="bg-main rounded-r-lg w-screen px-5">
                         <div className="mt-9">
-                            <h2 className="font-bold text-2xl flex place-content-center align-center">
-                                <span className="text-blue-950 mr-2">Mon plan,</span> 
-                                <span className="text-color">de Compensation ({capitalizeWords(trip?.name)})</span>
-                                <img src={earth} alt="budget" className="w-10" />
+                            <div className="mt-4 ml-3">
+                                <button
+                                    className="lg:hidden text-blue-900"
+                                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                                >
+                                    <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                            d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                            <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
+                                <div>
+                                    <span className="text-blue-950 mr-2">Mon plan,</span> 
+                                    <span className="text-color">de Compensation ({capitalizeWords(trip?.name)})</span>
+                                </div>
+                                <img src={earth} alt="note" className="w-6 sm:w-10" />
                             </h2>
                         </div>
                         <div className="max-w-screen-lg mx-auto ">
