@@ -174,7 +174,7 @@ export default function Compensate(){
                 {trip && 
                     <div className="bg-main rounded-r-lg w-screen px-5">
                         <div className="mt-9">
-                            <div className="mt-4 ml-3">
+                            <div className="mt-4 ml-1">
                                 <button
                                     className="lg:hidden text-blue-900"
                                     onClick={() => setSidebarOpen(!sidebarOpen)}

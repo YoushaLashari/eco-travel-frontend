@@ -71,7 +71,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                     className="text-left text-sm mt-2 text-blue-500 mb-3"
                     onClick={() => setOpenCard(openCard === "meat" ? null : "meat")}
                 >
-                    <div className="flex place-content-between">
+                    <div className="flex place-content-between items-start">
                         <div className="cursor-pointer p-2">
                             <FontAwesomeIcon icon={faCircleInfo} />
                             <span className="ml-2 font-bold">Plus d'infos</span>
@@ -110,7 +110,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                 }
             >
                 <div className="flex flex-col flex-grow">
-                    <div className="flex place-content-between">
+                    <div className="flex place-content-between items-start">
                         <div className="flex items-center">
                             <div
                                 style={{
@@ -121,7 +121,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                 }}
                                 className="p-2"
                             >
-                                <img src={apple} alt="apple" className="w-10" />
+                                <img src={apple} alt="apple" className="w-6 sm:w-10" />
                             </div>
                             <div>
                                 <div className="font-bold ml-2">Manger local et de saison</div>
@@ -133,12 +133,12 @@ export default function Food({handleData, choosen}: CompensationProps){
                             </div>
                             <div className="flex items-center space-x-2 relative cursor-pointer">
                                 <Switch
-                                    className="w-switch h-switch size-switch cursor-pointer"
+                                    className="w-switch h-switch size-switch cursor-pointer mt-1"
                                     id="local"
                                     checked={choosen.name?.includes("Manger local et de saison")}
                                     onCheckedChange={() => toggleCheckbox("name", "Manger local et de saison")}
                                 />
-                                <div className="absolute top-4 left-11.5">
+                                <div className="absolute top-2 left-11.5 hidden sm:block">
                                     {choosen.name?.includes("Manger local et de saison") && <FontAwesomeIcon icon={faCheck} color={"#22C55E"} />}
                                 </div>
                             </div>
@@ -201,7 +201,7 @@ export default function Food({handleData, choosen}: CompensationProps){
                                 }}
                                 className="p-2"
                             >
-                                <img src={recycle} alt="recycle" className="w-10" />
+                                <img src={recycle} alt="recycle" className="w-6 sm:w-10" />
                             </div>
                             <div>
                                 <div className="font-bold ml-2">Réduire le gaspillage</div>
@@ -213,12 +213,12 @@ export default function Food({handleData, choosen}: CompensationProps){
                             </div>
                             <div className="flex items-center space-x-2 relative cursor-pointer">
                                 <Switch
-                                    className="w-switch h-switch size-switch cursor-pointer"
+                                    className="w-switch h-switch size-switch cursor-pointer mt-1"
                                     id="food"
                                     checked={choosen.name?.includes("Réduire le gaspillage alimentaire")}
                                     onCheckedChange={() => toggleCheckbox("name", "Réduire le gaspillage alimentaire")}
                                 />
-                                <div className="absolute top-4 left-11.5">
+                                <div className="absolute top-2 left-11.5 hidden sm:block">
                                     {choosen.name?.includes("Réduire le gaspillage alimentaire") && <FontAwesomeIcon icon={faCheck} color={"#22C55E"} />}
                                 </div>
                             </div>
