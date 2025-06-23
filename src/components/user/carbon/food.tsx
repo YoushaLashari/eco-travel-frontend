@@ -53,12 +53,12 @@ export default function Food({handleData, choosen}: CompensationProps){
                             </div>
                             <div className="flex items-center space-x-2 relative cursor-pointer">
                                 <Switch
-                                    className="w-switch h-switch size-switch cursor-pointer"
+                                    className="w-switch h-switch size-switch cursor-pointer mt-1"
                                     id="meat"
                                     checked={choosen.name?.includes("Réduire la viande rouge")}
                                     onCheckedChange={() => toggleCheckbox("name", "Réduire la viande rouge")}
                                 />
-                                <div className="absolute top-1 left-11.5 hidden sm:block">
+                                <div className="absolute top-2 left-11.5 hidden sm:block">
                                     {choosen.name?.includes("Réduire la viande rouge") && <FontAwesomeIcon icon={faCheck} color={"#22C55E"} />}
                                 </div>
                             </div>
