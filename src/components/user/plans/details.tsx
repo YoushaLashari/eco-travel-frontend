@@ -92,7 +92,7 @@ export default function Details(){
             if (!id) return;
             console.log(axiosInstance);
             console.log(url + "/program/get");
-            const response = await axiosInstance.post("program/get", {id});
+            const response = await axiosInstance.post(`${url}/program/get`, {id});
             console.log(response);
             
             if(response.status === 200){
