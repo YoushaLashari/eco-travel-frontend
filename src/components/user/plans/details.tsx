@@ -89,7 +89,7 @@ export default function Details(){
         const getProgram = async () =>{
             if (!id) return;
             
-            const response = await axiosInstance.post("trips/program", {id});
+            const response = await axiosInstance.post("trips/first", {id});
             console.log(response);
             
             if(response.status === 200){
