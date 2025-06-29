@@ -92,8 +92,8 @@ export default function Details(){
         const getProgram = async () =>{
             if (!id) return;
             console.log(axiosInstance);
-            console.log(`${url}/program/get`);
-            const response = await axios.post(`${url}/program/get`, {id});
+            
+            const response = await axiosInstance.post('https://fastapi.aimane-web-dev.com/program/get', {id});
             console.log(response);
             
             if(response.status === 200){
