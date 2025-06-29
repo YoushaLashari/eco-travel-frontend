@@ -93,7 +93,6 @@ export default function Details(){
             if (!id) return;
             
             const response = await axiosInstance.post('program/get', {id});
-            console.log(response);
             
             if(response.status === 200){
                 setProgram(response.data.program);
@@ -103,21 +102,21 @@ export default function Details(){
         getProgram()
     }, [id]);
 
-    // useEffect(() => {
-    //     const getTip = async () =>{
-    //         if (!id) return;
+    useEffect(() => {
+        const getTip = async () =>{
+            if (!id) return;
             
-    //         const response = await axiosInstance.post("tip/get", {id});
+            const response = await axiosInstance.post("tip/get", {id});
             
-    //         if(response.status === 200){
-    //             setTip(response.data.tip);
-    //         }
-    //     }
+            if(response.status === 200){
+                setTip(response.data.tip);
+            }
+        }
 
-    //     getTip()
-    // }, [id]);
+        getTip()
+    }, [id]);
 
-    console.log(program);
+    console.log(tip);
     
     return(
         <div>
