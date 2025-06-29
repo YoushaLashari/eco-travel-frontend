@@ -15,6 +15,8 @@ import Map from "@/components/navbar/map";
 import Suggestions from "./suggestions";
 import Weather from "./weather";
 import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
+import { log } from "console";
+import { url } from "@/api/url";
 
 interface Trip{
     id: number,
@@ -89,7 +91,7 @@ export default function Details(){
         const getProgram = async () =>{
             if (!id) return;
             console.log(axiosInstance);
-            
+            console.log(url + "program/get");
             const response = await axiosInstance.post("/program/get", {id});
             console.log(response);
             
