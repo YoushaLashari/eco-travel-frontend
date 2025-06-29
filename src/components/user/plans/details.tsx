@@ -93,7 +93,10 @@ export default function Details(){
             if (!id) return;
             console.log(axiosInstance);
             
-            const response = await axiosInstance.post('https://fastapi.aimane-web-dev.com/program/get', {id});
+            const response = await axiosInstance.post(
+          'https://fastapi.aimane-web-dev.com/program/get',
+          { trip_id: id }  // <-- here, send trip_id, not id
+        );
             console.log(response);
             
             if(response.status === 200){
