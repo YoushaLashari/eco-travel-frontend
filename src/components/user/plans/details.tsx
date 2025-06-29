@@ -90,6 +90,7 @@ export default function Details(){
             if (!id) return;
             
             const response = await axiosInstance.post("program/get", {id});
+            console.log(response);
             
             if(response.status === 200){
                 setProgram(response.data.program);
