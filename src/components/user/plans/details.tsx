@@ -103,19 +103,19 @@ export default function Details(){
         getProgram()
     }, [id]);
 
-    // useEffect(() => {
-    //     const getTip = async () =>{
-    //         if (!id) return;
+    useEffect(() => {
+        const getTip = async () =>{
+            if (!id) return;
             
-    //         const response = await axiosInstance.post("tip/get", {id});
+            const response = await axiosInstance.post("tip/get", {id});
             
-    //         if(response.status === 200){
-    //             setTip(response.data.tip);
-    //         }
-    //     }
+            if(response.status === 200){
+                setTip(response.data.tip);
+            }
+        }
 
-    //     getTip()
-    // }, [id]);
+        getTip()
+    }, [id]);
 
     console.log(program);
     
@@ -225,7 +225,7 @@ export default function Details(){
                                 <h2 className="text-xl text-blue-950 text-center w-full pt-5">
                                     <strong><span><FontAwesomeIcon icon={faLightbulb} /></span> Astuces</strong>
                                 </h2>
-                                {/* <Suggestions tip={tip}/> */}
+                                <Suggestions tip={tip}/>
                             </div>
                             <div className="my-10">
                                 <div className="flex place-content-between w-4/5 mx-auto">
