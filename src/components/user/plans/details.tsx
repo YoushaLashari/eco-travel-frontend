@@ -225,7 +225,7 @@ export default function Details(){
                                 <h2 className="text-xl text-blue-950 text-center w-full pt-5">
                                     <strong><span><FontAwesomeIcon icon={faLightbulb} /></span> Astuces</strong>
                                 </h2>
-                                <Suggestions tip={tip}/>
+                                {/* <Suggestions tip={tip}/> */}
                             </div>
                             <div className="my-10">
                                 <div className="flex place-content-between w-4/5 mx-auto">
