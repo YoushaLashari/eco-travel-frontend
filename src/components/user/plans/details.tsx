@@ -104,7 +104,6 @@ export default function Details(){
             if (!id) return;
             
             const response = await axiosInstance.post("tip/get", {id});
-            console.log(response);
             
             if(response.status === 200){
                 setTip(response.data.tip);
@@ -114,7 +113,7 @@ export default function Details(){
         getTip()
     }, [id]);
 
-    console.log(tip);
+    console.log(program);
     
     return(
         <div>
