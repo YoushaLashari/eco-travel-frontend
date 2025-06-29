@@ -88,6 +88,7 @@ export default function Details(){
     useEffect(() => {
         const getProgram = async () =>{
             if (!id) return;
+            console.log(axiosInstance);
             
             const response = await axiosInstance.post("/program/get", {id});
             console.log(response);
