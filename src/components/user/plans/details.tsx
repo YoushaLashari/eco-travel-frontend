@@ -17,6 +17,7 @@ import Weather from "./weather";
 import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
 import { log } from "console";
 import { url } from "@/api/url";
+import axios from "axios";
 
 interface Trip{
     id: number,
@@ -92,7 +93,7 @@ export default function Details(){
             if (!id) return;
             console.log(axiosInstance);
             console.log(url + "/program/get");
-            const response = await axiosInstance.post(`${url}/program/get`, {id});
+            const response = await axios.post(`${url}/program/get`, {id});
             console.log(response);
             
             if(response.status === 200){
