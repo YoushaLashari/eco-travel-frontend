@@ -15,13 +15,11 @@ export default function Weather(){
   
   // const apiKey = "dc3fb467ef3242e39d565141253003";
   const apiKey = weather_key();
-  console.log(apiKey);
   
   useEffect(() => {
     const fetchWeather = async () => {
       try{
         const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);  
-        console.log(response);
         
         setWeather(response.data);
       }catch(err){

@@ -1,1 +1,1 @@
-export const url = window.location.hostname === "localhost" ? " http://127.0.0.1:8000" : "https://fastapi.aimane-web-dev.com";
+export const url = window.location.hostname === "localhost" ? "http://127.0.0.1:8000" : "https://fastapi.aimane-web-dev.com";
