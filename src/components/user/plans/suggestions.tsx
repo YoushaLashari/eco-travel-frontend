@@ -5,6 +5,10 @@ interface TipComponent{
 }
 
 export default function Suggestions({tip} : TipComponent){
+    if(!tip){
+        return <p>Loading tips...</p>;
+    }
+
     return(
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-5 mx-5">
             <div className="h-auto mt-8">
