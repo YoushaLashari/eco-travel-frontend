@@ -115,8 +115,6 @@ export default function Details(){
 
         getTip()
     }, [id]);
-
-    console.log(tip);
     
     return(
         <div>
