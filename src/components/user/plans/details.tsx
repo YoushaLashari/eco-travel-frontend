@@ -207,7 +207,7 @@ export default function Details(){
                                                 </div>}
                                                 <div className="mt-2 ml-4 text-blue-950 text-sm flex">
                                                     <span><FontAwesomeIcon icon={faCircleCheck} /></span>
-                                                    <span className="ml-2">Durée: {activity.sustainability_aspect}</span>
+                                                    <span className="ml-2">durabilité: {activity.sustainability_aspect}</span>
                                                 </div>
                                             </div>
                                         </div>
