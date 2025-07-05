@@ -18,6 +18,8 @@ interface TripNameProps {
 }
 
 export default function TripTransport({handleData, trip, error}: TripNameProps){
+    let transport = trip.transport === "plane" ? "Avion" : trip.transport === "train" ? "Train" : "Voiture";
+
     return(
         <div>
             <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
@@ -32,7 +34,7 @@ export default function TripTransport({handleData, trip, error}: TripNameProps){
                     onValueChange={(value) => handleData("transport", value)}
                 >
                     <SelectTrigger className="h-12 py-6 w-full border border-amber-700 rounded-full text-blue-950 space-around items-center flex">
-                        <SelectValue placeholder="-- Veuillez choisir votre moyen de transport --" />
+                        <SelectValue placeholder={trip.transport.length > 0 ? transport : "-- Veuillez choisir votre moyen de transport --"} />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="plane">Avion</SelectItem>

@@ -1,3 +1,4 @@
+import { url } from "@/api/url";
 import { api_post, capitalizeWords, firstWord } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
 import { faBars, faGear, faHouse, faPlane, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -26,8 +27,15 @@ export function NavbarAdmin(){
     return(
         <div>
             <div className="flex ml-4 items-center mb-5">
-                <div className="mr-3 border rounded-full py-2 px-2 bg-color text-white text-xs">
-                    <span>{firstWord(user && user.name)}</span>
+                <div className={`${user.picture == null && "border bg-color"} mr-3 rounded-full py-2 px-2 text-white text-xs`}>
+                    {user.picture !== null ? 
+                        <img
+                            src={`${url}/images/${user.picture}`}
+                            alt="Profile"
+                            className="object-cover w-12 h-12 rounded-full"
+                        />: 
+                        <span>{firstWord(user && user.name)}</span>
+                    }
                 </div>
                 <span className="font-semibold text-blue-900">{capitalizeWords(user && user.name)}</span>
             </div>
@@ -40,7 +48,7 @@ export function NavbarAdmin(){
                 </div>
                 <div className="flex ml-5 mt-4 text-blue-800">
                     <span><FontAwesomeIcon icon={faUser}/></span> 
-                    <span className="ml-2">Mon profile</span>
+                    <Link to="/profile" className="ml-2">Mon profile</Link>
                 </div>
                 <div className="flex ml-5 mt-4 text-blue-800">
                     <Link to="/dashboard">

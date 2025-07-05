@@ -11,7 +11,8 @@ interface Trip{
     destination:string,
     type:string,
     start_date: Date,
-    end_date: Date
+    end_date: Date,
+    total_carbon_emission: number,
 }
 
 export default function Trip({ trip } : {trip: Trip}){
@@ -59,7 +60,7 @@ export default function Trip({ trip } : {trip: Trip}){
                 {/* CO2 Emission Card */}
                 <div className="relative bg-white p-5 rounded-xl drop-shadow-md text-center">
                     <h3 className="text-blue-950 text-lg sm:text-xl">Total Émissions CO2 de votre voyage</h3>
-                    <h3 className="text-color text-xl sm:text-2xl mt-6 font-bold">557 kg CO2</h3>
+                    <h3 className="text-color text-xl sm:text-2xl mt-6 font-bold">{trip.total_carbon_emission} kg CO2</h3>
                     <div className="bg-blue-950 text-white text-center rounded-full py-2 px-4 w-[80%] mx-auto mt-6 sm:absolute sm:bottom-4 sm:right-4 sm:w-auto">
                         Télécharger Mon Bilan Complet
                     </div>

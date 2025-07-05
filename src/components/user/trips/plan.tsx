@@ -40,7 +40,7 @@ export default function Plan(){
         origin: '',
         location : '',
         transport : '',
-        budget : '',
+        budget : 0,
         notes : ''
     });
     
@@ -127,7 +127,7 @@ export default function Plan(){
             transportation : trip.transport.trim(),
             start_date : startDate.toISOString().split("T")[0],
             end_date :  endDate?.toISOString().split("T")[0],
-            budget : trip.budget.trim(),
+            budget : trip.budget,
             num_adult : adults,
             num_children : childrens,
             note : trip.notes.trim(),
@@ -199,7 +199,7 @@ export default function Plan(){
         }
 
         if(steps === 7){
-            if(data.budget === ""){
+            if(data.budget == 0){
                 setError(errorData=>({
                     ...errorData,
                     budget: "Champs budget d'itinéraire est obligatoire",
@@ -224,9 +224,11 @@ export default function Plan(){
                 const response = await axiosInstance.post("trips/create", data);
                 
                 if(response.data.status === "success"){
+                    const tripId = response.data.trip.id;
+                    
                     setMainError("");
                     setLoading(false);
-                    navigate("/dashboard", { state: "Voyage energistré avec succès" });
+                    navigate(`/trip/${tripId}`);
                 }else{
                     setLoading(false);
                     console.log("error");

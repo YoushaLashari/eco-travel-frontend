@@ -169,14 +169,20 @@ export default function Details(){
                         {program && program.itinerary.days[selectedDayIndex] && (
                             <div>
                                 <h1 className="text-lg text-center capitalize font-bold text-blue-950 my-5">{program.itinerary.days[selectedDayIndex].title}</h1>
+                                <h1 className="text-lg text-center capitalize font-bold text-blue-950 my-5">
+                                    <span>Hôtel: {program.accommodation.name}</span><br />
+                                    <span>Note: {program.accommodation.rating}</span><br />
+                                    <span>Prix/nuité: {program.accommodation.price_per_night} €</span>
+                                </h1>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-5 mx-5">
                                     {['morning', 'afternoon', 'evening'].map((period) => {
                                     const activity = program.itinerary.days[selectedDayIndex].schedule[period];
-                                        
+                                    console.log(program);
+                                    
                                     return(
                                         <div key={period} className="bg-white shadow-2xl rounded-lg">
                                             <div className="h-60 overflow-hidden rounded-t-lg">
-                                                <img src={placeholder} alt="placeholder" className="w-full h-full object-cover"/>
+                                                <img src={placeholder} alt="placeholder" className="w-full h-full object-cover border"/>
                                             </div>
                                             <div className="mx-5 py-5">
                                                 <div className="text-main font-bold capitalize my-4 text-blue-950">

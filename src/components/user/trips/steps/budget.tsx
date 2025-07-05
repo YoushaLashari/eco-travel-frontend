@@ -3,7 +3,7 @@ import budget from "/images/budget.svg";
 import React from "react";
 
 interface Trip {
-    budget: string;
+    budget: number;
 }
 
 interface Error {
@@ -32,6 +32,8 @@ export function TripBudget({handleData, trip, error}: TripBudgetProps){
                     className="border rounded-full border-amber-700 text-blue-950 text-center h-12 w-full"
                     placeholder="Montant ou fourchette"
                     value={trip.budget}
+                    type="number"
+                    min="0"
                 />
             </div>
             <div className="mb-4 text-red-500 text-sm text-center">{error && error.budget}</div>

@@ -1,7 +1,7 @@
 import { faAdd, faDownload, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import carbon from "/images/carbon.svg";
 import calendar from "/images/calendar-trip.svg";
 import luggage from "/images/luggage.svg";
@@ -25,6 +25,7 @@ interface Trips{
   id: number,
   name: string,
   destination: string,
+  total_carbon_emission: number,
   start_date: Date,
   end_date: Date
 }
@@ -32,7 +33,6 @@ interface Trips{
 const Dashboard = () => {
   const { auth, user, loading, sidebarOpen, setSidebarOpen } = useUser();
   const navigate = useNavigate();
-  const location = useLocation();
   const [trip, setTrip] = useState<Trip | null>(null);
   const [trips, setTrips] = useState<Trips[]>([]);
   
@@ -130,7 +130,6 @@ const Dashboard = () => {
                   </Link>
                 </div>
               </div>
-              {location.state && <div className="p-4 bg-green-600 text-white rounded-lg mt-9 text-center mr-8">{location.state}</div>}
               <div className='lg:mt-10 mt-8 mr-8'>
                 <div className={`grid gap-4 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:${trips.length > 0 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                   <div className='bg-white rounded-lg p-5 flex shadow-md items-start'>
@@ -164,14 +163,17 @@ const Dashboard = () => {
                           <div>Destination: {capitalizeWords(trip?.destination)}</div>
                           <div>Départ: {capitalizeWords(formatDate(trip.start_date))}</div>
                           <div>Retour: {capitalizeWords(formatDate(trip.end_date))}</div>
-                          <div>Empreinte:  1 Tonne CO<sub>2</sub></div>
+                          <div>Empreinte: {trip?.carbon_emission}Kg CO<sub>2</sub></div>
                           <div className='mt-3'>Compensation</div>
-                          <div className='progress-bar-container'>
-                            <div className='progress-bar w-10'></div>
-                          </div>
+                          <div className="progress-bar-container w-full bg-gray-200  h-4">
+                          <div
+                            className="progress-bar bg-green-500 h-4 transition-all duration-300"
+                            style={{ width: `${carbonPercent}%` }}
+                          ></div>
+                        </div>
                           <div className='flex place-content-between'>
-                            <div>0.2 / 1 tonne</div>
-                            <div>10%</div>
+                            <div>{trip?.carbon_emission} / {trip?.total_carbon_emission.toFixed(2)} Kg</div>
+                            <div>{carbonPercent}%</div>
                           </div>
                         </div>
                       </div>

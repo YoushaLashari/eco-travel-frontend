@@ -11,7 +11,7 @@ export function Navbar(){
         <div className="mt-8">
             <div className="relative flex items-center flex-wrap px-4">
                 <div className="text-main-color text-xl font-bold z-10 lg:w-1/3">Logo</div>
-                <div className={`w-full lg:w-1/3 lg:flex lg:justify-center ${menuOpen ? 'block' : 'hidden'}`}>
+                <div className={`w-full lg:flex-1 lg:flex lg:justify-end ${menuOpen ? 'block' : 'hidden'}`}>
                     <div className="text-main-color flex flex-col lg:flex-row lg:items-center lg:space-x-6 mt-4 lg:mt-0 justify-center">
                         <a href="/" className="block py-2 lg:py-0"><strong>Fonctionnalités</strong></a>
                         <a href="/" className="block py-2 lg:py-0"><strong>Tarifs</strong></a>

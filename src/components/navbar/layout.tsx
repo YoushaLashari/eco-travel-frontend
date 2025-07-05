@@ -9,6 +9,7 @@ import Plan from "../user/trips/plan";
 import Plans from "../user/plans";
 import Details from "../user/plans/details";
 import Compensate from "../user/plans/compensate";
+import Profile from "../user/profile";
 
 export default function Layout(){
     return(
@@ -24,6 +25,7 @@ export default function Layout(){
                         <Route path="register" element={<Register/>}/>
                         <Route path="verification" element={<Code/>}/>
                         <Route path="dashboard" element={<Dashboard/>}/>
+                        <Route path="profile" element={<Profile/>}/>
                         <Route path="trip" element={<Plan/>}/>
                         <Route path="plans" element={<Plans/>}/>
                         <Route path="trip/:id" element={<Details />} />

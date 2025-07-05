@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import React from "react";
 import { useUser } from "@/context/userContext";
@@ -29,7 +29,8 @@ interface Trip{
     start_date: Date,
     end_date: Date,
     adult: number,
-    children: number
+    children: number,
+    total_carbon_emission: number,
 }
 
 export default function Plans(){
@@ -37,7 +38,8 @@ export default function Plans(){
     const { user, auth, loading, sidebarOpen, setSidebarOpen } = useUser(); 
     const [trips, setTrips] = useState<Trips[]>([]);
     const [trip, setTrip] = useState<Trip | null>(null);
-    
+    const carbon = useRef(0);
+
     useEffect(() => {
         if(!loading && !auth){
           navigate("/");
@@ -53,7 +55,7 @@ export default function Plans(){
             });
             
             if(response.status === 200){
-                setTrips(response.data.trips)
+                setTrips(response.data.trips);
             }
         }
         
@@ -82,7 +84,8 @@ export default function Plans(){
             setTrip(response.data.trip);
         }
     }
-
+    console.log(trip);
+    
     return (
         <div>
             <div className='flex mt-8 relative'>
@@ -126,7 +129,7 @@ export default function Plans(){
                     </div>
                     {trip ? 
                         <div className="mt-9 mx-10">
-                            <Trip trip={trip}/>
+                            <Trip trip={trip} />
                         </div> : 
                         <div className="flex justify-center items-center h-custom">
                             <div className="text-center text-xl lg:text-6xl">Pas de voyage trouvé</div>
