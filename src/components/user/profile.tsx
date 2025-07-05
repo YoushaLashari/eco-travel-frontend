@@ -198,7 +198,7 @@ export default function Profile(){
                                         className={`${user.picture !== null || preview === null && "bg-color"} cursor-pointer w-40 h-40 rounded-full text-white flex items-center justify-center text-xs font-bold overflow-hidden select-none`}
                                         title="Cliquez pour changer la photo"
                                     >
-                                        {user.picture !== null || preview ? (
+                                        {user.picture !== null || user.picture === "" || preview ? (
                                             <img
                                                 src={preview || `${url}/images/${user.picture}`}
                                                 alt="Profile"
