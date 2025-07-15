@@ -32,7 +32,7 @@ export function TripType({handleData, trip}: TripNameProps){
                 ].map(({ id, value, img }) => (
                     <div
                         key={id}
-                            className={`bg-white rounded-2xl drop-shadow-md p-4 flex flex-col justify-between h-full trip-select ${
+                            className={`bg-white rounded-2xl drop-shadow-md p-4 flex flex-col justify-between trip-select min-h-[350px] ${
                             trip.type === value ? "border border-black" : ""
                         }`}
                     >

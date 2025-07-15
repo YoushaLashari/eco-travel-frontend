@@ -3,7 +3,7 @@ import budget from "/images/budget.svg";
 import React from "react";
 
 interface Trip {
-    budget: number;
+    budget: string;
 }
 
 interface Error {

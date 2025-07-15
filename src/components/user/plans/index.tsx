@@ -84,7 +84,6 @@ export default function Plans(){
             setTrip(response.data.trip);
         }
     }
-    console.log(trip);
     
     return (
         <div>

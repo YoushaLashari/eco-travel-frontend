@@ -10,6 +10,7 @@ import Plans from "../user/plans";
 import Details from "../user/plans/details";
 import Compensate from "../user/plans/compensate";
 import Profile from "../user/profile";
+import Impact from "../user/impact";
 
 export default function Layout(){
     return(
@@ -28,6 +29,7 @@ export default function Layout(){
                         <Route path="profile" element={<Profile/>}/>
                         <Route path="trip" element={<Plan/>}/>
                         <Route path="plans" element={<Plans/>}/>
+                        <Route path="impacts" element={<Impact/>}/>
                         <Route path="trip/:id" element={<Details />} />
                         <Route path="compensate/:id" element={<Compensate />} />
                     </Route>

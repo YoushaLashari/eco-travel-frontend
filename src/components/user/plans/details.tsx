@@ -4,8 +4,9 @@ import placeholder from "/images/placeholder.svg";
 import restaurant from "/images/restaurant.jpg";
 import tegallalang from "/images/tegallalang.webp";
 import earth from "/images/earth.svg";
+import flower from "/images/flower.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight, faCircleCheck, faClock, faHandPointRight, faLightbulb, faLocation } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faArrowRight, faCircleCheck, faClock, faCloudSun, faHandPointRight, faLightbulb, faLocation, faMoon, faStar, faSun } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useUser } from "@/context/userContext";
 import axiosInstance from "@/api/config";
@@ -132,7 +133,7 @@ export default function Details(){
                     </>
                 }
                 {trip && 
-                    <div className='bg-main rounded-r-lg w-screen'>
+                    <div className='bg-main rounded-r-lg w-screen lg:px-20'>
                         <div className="mt-4 ml-10">
                             <button
                                 className="lg:hidden text-blue-900"
@@ -154,11 +155,11 @@ export default function Details(){
                         <div className="mt-5 text-center lg:w-1/3 w-3/4 mx-auto">
                             Découvrez la beauté naturelle de {capitalizeWords(trip.name)} à travers un voyage responsable et respectueux de l'environnement.
                         </div>
-                        <div className="bg-white rounded-full py-3 flex items-center overflow-x-auto whitespace-nowrap mt-5 w-full max-w-md mx-auto"> 
+                        <div className={`bg-white rounded-full py-3 flex items-center overflow-x-auto whitespace-nowrap mt-5 w-full max-w-md mx-auto ${program?.itinerary.days.length > 5 ? "" : "place-content-center"} `}> 
                             {program?.itinerary.days.map((day, index) => (
                                 <div 
                                     key={index}
-                                    className={`inline-block text-blue-950 px-4 py-1 mx-1 rounded-full cursor-pointer ${index === selectedDayIndex ? 'bg-main text-black' : 'bg-gray-200'}`}
+                                    className={`inline-block text-blue-950 px-4 py-1 mx-1 rounded-full cursor-pointer ${index === selectedDayIndex ? 'bg-days text-white' : 'bg-gray-200'}`}
                                     style={{ minWidth: '70px', textAlign: 'center' }}
                                     onClick={() => setSelectedDayIndex(index)}
                                 >
@@ -168,21 +169,27 @@ export default function Details(){
                         </div>
                         {program && program.itinerary.days[selectedDayIndex] && (
                             <div>
-                                <h1 className="text-lg text-center capitalize font-bold text-blue-950 my-5">{program.itinerary.days[selectedDayIndex].title}</h1>
-                                <h1 className="text-lg text-center capitalize font-bold text-blue-950 my-5">
-                                    <span>Hôtel: {program.accommodation.name}</span><br />
-                                    <span>Note: {program.accommodation.rating}</span><br />
-                                    <span>Prix/nuité: {program.accommodation.price_per_night} €</span>
-                                </h1>
+                                <div className="text-center capitalize my-5 bg-card mx-5 rounded-lg text-white p-3">
+                                    <h1 className="text-center capitalize text-white font-bold text-2xl">{program.itinerary.days[selectedDayIndex].title}</h1>
+                                    <h2 className="text-xl mt-2">
+                                        <span className="font-bold">Hôtel {program.accommodation.name}</span> - 
+                                        <span className="me-2">Note: {program.accommodation.rating}</span>
+                                        <FontAwesomeIcon icon={faStar} color={"#FFCD4F"} />
+                                    </h2>
+                                    <h3>Prix/nuité: {program.accommodation.price_per_night} €</h3>
+                                </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-5 mx-5">
                                     {['morning', 'afternoon', 'evening'].map((period) => {
                                     const activity = program.itinerary.days[selectedDayIndex].schedule[period];
-                                    console.log(program);
                                     
                                     return(
                                         <div key={period} className="bg-white shadow-2xl rounded-lg">
-                                            <div className="h-60 overflow-hidden rounded-t-lg">
-                                                <img src={placeholder} alt="placeholder" className="w-full h-full object-cover border"/>
+                                            <div className="h-60 overflow-hidden rounded-t-lg bg-card flex items-center place-content-center">
+                                                <FontAwesomeIcon 
+                                                    icon={period === "morning" ? faCloudSun : period === "afternoon" ? faSun : faMoon } 
+                                                    color={"#FFCD4F"} 
+                                                    style={{ fontSize: 50 }} 
+                                                />
                                             </div>
                                             <div className="mx-5 py-5">
                                                 <div className="text-main font-bold capitalize my-4 text-blue-950">
@@ -225,8 +232,11 @@ export default function Details(){
                                 <Map/>
                             </div> */}
                             <div className="my-10 bg-white rounded-lg shadow-2xl w-full mx-auto h-table">
-                                <h2 className="text-xl text-blue-950 text-center w-full pt-5">
-                                    <strong><span><FontAwesomeIcon icon={faLightbulb} /></span> Astuces</strong>
+                                <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center pt-3">
+                                    <div>
+                                        <span className="text-blue-950 mr-2">Astuce</span>
+                                    </div>
+                                    <img src={flower} alt="flower" className="w-6 sm:w-10" />
                                 </h2>
                                 <Suggestions tip={tip}/>
                             </div>

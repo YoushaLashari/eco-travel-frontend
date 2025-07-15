@@ -10,6 +10,21 @@ export const firstWord = (str: string) => {
     if(str != null) return str.split(' ').map(word => word.charAt(0).toUpperCase()).join('');
 };
 
+export const firstLastWord = (str: string): string => {
+    if (!str) return '';
+
+    const words = str.trim().split(' ');
+
+    if (words.length === 1) {
+        return words[0]; // Just one name
+    }
+
+    const firstName = words[0];
+    const lastInitial = words[1].charAt(0).toUpperCase() + '.';
+
+    return `${firstName} ${lastInitial}`;
+};
+
 export const calculateDuration = (startDate: string | Date, endDate: string | Date) => {
     if (!startDate || !endDate) return "N/A";
 
@@ -21,7 +36,7 @@ export const calculateDuration = (startDate: string | Date, endDate: string | Da
     }
 
     const diffTime = Math.abs(end.getTime() - start.getTime());
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
 
     if(diffDays < 7){
         return `${diffDays} ${diffDays === 1 ? "jour" : "jours"}`;

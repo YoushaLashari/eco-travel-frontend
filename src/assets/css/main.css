@@ -10,6 +10,12 @@
 .bg-main{
     background-color: #F5F5F5;
 }
+.bg-days{
+    background-color: #FF6B6B;
+}
+.bg-card{
+    background: linear-gradient(135deg, #0e2d58 0%, #3c6ea5 100%)
+}
 .active{
     color: white !important;
     background-color: #0C2D57 !important;
@@ -210,7 +216,7 @@ tr, th, td{
 
 @media(min-width: 1000px){
     .h-table{
-        height: 51rem;
+        height: 58rem;
     }
     .bulb-img{
         inset: 1250px; 
@@ -230,7 +236,7 @@ tr, th, td{
 
 @media(min-width: 1200px){
     .h-table{
-        height: 50rem;
+        height: 57rem;
     }
     .bulb-img{
         inset: 1250px; 
@@ -250,7 +256,7 @@ tr, th, td{
 
 @media(min-width: 1400px){
     .h-table{
-        height: 38rem;
+        height: 45rem;
     }
     .bulb-img{
         inset: 1250px; 
@@ -271,7 +277,7 @@ tr, th, td{
 
 @media(min-width: 1800px){
     .h-table{
-        height: 30rem;
+        height: 37rem;
     }
     .bulb-img{
         inset: 1250px; 
@@ -287,4 +293,70 @@ tr, th, td{
         width: calc(var(--spacing) * 6) !important;
         height: calc(var(--spacing) * 6) !important;
     }
+}
+.header-border{
+    border-top: 1px solid #E5E7EB !important;
+    border-bottom: 1px solid #E5E7EB !important;
+}
+.border-bottom{
+    border-bottom: 2px solid #22C55E !important;
+}
+.bg-green-custom{
+    background-color: #F0FDF4 !important;
+}
+.active_color{
+    color: #22C55E !important;
+}
+.progress-bar-follow-up-container{
+    position: relative;
+    background-color: rgba(217, 217, 217, 0.7);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+}
+.progress-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+.progress-bar-follow-up {
+    height: 100%;
+    text-align: center;
+    line-height: 10px;
+    color: #fff;
+    transition: width 0.5s ease-in-out;
+}
+.circle{
+    border-radius: 50% !important;
+}
+.pad{
+    padding: 1px 10px 1px 10px !important;
+}
+.progress-bar-badge-container{
+    position: relative;
+    background-color: rgba(217, 217, 217, 0.7);
+    border-radius: 5px;
+    overflow: hidden;
+    height: 6px;
+}
+.border-astuce{
+    border-bottom: 1px solid #E5E7EB !important;
+}
+.pad-cost-big{
+    padding: 15px 15px 15px 15px !important;
+}
+.pad-cost-small{
+    padding: 15px 18px 15px 18px !important;
+}
+.card-select{
+    transition: 0.2s;
+}
+.card-select:hover{
+    background-color: rgba(238, 238, 238, 0.7);
+    transition: 0.2s;
+    transform: scale(1.01);
 }

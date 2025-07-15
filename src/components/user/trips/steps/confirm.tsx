@@ -7,7 +7,7 @@ interface Trip {
     origin: string;
     location: string;
     transport: string;
-    budget: number;
+    budget: string;
     notes: string;
 }
 

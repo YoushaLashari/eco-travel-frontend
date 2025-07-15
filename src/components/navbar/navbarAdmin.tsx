@@ -1,7 +1,7 @@
 import { url } from "@/api/url";
 import { api_post, capitalizeWords, firstWord } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
-import { faBars, faGear, faHouse, faPlane, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faChartBar, faGear, faHouse, faPlane, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router";
@@ -59,6 +59,10 @@ export function NavbarAdmin(){
                 <div className="flex ml-5 mt-4 text-blue-800">
                     <span><FontAwesomeIcon icon={faPlane}/></span> 
                     <Link to="/plans" className="ml-2">Mes Planners</Link>
+                </div>
+                <div className="flex ml-5 mt-4 text-blue-800">
+                    <span><FontAwesomeIcon icon={faChartBar}/></span> 
+                    <Link to="/impacts" className="ml-2">Mon impact</Link>
                 </div>
             </div>
             <div className="mt-5">

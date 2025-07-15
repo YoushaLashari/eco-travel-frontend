@@ -1,7 +1,7 @@
 import { url } from "@/api/url";
 import { api_post, capitalizeWords, firstWord } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
-import { faBars, faGear, faHouse, faPlane, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBarChart, faBars, faGear, faHouse, faPlane, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router";
@@ -63,9 +63,11 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                     <span><FontAwesomeIcon icon={faHouse}/></span> 
                     <span className="ml-2">Accueil</span>
                 </div>
-                <div className="flex ml-5 mt-4 text-blue-800">
+                <div className="flex ml-5 mt-4 text-blue-800"
+                    onClick={() => setSidebarOpen(false)}
+                >
                     <span><FontAwesomeIcon icon={faUser}/></span> 
-                    <span className="ml-2">Mon profile</span>
+                    <Link to="/profile" className="ml-2">Mon profile</Link>
                 </div>
                 <div className="flex ml-5 mt-4 text-blue-800"
                     onClick={() => setSidebarOpen(false)}
@@ -80,6 +82,12 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                 >
                     <span><FontAwesomeIcon icon={faPlane}/></span> 
                     <Link to="/plans" className="ml-2">Mes Planners</Link>
+                </div>
+                <div className="flex ml-5 mt-4 text-blue-800"
+                    onClick={() => setSidebarOpen(false)}
+                >
+                    <span><FontAwesomeIcon icon={faBarChart}/></span> 
+                    <Link to="/impacts" className="ml-2">Mon impact</Link>
                 </div>
             </div>
             <div className="mt-5">

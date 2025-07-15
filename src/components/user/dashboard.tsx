@@ -165,7 +165,7 @@ const Dashboard = () => {
                           <div>Retour: {capitalizeWords(formatDate(trip.end_date))}</div>
                           <div>Empreinte: {trip?.carbon_emission}Kg CO<sub>2</sub></div>
                           <div className='mt-3'>Compensation</div>
-                          <div className="progress-bar-container w-full bg-gray-200  h-4">
+                          <div className="progress-bar-container w-full bg-gray-200 h-4">
                           <div
                             className="progress-bar bg-green-500 h-4 transition-all duration-300"
                             style={{ width: `${carbonPercent}%` }}
@@ -186,7 +186,7 @@ const Dashboard = () => {
                       <span className="text-blue-950 mr-2">Mes plans,</span> 
                       <span className="text-color">de Compensation</span>
                     </div>
-                    <img src={earth} alt="budget" className="w-6 sm:w-10" />
+                    <img src={earth} alt="earth" className="w-6 sm:w-10" />
                   </h2>
                   <div className="mt-5 overflow-x-auto">
                     <table className="border-collapse border border-gray-400 min-w-full table-auto">

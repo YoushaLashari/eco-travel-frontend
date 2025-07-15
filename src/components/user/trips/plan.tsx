@@ -40,7 +40,7 @@ export default function Plan(){
         origin: '',
         location : '',
         transport : '',
-        budget : 0,
+        budget : '',
         notes : ''
     });
     
@@ -90,6 +90,10 @@ export default function Plan(){
             ...formData,
             [name] : value
         }));
+
+        if(name === "type"){
+            setSteps(steps + 1)
+        }
     }
 
     const handleDates = ({ startDate, endDate }: { startDate: Date; endDate: Date | null }) => {
@@ -199,7 +203,7 @@ export default function Plan(){
         }
 
         if(steps === 7){
-            if(data.budget == 0){
+            if(data.budget === ""){
                 setError(errorData=>({
                     ...errorData,
                     budget: "Champs budget d'itinéraire est obligatoire",
