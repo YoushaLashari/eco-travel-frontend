@@ -114,7 +114,7 @@ const Dashboard = () => {
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <h1 className="text-xl lg:text-2xl">
                   <span className="text-blue-950">Dashboard de</span>{' '}
-                  <span className="text-color">Compensation</span>
+                  <span className="text-color">Décarbonation</span>
                 </h1>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center mr-0 lg:mr-5 gap-3">
                   <div className="bg-white rounded-full py-2 px-6 sm:px-10 text-blue-950 text-center cursor-pointer drop-shadow-md w-full sm:w-auto">
@@ -149,7 +149,7 @@ const Dashboard = () => {
                     <div className='ms-5'>
                       <h2 className='text-blue-950'>Mes voyages</h2>
                       <h2 className='text-blue-950 text-xl mt-3'><strong>{trips.length} {trips.length > 1 ? "Voyages" : "Voyage"}</strong></h2>
-                      <h2 className='text-red-500 mt-3'>2 actions de compensation requises</h2>
+                      <h2 className='text-red-500 mt-3'>2 actions de décarbonation requises</h2>
                     </div>
                   </div>
                   {trip && 
@@ -164,7 +164,7 @@ const Dashboard = () => {
                           <div>Départ: {capitalizeWords(formatDate(trip.start_date))}</div>
                           <div>Retour: {capitalizeWords(formatDate(trip.end_date))}</div>
                           <div>Empreinte: {trip?.carbon_emission}Kg CO<sub>2</sub></div>
-                          <div className='mt-3'>Compensation</div>
+                          <div className='mt-3'>Décarbonation</div>
                           <div className="progress-bar-container w-full bg-gray-200 h-4">
                           <div
                             className="progress-bar bg-green-500 h-4 transition-all duration-300"
@@ -184,7 +184,7 @@ const Dashboard = () => {
                   <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
                     <div>
                       <span className="text-blue-950 mr-2">Mes plans,</span> 
-                      <span className="text-color">de Compensation</span>
+                      <span className="text-color">de Décarbonation</span>
                     </div>
                     <img src={earth} alt="earth" className="w-6 sm:w-10" />
                   </h2>
@@ -196,7 +196,7 @@ const Dashboard = () => {
                           <th className="px-4 py-2">Destination</th>
                           <th className="px-4 py-2">Durée</th>
                           <th className="px-4 py-2">Actions</th>
-                          <th className="px-4 py-2">Compensation</th>
+                          <th className="px-4 py-2">Décarbonation</th>
                         </tr>
                       </thead>
                       <tbody>

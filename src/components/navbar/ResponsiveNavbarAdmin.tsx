@@ -1,10 +1,11 @@
 import { url } from "@/api/url";
 import { api_post, capitalizeWords, firstWord } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
-import { faBarChart, faBars, faGear, faHouse, faPlane, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBarChart, faBars, faGear, faHouse, faPlane, faPuzzlePiece, faQuestionCircle, faRightFromBracket, faSackDollar, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router";
+import logo from "/images/logo-slogan.jpg";
 
 interface SideBar{
     setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -32,18 +33,8 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
     return(
         <div>
             <div className="flex items-start justify-between">
-                <div className="flex ml-4 items-center mb-5">
-                    <div className={`${user.picture == null && "border bg-color"} mr-3 rounded-full py-2 px-2 text-white text-xs`}>
-                        {user.picture !== null ? 
-                            <img
-                                src={`${url}/images/${user.picture}`}
-                                alt="Profile"
-                                className="object-cover w-12 h-12 rounded-full"
-                            />: 
-                            <span>{firstWord(user && user.name)}</span>
-                        }
-                    </div>
-                    <span className="font-semibold text-blue-900">{capitalizeWords(user && user.name)}</span>
+                <div className="text-center w-full mx-auto">
+                    <img src={logo} alt="logo" className="w-90 text-center" />
                 </div>
                 <button
                     className="lg:hidden text-blue-900"
@@ -55,6 +46,20 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                         />
                     </svg>
                 </button>
+            </div>
+            <hr />
+            <div className="flex ml-4 items-center my-5">
+                <div className={`${user.picture == null && "border bg-color"} mr-3 rounded-full py-2 px-2 text-white text-xs`}>
+                    {user.picture !== null ? 
+                        <img
+                            src={`${url}/images/${user.picture}`}
+                            alt="Profile"
+                            className="object-cover w-12 h-12 rounded-full"
+                        />: 
+                        <span>{firstWord(user && user.name)}</span>
+                    }
+                </div>
+                <span className="font-semibold text-blue-900">{capitalizeWords(user && user.name)}</span>
             </div>
             <hr />
             <div className="mt-5">
@@ -74,7 +79,7 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                 >
                     <Link to="/dashboard">
                         <span><FontAwesomeIcon icon={faBars}/></span> 
-                        <span className="ml-2">Dashboard Compensation</span>
+                        <span className="ml-2">Dashboard Décarbonation</span>
                     </Link>
                 </div>
                 <div className="flex ml-5 mt-4 text-blue-800"
@@ -88,6 +93,18 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                 >
                     <span><FontAwesomeIcon icon={faBarChart}/></span> 
                     <Link to="/impacts" className="ml-2">Mon impact</Link>
+                </div>
+                <div className="flex ml-5 mt-4 text-blue-800">
+                    <span><FontAwesomeIcon icon={faPuzzlePiece}/></span> 
+                    <Link to="/" className="ml-2">Fonctionnalités</Link>
+                </div>
+                <div className="flex ml-5 mt-4 text-blue-800">
+                    <span><FontAwesomeIcon icon={faSackDollar}/></span> 
+                    <Link to="/" className="ml-2">Tarifs</Link>
+                </div>
+                <div className="flex ml-5 mt-4 text-blue-800">
+                    <span><FontAwesomeIcon icon={faQuestionCircle}/></span> 
+                    <Link to="/" className="ml-2">FAQ</Link>
                 </div>
             </div>
             <div className="mt-5">

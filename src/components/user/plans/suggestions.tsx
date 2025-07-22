@@ -15,7 +15,7 @@ export default function Suggestions({ tip }: TipComponent){
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-5 mx-5">
             {/* Card 1: Conseils éco-responsables */}
             <div className="flex flex-col h-full">
-                <p className="text-center bg-card text-white p-3 rounded-t-lg text-lg font-bold">
+                <p className="text-center bg-card-program text-white p-3 rounded-t-lg text-lg font-bold">
                     Conseils éco-responsables
                 </p>
                 <div className="flex-1 rounded-b-lg shadow-lg bg-white">
@@ -40,7 +40,7 @@ export default function Suggestions({ tip }: TipComponent){
 
             {/* Card 2: Options de transport local */}
             <div className="flex flex-col h-full">
-                <p className="text-center bg-card text-white p-3 rounded-t-lg text-lg font-bold">
+                <p className="text-center bg-card-program text-white p-3 rounded-t-lg text-lg font-bold">
                     Options de transport local
                 </p>
                 <div className="flex-1 rounded-b-lg shadow-lg bg-white">

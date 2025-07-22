@@ -20,6 +20,7 @@ import axiosInstance from "@/api/config";
 import React from "react";
 import { NavbarAdmin } from "@/components/navbar/navbarAdmin";
 import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
+import TripLanguage from "./steps/language";
 
 export default function Plan(){
     const { user, auth, loading, sidebarOpen, setSidebarOpen } = useUser(); 
@@ -41,6 +42,7 @@ export default function Plan(){
         location : '',
         transport : '',
         budget : '',
+        language : '',
         notes : ''
     });
     
@@ -52,6 +54,7 @@ export default function Plan(){
         transport : '',
         date : '',
         budget : '',
+        language : '',
         notes : ''
     });
 
@@ -129,6 +132,7 @@ export default function Plan(){
             country : trip.origin.trim(),
             destination : trip.location.trim(),
             transportation : trip.transport.trim(),
+            language : trip.language.trim(),
             start_date : startDate.toISOString().split("T")[0],
             end_date :  endDate?.toISOString().split("T")[0],
             budget : trip.budget,
@@ -218,10 +222,21 @@ export default function Plan(){
         }
 
         if(steps === 9){
+            if(data.language === ""){
+                setError(errorData=>({
+                    ...errorData,
+                    transport: "Champs langue préférée est obligatoire",
+                }));
+            }else{
+                setSteps(steps + 1);
+            }
+        }
+
+        if(steps === 10){
             setSteps(steps + 1);
         }
         
-        if(steps === 10){
+        if(steps === 11){
             setLoading(true);
             
             try{
@@ -324,6 +339,11 @@ export default function Plan(){
                                     adults = {adults}
                                     childrens = {childrens}
                                 /> : steps === 9 ?
+                                <TripLanguage
+                                    handleData = {handleData}
+                                    trip = {trip}
+                                    error = {error}
+                                /> : steps === 10 ?
                                 <TripNote
                                     handleData = {handleData}
                                     trip = {trip}
@@ -350,11 +370,11 @@ export default function Plan(){
                                         <FontAwesomeIcon icon={faAngleLeft}/> Retour
                                     </div>}
                                     <div 
-                                        className={`text-center border border-green-900 rounded-full mt-9 py-1 cursor-pointer next-btn flex justify-center ${steps === 10 ? "w-30" : steps === 1 ? "w-35 float-right" : "w-25"}`}
+                                        className={`text-center border border-green-900 rounded-full mt-9 py-1 cursor-pointer next-btn flex justify-center ${steps === 11 ? "w-30" : steps === 1 ? "w-35 float-right" : "w-25"}`}
                                         onClick={nextStep}
                                     >
-                                        <span>{steps === 10 ? "Sauvegarder" : "Suivant" }</span> 
-                                        <span className={`${steps !== 10 ? 'ml-2' : ''} mt-custom`}>{steps !== 10 && <FontAwesomeIcon icon={faAngleRight} />}</span>
+                                        <span>{steps === 11 ? "Sauvegarder" : "Suivant" }</span> 
+                                        <span className={`${steps !== 11 ? 'ml-2' : ''} mt-custom`}>{steps !== 11 && <FontAwesomeIcon icon={faAngleRight} />}</span>
                                     </div>
                                 </div>
                             )}

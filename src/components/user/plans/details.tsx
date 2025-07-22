@@ -169,7 +169,7 @@ export default function Details(){
                         </div>
                         {program && program.itinerary.days[selectedDayIndex] && (
                             <div>
-                                <div className="text-center capitalize my-5 bg-card mx-5 rounded-lg text-white p-3">
+                                <div className="text-center capitalize my-5 bg-card-program mx-5 rounded-lg text-white p-3">
                                     <h1 className="text-center capitalize text-white font-bold text-2xl">{program.itinerary.days[selectedDayIndex].title}</h1>
                                     <h2 className="text-xl mt-2">
                                         <span className="font-bold">Hôtel {program.accommodation.name}</span> - 
@@ -184,7 +184,7 @@ export default function Details(){
                                     
                                     return(
                                         <div key={period} className="bg-white shadow-2xl rounded-lg">
-                                            <div className="h-60 overflow-hidden rounded-t-lg bg-card flex items-center place-content-center">
+                                            <div className="h-60 overflow-hidden rounded-t-lg bg-card-program flex items-center place-content-center">
                                                 <FontAwesomeIcon 
                                                     icon={period === "morning" ? faCloudSun : period === "afternoon" ? faSun : faMoon } 
                                                     color={"#FFCD4F"} 
@@ -278,7 +278,7 @@ export default function Details(){
                                     <strong>Suivez votre progression et découvrez comment réduire votre impact</strong>
                                 </div>
                                 <Link to="/dashboard" className="mt-4 bg-color text-white text-center flex place-content-center md:w-1/5 w-full mx-auto py-3 rounded-lg">
-                                    <span>Mon plan de compensation</span>
+                                    <span>Mon plan de décarbonation</span>
                                 </Link>
                             </div>
                         </div>

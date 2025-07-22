@@ -30,7 +30,7 @@ export function TripBudget({handleData, trip, error}: TripBudgetProps){
                 <Input
                     onChange={(event) => handleData("budget", event.target.value)}
                     className="border rounded-full border-amber-700 text-blue-950 text-center h-12 w-full"
-                    placeholder="Montant ou fourchette"
+                    placeholder="Montant"
                     value={trip.budget}
                     type="number"
                     min="0"
