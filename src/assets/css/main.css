@@ -360,3 +360,72 @@ tr, th, td{
     transition: 0.2s;
     transform: scale(1.01);
 }
+.bg-header{
+     background: linear-gradient(
+        to left,
+        #507B92,
+        #466e83,
+        #3d6479,
+        #3d6479,
+        #3d6479,
+        #3d6479 
+    ) !important;
+}
+.raduis{
+    border-radius: 16px !important;
+}
+.rebound-zoom {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: flex-start;
+  transform-origin: center;
+  transition: transform 0.4s ease-in-out; /* smooth transition */
+  transform: scale(1); /* normal scale */
+}
+
+.rebound-zoom:hover {
+  transform: scale(1.05); /* zoom in */
+}
+.bg-calendar{
+    background-color: #D8AE9C !important;
+}
+.bg-location{
+    background-color: #FD550D !important;
+}
+.mt-custom{
+    margin-top: 55px;
+}
+.link-hover{
+    transition: .4s;
+}
+.link-hover:hover{
+    transition: .4s;
+    background-color: #FD550D !important;
+    color: white;
+}
+.bg-icone{
+    background-color: #E6EAEE !important;
+}
+.rounded-circle{
+    border-radius: 50% !important;
+}
+.link-explore{
+    transition: .4s;
+}
+.link-explore:hover{
+    transition: .4s;
+    background-color: #244165 !important;
+}
+.bg-card{
+     background: linear-gradient(
+        to right,
+        #E7EAEF,
+        #eceef0,
+        #f3f4f5,
+        #f3f4f5,
+        #f3f4f5,
+        #fdfdfd 
+    ) !important;
+}
