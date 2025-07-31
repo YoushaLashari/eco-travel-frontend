@@ -185,7 +185,7 @@ const Dashboard = () => {
                         </div>
                       </div>
                       <Link
-                        to="/plans"
+                        to={`/trip/${trip.id}`}
                         className="w-full block mt-5 text-center border rounded-xl font-semibold text-sm link-hover py-3"
                       >
                         Voir les détails
