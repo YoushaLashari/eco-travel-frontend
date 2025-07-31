@@ -37,7 +37,6 @@ const Dashboard = () => {
   const [trips, setTrips] = useState<Trips[]>([]);
   
   let latestCarbonEmission = trip?.carbon_emission || 0;
-  let carbonPercent = ((latestCarbonEmission / (trip?.total_carbon_emission ?? 1)) * 100).toFixed(2);
   
   useEffect(() => {
     if(!loading && !auth){
@@ -198,7 +197,7 @@ const Dashboard = () => {
             </div>
             <div className='mt-custom'>
               <h1 className='text-2xl text-blue-950 font-bold'>Besoin d'inspiration ?</h1>
-              <div className="my-5 bg-card raduis p-7 shadow-xl">
+              <div className="my-5 bg-card-dashboard raduis p-7 shadow-xl">
                 <div className='flex items-start place-content-between'>
                   <div>
                     <h1 className='text-xl text-blue-950 font-bold'>Découvrez de nouvelles destinations</h1>

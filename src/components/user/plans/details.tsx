@@ -119,7 +119,7 @@ export default function Details(){
     
     return(
         <div>
-            <div className='flex mt-8 relative'>
+            <div className='flex relative'>
                 {trip && 
                     <>
                         {/* Desktop sidebar (visible on large screens) */}

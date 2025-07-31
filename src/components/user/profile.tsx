@@ -148,7 +148,7 @@ export default function Profile(){
     
     return(
         <div>
-            <div className='flex mt-8 relative'>
+            <div className='flex relative'>
                 {user && (
                     <>
                         {/* Desktop sidebar (visible on large screens) */}
@@ -161,7 +161,7 @@ export default function Profile(){
                         </div>
                     </>
                 )}
-                <div className="flex flex-col lg:items-center justify-center min-h-screen px-4 sm:px-0 flex-1">
+                <div className="bg-main flex flex-col lg:items-center justify-center min-h-screen px-4 sm:px-0 flex-1">
                     <div className="ms-2 my-3">
                         <button
                             className="lg:hidden text-blue-900"

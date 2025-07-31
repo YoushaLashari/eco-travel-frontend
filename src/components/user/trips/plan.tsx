@@ -267,7 +267,7 @@ export default function Plan(){
     
     return(
         <div>
-            <div className='flex mt-8 relative'>
+            <div className='flex relative min-h-screen'>
                 {user && 
                     <>
                         {/* Desktop sidebar (visible on large screens) */}
@@ -280,7 +280,7 @@ export default function Plan(){
                         </div>
                     </>
                 }
-                <div className={`bg-main rounded-r-lg w-full pb-5 ${(steps === 10 || steps === 2) && width <= 700 ? '' : 'h-custom'}`}>
+                <div className={`bg-main rounded-r-lg w-full pb-5 ${(steps === 10 || steps === 2) && width <= 700 ? '' : 'h-auto'}`}>
                     <div className="mt-4 ml-10">
                         <button
                             className="lg:hidden text-blue-900"
@@ -370,7 +370,7 @@ export default function Plan(){
                                         <FontAwesomeIcon icon={faAngleLeft}/> Retour
                                     </div>}
                                     <div 
-                                        className={`text-center border border-green-900 rounded-full mt-9 py-1 cursor-pointer next-btn flex justify-center ${steps === 11 ? "w-30" : steps === 1 ? "w-35 float-right" : "w-25"}`}
+                                        className={`text-center border border-green-900 rounded-full mt-9 py-1 cursor-pointer next-btn ${steps === 11 ? "w-30" : steps === 1 ? "w-35 float-right" : "w-25"}`}
                                         onClick={nextStep}
                                     >
                                         <span>{steps === 11 ? "Sauvegarder" : "Suivant" }</span> 

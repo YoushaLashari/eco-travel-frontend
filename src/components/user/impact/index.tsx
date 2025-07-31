@@ -17,7 +17,7 @@ export default function Impact(){
     
     return(
         <div>
-            <div className='flex mt-8 relative'>
+            <div className='flex relative'>
                 {user && (
                     <>
                         {/* Desktop sidebar (visible on large screens) */}
