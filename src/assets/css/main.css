@@ -309,10 +309,10 @@ tr, th, td{
 }
 .progress-bar-follow-up-container{
     position: relative;
-    background-color: rgba(217, 217, 217, 0.7);
+    background-color: #D8AE9C;
     border-radius: 5px;
     overflow: hidden;
-    height: 10px;
+    height: 11px;
 }
 .progress-label {
     position: absolute;
@@ -428,4 +428,64 @@ tr, th, td{
         #f3f4f5,
         #fdfdfd 
     ) !important;
+}
+.bg-trip{
+    transition: .4s;
+    background-color: #DCFCE7 !important;
+}
+.bg-explore{
+    transition: .4s;
+    background-color: #DBEAFE !important;
+}
+.bg-adem{
+    transition: .4s;
+    background-color: #F3E8FF !important;
+}
+.bg-astuce-globe{
+    transition: .4s;
+    background-color: #FEFCE8 !important;
+}
+.bg-astuce{
+    transition: .4s;
+    background-color: #FEF9C3 !important;
+}
+.bg-modal{
+    transition: .4s;
+    background-color: #FAE9E2 !important;
+}
+.text-trip-color{
+    color: #358453 !important;
+}
+.text-astuce-color{
+    color: #D18F07 !important;
+}
+.text-explore-color{
+    color: #1D4ED8 !important;
+}
+.text-adem-color{
+    color: #7E22CE !important;
+}
+.bg-trip:hover{
+    transition: .4s;
+    background-color: #ebc1af !important;
+}
+.bg-explore:hover{
+    transition: .4s;
+    background-color: #ebc1af !important;
+}
+.bg-adem:hover{
+    transition: .4s;
+    background-color: #ebc1af !important;
+}
+.bg-astuce:hover{
+    transition: .4s;
+    background-color: #ebc1af !important;
+}
+@keyframes pulseOpacity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-custom {
+  animation: pulseOpacity 1.5s infinite;
 }
