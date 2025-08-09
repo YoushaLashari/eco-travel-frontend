@@ -252,19 +252,19 @@ export default function Details(){
                                     </div>
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
-                                            <span className="text-blue-950 font-semibold">{program.accommodation.name}</span>
+                                            <span className="text-blue-950 font-semibold">{program.accommodation.name ?? "custom"}</span>
                                             <span className="ms-2 text-blue-950 font-semibold">{capitalizeWords(trip.destination)}</span>
                                             <div className="text-gray-500 text-sm">Vieux Lyon</div>
                                             <div className="text-sm flex items-center mt-1">
                                                 <FontAwesomeIcon icon={faStar} color={"#FFCD4F"} />
-                                                <span className="ms-1 text-blue-950">{program.accommodation.rating}</span>
+                                                <span className="ms-1 text-blue-950">{program.accommodation.rating ?? "custom"}</span>
                                                 <div className="bg-trip text-trip-color text-xs font-semibold rounded-xl py-1 px-3 ms-4">
                                                     <FontAwesomeIcon icon={faLeaf} /> Eco
                                                 </div>
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="text-blue-950 text-center font-semibold">{program.accommodation.price_per_night}€/nuit</div>
+                                            <div className="text-blue-950 text-center font-semibold">{program.accommodation.price_per_night ?? "200"}€/nuit</div>
                                             <div className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-28 text-center me-2 text-blue-950 mt-1`}>
                                                 <FontAwesomeIcon icon={faArrowUpRightFromSquare}/> <span className="ms-2">Réserver</span>
                                             </div>
