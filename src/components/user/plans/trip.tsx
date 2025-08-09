@@ -60,14 +60,14 @@ export default function Trip({ trip } : {trip: Trip}){
                 {/* CO2 Emission Card */}
                 <div className="relative bg-white p-5 rounded-xl drop-shadow-md text-center">
                     <h3 className="text-blue-950 text-lg sm:text-xl">Total Émissions CO2 de votre voyage</h3>
-                    <h3 className="text-color text-xl sm:text-2xl mt-6 font-bold">{trip.total_carbon_emission} kg CO2</h3>
+                    <h3 className="text-color text-xl sm:text-2xl mt-6 font-bold">{trip.total_carbon_emission.toFixed(2)} kg CO2</h3>
                     <div className="bg-blue-950 text-white text-center rounded-full py-2 px-4 w-[80%] mx-auto mt-6 sm:absolute sm:bottom-4 sm:right-4 sm:w-auto">
                         Télécharger Mon Bilan Complet
                     </div>
                 </div>
 
                 {/* Environmental Impact */}
-                <div className="my-4 md:mt-9">
+                <div className="bg-white p-5 rounded-xl drop-shadow-md text-center">
                     <h1 className="text-blue-950 text-lg sm:text-xl">Votre impact Environnemental</h1>
                     <div className="mt-3 text-sm sm:text-base">
                         <span>
@@ -75,7 +75,7 @@ export default function Trip({ trip } : {trip: Trip}){
                             Cliquez sur <strong>"Voir mon itinéraire"</strong> pour découvrir des solutions simples et efficaces pour réduire votre impact environnemental.
                         </span>
                     </div>
-                    <div className="mt-5 w-full sm:w-1/2">
+                    <div className="mt-5 w-full text-center">
                         <Link
                             to={`/trip/${trip.id}`}
                             className="bg-color rounded-full py-2 px-4 text-white text-center inline-block"

@@ -1,4 +1,4 @@
-import { faAdd, faDownload, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faAdd, faCalendar, faDownload, faEdit, faLocation, faLocationDot, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
@@ -37,7 +37,6 @@ const Dashboard = () => {
   const [trips, setTrips] = useState<Trips[]>([]);
   
   let latestCarbonEmission = trip?.carbon_emission || 0;
-  let carbonPercent = ((latestCarbonEmission / (trip?.total_carbon_emission ?? 1)) * 100).toFixed(2);
   
   useEffect(() => {
     if(!loading && !auth){
@@ -83,7 +82,18 @@ const Dashboard = () => {
   
   return (
     <div>
-      <div className='flex mt-8 relative'>
+      <div className='bg-header w-full p-12'>
+        <div className='flex items-center place-content-center text-white'>
+          <div className='text-center'>
+            <h1 className='lg:text-6xl text-3xl'><strong>Où allez-vous ?</strong></h1>
+            <h2 className='text-xl mt-4'>Planifiez votre prochain voyage en quelques clics</h2>
+            <div className='mt-8'>
+              <Link to={'/trip'} className='bg-white border-0 text-blue-950 raduis py-2 px-8 text-lg font-medium'>Créer un voyage</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='flex relative'>
         {user && (
           <>
             {/* Desktop sidebar (visible on large screens) */}
@@ -97,24 +107,121 @@ const Dashboard = () => {
           </>
         )}
         <div className='bg-main rounded-r-lg w-screen'>
-          {user && (
-            <div className='ml-10 mt-5'>
-              <div>
-                <button
-                  className="lg:hidden text-blue-900"
-                  onClick={() => setSidebarOpen(!sidebarOpen)}
-                >
-                  <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                    />
-                  </svg>
-                </button>
+          <div className='ml-10 mt-5'>
+            <button
+              className="lg:hidden text-blue-900"
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+            >
+              <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                  d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="px-10">
+            <div className="grid gap-4 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+              <Link to={"/trip"} className="bg-white raduis p-5 flex items-center place-content-center drop-shadow-xl rebound-zoom">
+                <div>
+                  <div className='bg-blue-950 text-white rounded-full py-4 px-5 w-15 mx-auto'>
+                    <FontAwesomeIcon icon={faPlus} className='text-2xl' />
+                  </div>
+                  <div className='mt-4 text-center text-blue-950 text-lg font-semibold'> Nouveau voyage</div>
+                  <div className='mt-5 text-gray-500'>Planifiez votre prochaine destination</div>
+                </div>
+              </Link>
+              <Link to={"/trip"} className="bg-white raduis p-5 flex items-center place-content-center drop-shadow-xl rebound-zoom">
+                <div className=''>
+                  <div className='bg-calendar text-white rounded-full py-4 px-5 w-15 mx-auto'>
+                    <FontAwesomeIcon icon={faCalendar} className='text-2xl' />
+                  </div>
+                  <div className='mt-4 text-center text-blue-950 text-lg font-semibold'>Mes voyages</div>
+                  <div className='mt-5 text-gray-500'>Gérez vos voyages existants</div>
+                </div>
+              </Link>
+              <Link to={"/trip"} className="bg-white raduis p-5 flex items-center place-content-center drop-shadow-xl rebound-zoom">
+                <div className=''>
+                  <div className='bg-location text-white rounded-full py-4 px-5 w-15 mx-auto'>
+                    <FontAwesomeIcon icon={faLocationDot} className='text-2xl' />
+                  </div>
+                  <div className='mt-4 text-center text-blue-950 text-lg font-semibold'>Suggestions</div>
+                  <div className='mt-5 text-gray-500'>Découvrez de nouvelles destinations</div>
+                </div>
+              </Link>
+            </div>
+            <div className='mt-custom'>
+              <div className='flex items-center place-content-between'>
+                <h1 className='text-2xl text-blue-950 font-bold'>Vos voyages</h1>
+                <div>
+                  <Link to={'/plans'} className='px-3 py-2 border rounded-xl font-semibold text-sm link-hover'>
+                    Voir tout
+                  </Link>
+                </div>
               </div>
+              <div className="grid gap-8 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2">
+                {trips.length > 0 &&
+                  trips
+                  .slice() // create a shallow copy to avoid mutating original
+                  .sort((a, b) => new Date(b.start_date).getTime() - new Date(a.start_date).getTime()) // latest first
+                  .slice(0, 2) // take the latest 4
+                  .map((trip, index) => (
+                    <div key={index} className="bg-white raduis p-5 shadow-xl rebound-zoom border">
+                      <div className='flex items-start'>
+                        <div className='rounded-circle bg-icone w-7 h-7 text-center flex place-content-center items-center mt-1'>
+                          <FontAwesomeIcon icon={faLocationDot} color='#2E496D' />
+                        </div>
+                        <div className='ml-3'>
+                          <h3 className='text-xl text-blue-950 font-semibold'>{capitalizeWords(trip.name)}</h3>
+                          <div className='text-md text-gray-500 flex items-center'>
+                            <div>
+                              {new Date(trip.start_date).toLocaleDateString('fr-FR', {
+                                day: 'numeric',
+                                month: 'long',
+                              }).replace(/^\w/, c => c.toUpperCase())}
+                            </div>
+                            <div className="w-1 h-1 bg-gray-500 rounded-full mx-2"></div>
+                            <div>{calculateDurationDays(trip.start_date, trip.end_date)}</div>
+                          </div>
+                        </div>
+                      </div>
+                      <Link
+                        to={`/trip/${trip.id}`}
+                        className="w-full block mt-5 text-center border rounded-xl font-semibold text-sm link-hover py-3"
+                      >
+                        Voir les détails
+                      </Link>
+                    </div>
+                  ))
+              }
+              </div>
+            </div>
+            <div className='mt-custom'>
+              <h1 className='text-2xl text-blue-950 font-bold'>Besoin d'inspiration ?</h1>
+              <div className="my-5 bg-card-dashboard raduis p-7 shadow-xl">
+                <div className='flex items-start place-content-between'>
+                  <div>
+                    <h1 className='text-xl text-blue-950 font-bold'>Découvrez de nouvelles destinations</h1>
+                    <p className='text-md text-gray-500'>Laissez-nous vous proposer des idées de voyages adaptées à vos goûts</p>
+                    <div className='mt-7'>
+                      <Link
+                        to="/plans"
+                        className="text-center rounded-xl font-semibold text-sm bg-blue-950 text-white py-3 px-4 link-explore"
+                      >
+                        Explorer
+                      </Link>
+                    </div>
+                  </div>
+                  <div className='text-6xl text-left'>✈️</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* {user && (
+            <div className='ml-10 mt-5'>
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
                 <h1 className="text-xl lg:text-2xl">
                   <span className="text-blue-950">Dashboard de</span>{' '}
-                  <span className="text-color">Compensation</span>
+                  <span className="text-color">Décarbonation</span>
                 </h1>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center mr-0 lg:mr-5 gap-3">
                   <div className="bg-white rounded-full py-2 px-6 sm:px-10 text-blue-950 text-center cursor-pointer drop-shadow-md w-full sm:w-auto">
@@ -149,7 +256,7 @@ const Dashboard = () => {
                     <div className='ms-5'>
                       <h2 className='text-blue-950'>Mes voyages</h2>
                       <h2 className='text-blue-950 text-xl mt-3'><strong>{trips.length} {trips.length > 1 ? "Voyages" : "Voyage"}</strong></h2>
-                      <h2 className='text-red-500 mt-3'>2 actions de compensation requises</h2>
+                      <h2 className='text-red-500 mt-3'>2 actions de décarbonation requises</h2>
                     </div>
                   </div>
                   {trip && 
@@ -164,7 +271,7 @@ const Dashboard = () => {
                           <div>Départ: {capitalizeWords(formatDate(trip.start_date))}</div>
                           <div>Retour: {capitalizeWords(formatDate(trip.end_date))}</div>
                           <div>Empreinte: {trip?.carbon_emission}Kg CO<sub>2</sub></div>
-                          <div className='mt-3'>Compensation</div>
+                          <div className='mt-3'>Décarbonation</div>
                           <div className="progress-bar-container w-full bg-gray-200 h-4">
                           <div
                             className="progress-bar bg-green-500 h-4 transition-all duration-300"
@@ -184,7 +291,7 @@ const Dashboard = () => {
                   <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
                     <div>
                       <span className="text-blue-950 mr-2">Mes plans,</span> 
-                      <span className="text-color">de Compensation</span>
+                      <span className="text-color">de Décarbonation</span>
                     </div>
                     <img src={earth} alt="earth" className="w-6 sm:w-10" />
                   </h2>
@@ -196,7 +303,7 @@ const Dashboard = () => {
                           <th className="px-4 py-2">Destination</th>
                           <th className="px-4 py-2">Durée</th>
                           <th className="px-4 py-2">Actions</th>
-                          <th className="px-4 py-2">Compensation</th>
+                          <th className="px-4 py-2">Décarbonation</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -227,7 +334,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

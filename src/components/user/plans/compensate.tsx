@@ -86,7 +86,7 @@ export default function Compensate(){
     }, [id]);
 
     useEffect(() => {
-        document.title = "Compensation " + trip?.name;
+        document.title = "Décarbonation " + trip?.name;
     }, [trip]);
     
     const toggleSelected = (key: string) => {
@@ -189,7 +189,7 @@ export default function Compensate(){
                             <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
                                 <div>
                                     <span className="text-blue-950 mr-2">Mon plan,</span> 
-                                    <span className="text-color">de Compensation ({capitalizeWords(trip?.name)})</span>
+                                    <span className="text-color">de Décarbonation ({capitalizeWords(trip?.name)})</span>
                                 </div>
                                 <img src={earth} alt="note" className="w-6 sm:w-10" />
                             </h2>
@@ -205,7 +205,7 @@ export default function Compensate(){
                                 </div>
                                 <div className="mt-5 text-white">
                                     <h2 className="flex place-content-between font-bold">
-                                        <span>Compensation: 0/{trip.carbon_emission} kg</span>
+                                        <span>Décarbonation: 0/{trip.carbon_emission} kg</span>
                                         <span>{total < 0 ? "0.00" : total.toFixed(2)}%</span>
                                     </h2>
                                     <div className='progress-bar-container mt-3'>

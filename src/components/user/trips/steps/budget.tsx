@@ -1,6 +1,6 @@
-import { Input } from "@/components/ui/input";
 import budget from "/images/budget.svg";
 import React from "react";
+import { Select, SelectItem, SelectTrigger, SelectContent, SelectValue } from "@/components/ui/select";
 
 interface Trip {
     budget: string;
@@ -19,22 +19,27 @@ interface TripBudgetProps {
 export function TripBudget({handleData, trip, error}: TripBudgetProps){
     return(
         <div>
-            <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
-                <div>
-                    <span className="text-blue-950 mr-2">Choisissez votre</span> 
-                    <span className="text-color">Budget</span>
-                </div>
-                <img src={budget} alt="budget" className="w-6 sm:w-10" />
+            <h2 className="font-bold text-xl lg:text-2xl text-center">
+                <span className="text-blue-950">Quel est votre budget ?</span> 
             </h2>
-            <div className="mx-auto w-full mt-10">
-                <Input
-                    onChange={(event) => handleData("budget", event.target.value)}
-                    className="border rounded-full border-amber-700 text-blue-950 text-center h-12 w-full"
-                    placeholder="Montant ou fourchette"
-                    value={trip.budget}
-                    type="number"
-                    min="0"
-                />
+            <h2 className="text-center mt-3">
+                <span className="text-gray-500">Définissez votre fourchette de prix</span> 
+            </h2>
+            <div className="mx-auto w-full mt-5">
+                <Select
+                    onValueChange={(value) => handleData("budget", value)}
+                >
+                    <SelectTrigger className="h-12 py-6 w-full border-input rounded-xl text-blue-950 space-around items-center flex bg-input">
+                        <SelectValue placeholder={trip.budget.length > 0 ? trip.budget : "Sélectionnez votre budget"} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="Moins de 500€">Moins de 500€</SelectItem>
+                        <SelectItem value="500€ - 1000€">500€ - 1000€</SelectItem>
+                        <SelectItem value="1000€ - 2000€">1000€ - 2000€</SelectItem>
+                        <SelectItem value="2000€ - 3000€">2000€ - 3000€</SelectItem>
+                        <SelectItem value="Plus de 3000€">Plus de 3000€</SelectItem>
+                    </SelectContent>
+                </Select>
             </div>
             <div className="mb-4 text-red-500 text-sm text-center">{error && error.budget}</div>
         </div>

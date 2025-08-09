@@ -141,7 +141,7 @@ export default function FollowUp(){
                     </div>
                     <div className='bg-white rounded-lg p-5 flex items-start'>
                         <div className='ms-5'>
-                            <div className="text-sm text-gray-500">Compensation</div>
+                            <div className="text-sm text-gray-500">Décarbonation</div>
                             <h2 className='mt-3'><strong>50</strong> kg CO₂</h2>
                         </div>
                     </div>

@@ -18,28 +18,28 @@ interface TripNameProps {
 }
 
 export default function TripTransport({handleData, trip, error}: TripNameProps){
-    let transport = trip.transport === "plane" ? "Avion" : trip.transport === "train" ? "Train" : "Voiture";
+    let transport = trip.transport === "plane" ? "✈️ Avion" : trip.transport === "train" ? "🚆 Train" : trip.transport === "train" ? "🚗 Voiture" : "🚌 Bus";
 
     return(
         <div>
-            <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
-                <div>
-                    <span className="text-blue-950 mr-2">Choisissez votre</span> 
-                    <span className="text-color">Mode de transport</span>
-                </div>
-                <img src={tripImage} alt="trip" className="w-6 sm:w-10" />
+            <h2 className="font-bold text-xl lg:text-2xl text-center">
+                <span className="text-blue-950">Comment souhaitez-vous voyager ?</span> 
             </h2>
-            <div className="mx-auto w-full mt-10">
+            <h2 className="text-center mt-3">
+                <span className="text-gray-500">Choisissez votre moyen de transport</span> 
+            </h2>
+            <div className="mx-auto w-full mt-5">
                 <Select
                     onValueChange={(value) => handleData("transport", value)}
                 >
-                    <SelectTrigger className="h-12 py-6 w-full border border-amber-700 rounded-full text-blue-950 space-around items-center flex">
-                        <SelectValue placeholder={trip.transport.length > 0 ? transport : "-- Veuillez choisir votre moyen de transport --"} />
+                    <SelectTrigger className="h-12 py-6 w-full border-input rounded-xl text-blue-950 space-around items-center flex bg-input">
+                        <SelectValue placeholder={trip.transport.length > 0 ? transport : "Sélectionnez votre moyen de transport"} />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="plane">Avion</SelectItem>
-                        <SelectItem value="train">Train</SelectItem>
-                        <SelectItem value="car">Voiture</SelectItem>
+                        <SelectItem value="plane">✈️ Avion</SelectItem>
+                        <SelectItem value="train">🚆 Train</SelectItem>
+                        <SelectItem value="car">🚗 Voiture</SelectItem>
+                        <SelectItem value="bus">🚌 Bus</SelectItem>
                     </SelectContent>
                 </Select>
             </div>

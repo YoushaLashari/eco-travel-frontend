@@ -54,7 +54,6 @@
 }
 .trip-select:hover{
     background-color: rgba(255, 255, 255, 0.7);
-    color: white;
     transition: 0.4s;
 }
 .h-custom{

@@ -12,65 +12,64 @@ interface TripPersonsProps {
 export function TripPerson({handleAdults, handleChildrens, adults, childrens}: TripPersonsProps){
     return(
         <div>
-            <h2 className="font-bold text-xl lg:text-2xl flex place-content-center align-center">
-                <div>
-                    <span className="text-blue-950 mr-2">Choisissez</span> 
-                    <span className="text-color">Nombre de personnes</span>
-                </div>
-                <img src={people} alt="people" className="w-6 sm:w-10" />
+            <h2 className="font-bold text-xl lg:text-2xl text-center">
+                <span className="text-blue-950">Combien de voyageurs ?</span> 
             </h2>
-            <div className="mx-auto w-full mt-card">
-                <div className="flex items-end place-content-center">
-                    <div 
-                        onClick={(event) => handleAdults(event.currentTarget.id)}
-                        id="minus_adults"
-                        className="bg-white drop-shadow-lg rounded pb-2 pt-1 px-3 mr-3 cursor-pointer border border-amber-700"
-                    >
-                        <div className="text-xl flex items-end place-content-center">
-                            <span>-</span>
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="" className="text-right">Adultes</label>
-                        <Input
-                            className="border rounded-full border-amber-700 text-blue-950 text-center h-10"
-                            value={adults}
-                        />
-                    </div>
-                    <div 
-                        onClick={(event) => handleAdults(event.currentTarget.id)}
-                        id="plus_adults"
-                        className="bg-white drop-shadow-lg rounded pb-2 pt-1 px-3 ml-3 cursor-pointer border border-amber-700"
-                    >
-                        <div className="text-xl flex items-end place-content-center">
-                            <span>+</span>
+            <h2 className="text-center mt-3">
+                <span className="text-gray-500">Indiquez le nombre de personnes</span> 
+            </h2>
+            <div className="mx-auto w-full mt-5">
+                <div className="mb-4">
+                    <div className="bg-people p-5 rounded-xl">
+                        <div className="flex items-center justify-between">
+                            <div className="text-blue-950 font-semibold">Adultes</div>
+                            <div className="flex items-center">
+                                <div 
+                                    className="w-10 h-10 border-2 border-amber-600 rounded-full p-2 flex items-center justify-center cursor-pointer link-hover"
+                                    onClick={(event) => handleAdults(event.currentTarget.id)}
+                                    id="minus_adults"
+                                >
+                                    -
+                                </div>
+                                <Input
+                                    className="text-blue-950 text-center w-20 border-none font-bold"
+                                    value={adults}
+                                />
+                                <div 
+                                    className="w-10 h-10 border-2 border-amber-600 rounded-full p-2 flex items-center justify-center cursor-pointer link-hover"
+                                    onClick={(event) => handleAdults(event.currentTarget.id)}
+                                    id="plus_adults"
+                                >
+                                    +
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex items-end place-content-center mt-5">
-                    <div 
-                        onClick={(event) => handleChildrens(event.currentTarget.id)}
-                        id="minus_childrens"
-                        className="bg-white drop-shadow-lg rounded pb-2 pt-1 px-3 mr-3 cursor-pointer border border-amber-700"
-                    >
-                        <div className="text-xl flex items-end place-content-center">
-                            <span>-</span>
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="" className="text-right">Enfants</label>
-                        <Input
-                            className="border rounded-full border-amber-700 text-blue-950 text-center h-10"
-                            value={childrens}
-                        />
-                    </div>
-                    <div 
-                        onClick={(event) => handleChildrens(event.currentTarget.id)}
-                        id="plus_childrens"
-                        className="bg-white drop-shadow-lg rounded pb-2 pt-1 px-3 ml-3 cursor-pointer border border-amber-700"
-                    >
-                        <div className="text-xl flex items-end place-content-center">
-                            <span>+</span>
+                <div className="mb-4">
+                    <div className="bg-people p-5 rounded-xl">
+                        <div className="flex items-center justify-between">
+                            <div className="text-blue-950 font-semibold">Enfants</div>
+                            <div className="flex items-center">
+                                <div 
+                                    className="w-10 h-10 border-2 border-amber-600 rounded-full p-2 flex items-center justify-center cursor-pointer link-hover"
+                                    onClick={(event) => handleChildrens(event.currentTarget.id)}
+                                    id="minus_childrens"
+                                >
+                                    -
+                                </div>
+                                <Input
+                                    className="text-blue-950 text-center w-20 border-none font-bold"
+                                    value={childrens}
+                                />
+                                <div 
+                                    className="w-10 h-10 border-2 border-amber-600 rounded-full p-2 flex items-center justify-center cursor-pointer link-hover"
+                                    onClick={(event) => handleChildrens(event.currentTarget.id)}
+                                    id="plus_childrens"
+                                >
+                                    +
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -87,11 +87,11 @@ export default function Plans(){
     
     return (
         <div>
-            <div className='flex mt-8 relative'>
+            <div className='flex relative min-h-screen'>
                 {user && (
                     <>
                         {/* Desktop sidebar (visible on large screens) */}
-                        <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-custom hidden lg:block">
+                        <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-auto hidden lg:block">
                           <NavbarAdmin />
                         </div>
                         {/* Mobile sidebar (visible when sidebarOpen is true) */}
@@ -100,8 +100,8 @@ export default function Plans(){
                         </div>
                     </>
                 )}
-                <div className='bg-main rounded-r-lg w-screen h-auto'>
-                    <div className="mt-4 ml-10">
+                <div className='bg-main rounded-r-lg w-screen'>
+                    <div className="mt-9 ml-10">
                         <button
                             className="lg:hidden text-blue-900"
                             onClick={() => setSidebarOpen(!sidebarOpen)}

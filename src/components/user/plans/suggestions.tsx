@@ -12,10 +12,30 @@ export default function Suggestions({ tip }: TipComponent){
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-5 mx-5">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-4 py-4 mx-5">
+            {tip.ecofriendly_tips.map((item, index) => (
+                <div 
+                    className="bg-astuce-globe p-4 raduis mb-1"
+                    key={index}
+                >
+                    <div className="flex items-start">
+                        <div>
+                            🚶‍♂️
+                        </div>
+                        <div className="ml-4">
+                            <div className="bg-astuce text-astuce-color text-xs font-semibold rounded-xl py-1 px-3 w-24 text-center">
+                                {item.category}
+                            </div>
+                            <div className="text-sm mt-1">
+                                {item.impact}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
             {/* Card 1: Conseils éco-responsables */}
-            <div className="flex flex-col h-full">
-                <p className="text-center bg-card text-white p-3 rounded-t-lg text-lg font-bold">
+            {/* <div className="flex flex-col h-full">
+                <p className="text-center bg-card-program text-white p-3 rounded-t-lg text-lg font-bold">
                     Conseils éco-responsables
                 </p>
                 <div className="flex-1 rounded-b-lg shadow-lg bg-white">
@@ -36,11 +56,11 @@ export default function Suggestions({ tip }: TipComponent){
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
 
             {/* Card 2: Options de transport local */}
-            <div className="flex flex-col h-full">
-                <p className="text-center bg-card text-white p-3 rounded-t-lg text-lg font-bold">
+            {/* <div className="flex flex-col h-full">
+                <p className="text-center bg-card-program text-white p-3 rounded-t-lg text-lg font-bold">
                     Options de transport local
                 </p>
                 <div className="flex-1 rounded-b-lg shadow-lg bg-white">
@@ -69,7 +89,7 @@ export default function Suggestions({ tip }: TipComponent){
                         </div>
                     ))}
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

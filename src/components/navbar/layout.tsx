@@ -11,17 +11,17 @@ import Details from "../user/plans/details";
 import Compensate from "../user/plans/compensate";
 import Profile from "../user/profile";
 import Impact from "../user/impact";
+import { useUser } from "@/context/userContext";
 
 export default function Layout(){
+    const { auth } = useUser();
+
     return(
         <div>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Navbar/>}>
-                        <Route index 
-                            element={
-                                <Login/>
-                            } 
+                    <Route path="/" element={!auth && <Navbar/>}>
+                        <Route index element={<Login/>} 
                         />
                         <Route path="register" element={<Register/>}/>
                         <Route path="verification" element={<Code/>}/>

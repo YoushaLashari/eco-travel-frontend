@@ -79,7 +79,7 @@ export const calculateDurationDays = (startDate: string | Date, endDate: string 
     const diffTime = Math.abs(end.getTime() - start.getTime());
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-    return `${diffDays} ${diffDays === 1 ? "jour" : "jours"}`;
+    return `${diffDays}`;
 };
 
 export const calculateDaysNumbers = (startDate: string | Date, endDate: string | Date) => {
@@ -146,4 +146,64 @@ export const useWindowWidth = () =>{
     }, [isClient]);
 
     return width;
+}
+
+export const formatDateRange = (startDate: string | Date, endDate: string | Date) => {
+    const months = [
+        "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+    ];
+
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    const sameDay = start.toDateString() === end.toDateString();
+    const sameMonth = start.getMonth() === end.getMonth();
+    const sameYear = start.getFullYear() === end.getFullYear();
+
+    const dayStart = start.getDate().toString().padStart(2, '0');
+    const dayEnd = end.getDate().toString().padStart(2, '0');
+
+    const monthStart = months[start.getMonth()];
+    const monthEnd = months[end.getMonth()];
+    const year = start.getFullYear(); // Assume both dates are in same year
+
+    if (sameDay) {
+        return `${dayStart} ${monthStart} ${year}`;
+    }
+
+    if (sameMonth && sameYear) {
+        return `${dayStart} ${monthStart} - ${dayEnd} ${monthEnd} ${year}`;
+    }
+
+    return `${dayStart} ${monthStart} - ${dayEnd} ${monthEnd} ${year}`;
+}
+
+export const getDate = (dateStr, dayOffset = 0) => {
+    const date = new Date(dateStr);
+    date.setDate(date.getDate() + dayOffset);
+
+    const months = [
+        "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+        "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+    ];
+
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = months[date.getMonth()];
+
+    return `${day} ${month}`;
+}
+
+export const autoSlide = ({ slides }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex(prev =>
+                prev === slides.length - 1 ? 0 : prev + 1
+            );
+        }, 1000); // 1 second
+
+        return () => clearInterval(interval); // Cleanup on unmount
+    }, [slides.length]);
 }

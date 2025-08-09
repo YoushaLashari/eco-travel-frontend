@@ -7,6 +7,7 @@ interface Trip {
     origin: string;
     location: string;
     transport: string;
+    language: string;
     budget: string;
     notes: string;
 }
@@ -51,7 +52,7 @@ export function TripConfirm({trip, startDate, endDate, adults, childrens}: TripC
                 </div>
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Budget de votre voyage:</p>
-                    <p className="text-left w-full"><strong>{trip.budget} €</strong></p>
+                    <p className="text-left w-full"><strong>{trip.budget}</strong></p>
                 </div>
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Date de début:</p>
@@ -72,6 +73,14 @@ export function TripConfirm({trip, startDate, endDate, adults, childrens}: TripC
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Nombre d'enfants:</p>
                     <p className="text-left w-full"><strong>{childrens}</strong></p>
+                </div>
+                <div className="flex place-content-around mt-2">
+                    <p className="text-left w-full">Langue préférée:</p>
+                    <p className="text-left w-full">
+                        <strong>
+                            {trip.language === "English" ? "Anglais" : trip.language === "French" ? "Français" : trip.language === "Spanish" ? "Espagnol" : "Allemand"}
+                        </strong>
+                    </p>
                 </div>
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Remarques:</p>
