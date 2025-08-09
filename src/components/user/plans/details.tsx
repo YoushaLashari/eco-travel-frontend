@@ -75,7 +75,6 @@ export default function Details(){
     const [program, setProgram] = useState<Program | null>(null);
     const [tip, setTip] = useState<Tip | null>(null);
     const [selectedDayIndex, setSelectedDayIndex] = useState(0);
-
     useEffect(() => {
         if(!loading && !auth){
           navigate("/");
