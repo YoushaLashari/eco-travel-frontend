@@ -145,7 +145,7 @@ export default function Details(){
                 }
                 {trip && 
                     <div className='bg-main rounded-r-lg w-screen lg:px-20 px-5'>
-                        <div className="mt-4 ml-10">
+                        <div className="mt-4 ml-2">
                             <button
                                 className="lg:hidden text-blue-900"
                                 onClick={() => setSidebarOpen(!sidebarOpen)}
