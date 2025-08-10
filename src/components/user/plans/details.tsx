@@ -157,12 +157,12 @@ export default function Details(){
                                 </svg>
                             </button>
                         </div>
-                        <h2 className="font-bold text-xl lg:text-4xl text-center align-center mt-8">
+                        <h2 className="text-2xl sm:text-2xl lg:text-4xl text-center mt-3 font-semibold">
                             <span className="text-blue-950">
                                 {capitalizeWords(trip.name)}
                             </span>
                         </h2>
-                        <h2 className="text-xl lg:text-xl text-center align-center mt-3 font-semibold">
+                        <h2 className="text-base sm:text-lg lg:text-xl text-center mt-3 font-semibold">
                             <div className="text-gray-500 flex place-content-center items-center">
                                 <div>{capitalizeWords(trip.destination)}</div>
                                 <div className="w-1 h-1 bg-gray-500 rounded-full mx-2 font-bold mt-1"></div>
@@ -278,12 +278,12 @@ export default function Details(){
                                             const activity = program.itinerary.days[selectedDayIndex].schedule[period];
                                             return (
                                                 <div key={period} className="border border-gray-300 bg-white raduis p-4 mt-5">
+                                                    <div className="text-gray-500 w-24 mb-3 ml-3">
+                                                        <FontAwesomeIcon icon={faClock} />
+                                                        <span className="ml-1">{period.charAt(0).toUpperCase() + period.slice(1)}</span>
+                                                    </div>
                                                     <div className="flex mb-4 text-sm">
-                                                        <div className="text-gray-500 w-24">
-                                                            <FontAwesomeIcon icon={faClock} />
-                                                            <span className="ms-1">{period.charAt(0).toUpperCase() + period.slice(1)}</span>
-                                                        </div>
-                                                        <div className="ms-3 flex-1 w-100">
+                                                        <div className="ml-3 flex-1 w-100">
                                                             <div className="flex items-start justify-between w-full">
                                                                 <div className="flex items-start mb-2">
                                                                     <FontAwesomeIcon icon={faCamera} className="text-blue-950 me-2 text-sm mt-1" />
