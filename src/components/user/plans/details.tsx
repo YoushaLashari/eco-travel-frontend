@@ -264,7 +264,7 @@ export default function Details(){
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div className="mt-2">
                                                 <div className="text-blue-950 text-center font-semibold">{program && program.accommodation.price_per_night}€/nuit</div>
                                                 <div className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-28 text-center me-2 text-blue-950 mt-1`}>
                                                     <FontAwesomeIcon icon={faArrowUpRightFromSquare}/> <span className="ms-2">Réserver</span>
