@@ -212,7 +212,7 @@ export default function Details(){
                         <div className="my-5 grid gap-4 grid-cols-4 md:grid-cols-6">
                             {program?.itinerary.days.map((day, index) => (
                                 <div 
-                                    className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-28 text-center me-2 ${index === selectedDayIndex ? 'bg-blue-950 text-white' : 'text-blue-950'}`}
+                                    className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-20 lg:w-28 text-center mr-2 ${index === selectedDayIndex ? 'bg-blue-950 text-white' : 'text-blue-950'}`}
                                     key={index}
                                     onClick={() => setSelectedDayIndex(index)}
                                 >
