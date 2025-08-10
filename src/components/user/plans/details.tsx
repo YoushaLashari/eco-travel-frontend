@@ -251,10 +251,10 @@ export default function Details(){
                                             <FontAwesomeIcon icon={faBuilding} /> 
                                             <span className="ms-2">Hébergement</span>
                                         </div>
+                                        <span className="text-blue-950 font-semibold">{program && program.accommodation.name}</span>
+                                        <span className="ms-2 text-blue-950 font-semibold">{capitalizeWords(trip.destination)}</span>
                                         <div className="flex items-center justify-between mb-4">
                                             <div>
-                                                <span className="text-blue-950 font-semibold">{program && program.accommodation.name}</span>
-                                                <span className="ms-2 text-blue-950 font-semibold">{capitalizeWords(trip.destination)}</span>
                                                 <div className="text-gray-500 text-sm">Vieux Lyon</div>
                                                 <div className="text-sm flex items-center mt-1">
                                                     <FontAwesomeIcon icon={faStar} color={"#FFCD4F"} />
