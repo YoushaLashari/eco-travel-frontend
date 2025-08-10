@@ -405,7 +405,7 @@ export default function Plan(){
                                 Planifiez votre voyage parfait
                             </h1>
                             <h3 className="text-gray-500 text-center mt-3 text-xl">Laissez-nous vous guider étape par étape</h3>
-                            <div className="flex items-center justify-center w-full mt-8">
+                            <div className="hidden md:flex items-center justify-center w-full mt-8">
                                 {icons.map((icon, index) => (
                                     <React.Fragment key={index}>
                                         {/* Step circle */}
@@ -500,7 +500,7 @@ export default function Plan(){
                                 ) : (
                                     <div className={`text-center flex flex-wrap place-content-between w-full mx-auto items-center`}>
                                         <div 
-                                            className={`border border-gray-300 rounded-2xl w-35 mt-9 py-2 cursor-pointer font-semibold text-sm link-hover bg-white ${isPreviousDisabled ? 'disabled' : ''}`}
+                                            className={`border border-gray-300 rounded-2xl w-25 lg:w-35 mt-9 py-2 cursor-pointer font-semibold text-sm link-hover bg-white ${isPreviousDisabled ? 'disabled' : ''}`}
                                             onClick={previousStep}
                                         >
                                             <FontAwesomeIcon icon={faAngleLeft}/> Retour
@@ -512,7 +512,7 @@ export default function Plan(){
                                         </div>
                                         {steps === 10 ? 
                                             <div 
-                                                className="py-2 rounded-2xl font-semibold text-sm w-50 mx-auto text-center mt-9 flex items-center justify-center rebound-zoom-btn bg-confirm-btn border border-gray-300 text-white cursor-pointer"
+                                                className="py-2 rounded-2xl font-semibold text-sm w-45 lg:w-50 mx-auto text-center mt-9 flex items-center justify-center rebound-zoom-btn bg-confirm-btn border border-gray-300 text-white cursor-pointer"
                                                 onClick={nextStep}
                                             >
                                                 <svg
@@ -536,7 +536,7 @@ export default function Plan(){
                                                 <span className="ms-2">Créer mon voyage</span>
                                             </div> : 
                                             <div 
-                                                className={`text-center border border-blue-950 rebound-zoom-btn font-semibold text-sm bg-blue-btn rounded-xl mt-9 py-2 cursor-pointer next-btn text-white w-35 float-right ${isNextDisabled ? 'disabled' : ''}`}
+                                                className={`text-center border border-blue-950 rebound-zoom-btn font-semibold text-sm bg-blue-btn rounded-xl mt-9 py-2 cursor-pointer next-btn text-white w-25 lg:w-35 float-right ${isNextDisabled ? 'disabled' : ''}`}
                                                 onClick={nextStep}
                                             >
                                                 <span>Suivant</span> 
