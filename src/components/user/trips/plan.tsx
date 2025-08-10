@@ -513,7 +513,7 @@ export default function Plan(){
                                             </div>
                                         </div>
                                         {/* Next / Create button */}
-                                        {steps === 1 ? (
+                                        {steps === 10 ? (
                                             <div
                                                 className="py-2 rounded-2xl font-semibold text-sm w-45 lg:w-50 mx-auto text-center mt-9 flex items-center justify-center rebound-zoom-btn bg-confirm-btn border border-gray-300 text-white cursor-pointer order-2 md:order-3"
                                                 onClick={nextStep}
