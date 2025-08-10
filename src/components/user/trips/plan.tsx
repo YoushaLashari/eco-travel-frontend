@@ -498,21 +498,24 @@ export default function Plan(){
                                         <ClipLoader color="#3498db" loading={isLoading} size={50}/>
                                     </div>
                                 ) : (
-                                    <div className={`text-center flex flex-wrap place-content-between w-full mx-auto items-center`}>
-                                        <div 
-                                            className={`border border-gray-300 rounded-2xl w-25 lg:w-35 mt-9 py-2 cursor-pointer font-semibold text-sm link-hover bg-white ${isPreviousDisabled ? 'disabled' : ''}`}
+                                    <div className="w-full mx-auto flex flex-wrap items-center justify-between text-center">
+                                        {/* Previous button */}
+                                        <div
+                                            className={`border border-gray-300 rounded-2xl w-20 lg:w-35 mt-9 py-2 cursor-pointer font-semibold text-sm link-hover bg-white ${isPreviousDisabled ? "disabled" : ""}`}
                                             onClick={previousStep}
                                         >
-                                            <FontAwesomeIcon icon={faAngleLeft}/> Retour
+                                            <FontAwesomeIcon icon={faAngleLeft} /> Retour
                                         </div>
-                                        <div className="flex-1 mx-5 mt-8 justify-center w-full">
+                                        {/* Progress bar */}
+                                        <div className="w-full md:w-auto order-3 md:order-2 mt-6 md:mt-0 md:flex-1 mx-5">
                                             <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div className="bg-blue-950 h-2 rounded-full" style={{ width: `${cardWithd}%`, transition: 'width 0.5s ease-in-out', }}></div>
+                                                <div className="bg-blue-950 h-2 rounded-full transition-[width] duration-500 ease-in-out" style={{ width: `${cardWithd}%` }}></div>
                                             </div>
                                         </div>
-                                        {steps === 10 ? 
-                                            <div 
-                                                className="py-2 rounded-2xl font-semibold text-sm w-45 lg:w-50 mx-auto text-center mt-9 flex items-center justify-center rebound-zoom-btn bg-confirm-btn border border-gray-300 text-white cursor-pointer"
+                                        {/* Next / Create button */}
+                                        {steps === 10 ? (
+                                            <div
+                                                className="py-2 rounded-2xl font-semibold text-sm w-45 lg:w-50 mx-auto text-center mt-9 flex items-center justify-center rebound-zoom-btn bg-confirm-btn border border-gray-300 text-white cursor-pointer order-2 md:order-3"
                                                 onClick={nextStep}
                                             >
                                                 <svg
@@ -534,15 +537,19 @@ export default function Plan(){
                                                     <path d="M5 18H3"></path>
                                                 </svg>
                                                 <span className="ms-2">Créer mon voyage</span>
-                                            </div> : 
-                                            <div 
-                                                className={`text-center border border-blue-950 rebound-zoom-btn font-semibold text-sm bg-blue-btn rounded-xl mt-9 py-2 cursor-pointer next-btn text-white w-25 lg:w-35 float-right ${isNextDisabled ? 'disabled' : ''}`}
+                                            </div>
+                                        ) : (
+                                            <div
+                                                className={`text-center border border-blue-950 rebound-zoom-btn font-semibold text-sm bg-blue-btn rounded-xl mt-9 py-2 cursor-pointer next-btn text-white w-20 lg:w-35 float-right order-2 md:order-3 ${isNextDisabled ? "disabled" : ""}`}
                                                 onClick={nextStep}
                                             >
-                                                <span>Suivant</span> 
-                                                <span className={`mt-custom`}> <FontAwesomeIcon icon={faAngleRight} /></span>
+                                                <span>Suivant</span>
+                                                <span className="mt-custom">
+                                                    {" "}
+                                                    <FontAwesomeIcon icon={faAngleRight} />
+                                                </span>
                                             </div>
-                                        }
+                                        )}
                                     </div>
                                 )}
                             </div>
