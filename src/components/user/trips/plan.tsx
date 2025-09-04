@@ -21,6 +21,7 @@ import React from "react";
 import { NavbarAdmin } from "@/components/navbar/navbarAdmin";
 import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
 import TripLanguage from "./steps/language";
+import { format } from "date-fns";
 
 export default function Plan(){
     const { user, auth, loading, sidebarOpen, setSidebarOpen } = useUser(); 
@@ -165,13 +166,14 @@ export default function Plan(){
             transportation : trip.transport.trim(),
             language : trip.language.trim(),
             start_date : startDate.toISOString().split("T")[0],
-            end_date :  endDate?.toISOString().split("T")[0],
+            end_date :  format(endDate, "yyyy-MM-dd"),
             budget : trip.budget,
             num_adult : adults,
             num_children : childrens,
             note : trip.notes.trim(),
             with_visa : false,
         }
+        
         
         setCardWidth(prev => Math.min(prev + 10, 100));
         setIsNextDisabled(true);

@@ -180,7 +180,7 @@ const Dashboard = () => {
                               }).replace(/^\w/, c => c.toUpperCase())}
                             </div>
                             <div className="w-1 h-1 bg-gray-500 rounded-full mx-2"></div>
-                            <div>{calculateDurationDays(trip.start_date, trip.end_date)}</div>
+                            <div>{calculateDurationDays(trip.start_date, trip.end_date)} Jours</div>
                           </div>
                         </div>
                       </div>

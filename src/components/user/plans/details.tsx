@@ -220,7 +220,8 @@ export default function Details(){
                                 </div>
                             ))}
                         </div>
-                        <div className="max-w-5xl mx-auto my-5">
+                        {/* <div className="max-w-5xl mx-auto my-5"> */}
+                        <div className="mx-auto my-5">
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                                 <div className="col-span-1 md:col-span-7">
                                     <div className="border border-gray-300 bg-white raduis p-4">

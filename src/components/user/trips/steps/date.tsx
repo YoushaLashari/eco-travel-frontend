@@ -6,6 +6,7 @@ import calendar from "/images/calendar.svg";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { format } from "date-fns";
 
 interface Error {
     date?: string;
@@ -20,6 +21,9 @@ interface TripDateProps {
 
 
 export function TripDate({ handleDates, startDate, endDate, error }: TripDateProps) {
+    const realTime = (date) =>{
+        format(date, "yyyy-MM-dd")
+    }
     return (
         <div>
             <h2 className="font-bold text-xl lg:text-2xl text-center">
@@ -68,11 +72,10 @@ export function TripDate({ handleDates, startDate, endDate, error }: TripDatePro
                                 locale={fr}
                                 selected={endDate}
                                 onChange={(date: Date | null) => {
-                                if (!date) return;
-                                if (startDate && date < startDate) {
-                                    return;
-                                }
-                                handleDates({ startDate, endDate: date });
+                                    if (!date) return;
+                                    if (startDate && date < startDate) return;
+
+                                    handleDates({ startDate, endDate: date });
                                 }}
                                 minDate={startDate ?? new Date()}
                                 maxDate={addMonths(new Date(), 5)}
