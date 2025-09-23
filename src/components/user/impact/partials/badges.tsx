@@ -1,69 +1,119 @@
-import { faArrowTrendDown, faMedal } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import React from "react";
 
-export default function Badge(){
-    return(
+export default function Badge() {
+    const badges = [
+        {
+            id: 1,
+            title: "Éco-voyageur",
+            description: "3 voyages éco-responsables",
+            progress: 100,
+            completed: true,
+            color: "hsl(var(--success))",
+            icon: "🌱"
+        },
+        {
+            id: 2, 
+            title: "Expert Local",
+            description: "4 semaines de consommation locale",
+            progress: 75,
+            completed: false,
+            color: "hsl(var(--warning))",
+            icon: "🏆"
+        },
+        {
+            id: 3,
+            title: "Zéro Déchet",
+            description: "Réduction des déchets de 50%",
+            progress: 50,
+            completed: false,
+            color: "hsl(var(--info))",
+            icon: "♻️"
+        }
+    ];
+
+const nextChallenges = [
+    {
+        title: "Expert Mobilité Douce",
+        description: "30 jours sans utiliser de voiture",
+        icon: "🚴"
+    },
+    {
+        title: "Expert Mobilité Douce", 
+        description: "30 jours sans utiliser de voiture",
+        icon: "🚴"
+    }
+];
+
+    return (
         <div className='mx-10 my-5'>
-            <div><strong>Mes badges</strong></div>
-            <div className="text-gray-500">Continuez à améliorer votre impact</div>
-            <div className={`grid gap-4 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2`}>
-                <div className="mt-3 border p-4 rounded bg-white flex place-content-center items-start">
-                    <div className="w-full">
-                        <div className="p-3 bg-green-100 circle text-center w-15 mx-auto"><FontAwesomeIcon icon={faMedal} className="mt-1" style={{ fontSize : 25 }} color={'#4CAF50'} /></div>
-                        <div className="text-center">Éco-voyageur</div>
-                        <div className="text-gray-500 mt-1 text-center text-xs">3 voyages éco-responsables</div>
-                        <div className="progress-bar-badge-container w-full bg-gray-200 h-4 mt-2">
-                            <div className={`progress-bar-follow-up bg-green-500 h-4 transition-all duration-300`} style={{ width: `100%` }}></div>
-                        </div>
-                        <div className="text-center text-sm">100%</div>
-                    </div>
-                </div>
-                <div className="mt-3 border p-4 rounded bg-white flex place-content-center items-start">
-                    <div className="w-full">
-                        <div className="p-3 bg-amber-100 circle text-center w-15 mx-auto"><FontAwesomeIcon icon={faMedal} className="mt-1" style={{ fontSize : 25 }} color={'#FF9800'} /></div>
-                        <div className="text-center">Expert Local</div>
-                        <div className="text-gray-500 mt-1 text-center text-xs">4 semaines de consommation locale</div>
-                        <div className="progress-bar-badge-container w-full bg-gray-200 h-4 mt-2">
-                            <div className={`progress-bar-follow-up bg-amber-500 h-4 transition-all duration-300`} style={{ width: `75%` }}></div>
-                        </div>
-                        <div className="text-center text-sm">75%</div>
-                    </div>
-                </div>
-                <div className="mt-3 border p-4 rounded bg-white flex place-content-center items-start">
-                    <div className="w-full">
-                        <div className="p-3 bg-blue-100 circle text-center w-15 mx-auto"><FontAwesomeIcon icon={faMedal} className="mt-1" style={{ fontSize : 25 }} color={'#2196F3'} /></div>
-                        <div className="text-center">Zéro Déchet</div>
-                        <div className="text-gray-500 mt-1 text-center text-xs">Réduction des déchets de 50%</div>
-                        <div className="progress-bar-badge-container w-full bg-gray-200 h-4 mt-2">
-                            <div className={`progress-bar-follow-up bg-blue-500 h-4 transition-all duration-300`} style={{ width: `50%` }}></div>
-                        </div>
-                        <div className="text-center text-sm">50%</div>
-                    </div>
-                </div>
-            </div>
-            <div className="mt-3"><strong>Prochains défis</strong></div>
-            <div className="text-gray-500">Relevez ces défis pour obtenir de nouveaux badges</div>
-            <div className="mt-3 border p-4 rounded bg-white flex place-content-between items-start">
-                <div className="flex items-start">
-                    <div className="p-3 bg-red-100 circle text-center mx-auto"><FontAwesomeIcon icon={faArrowTrendDown} className="mt-1" style={{ fontSize : 25 }} color={'#E91E63'} /></div>
-                    <div className="ms-2">
-                        <div>Expert Mobilité Douce</div>
-                        <div className="text-xs text-gray-500">30 jours sans utiliser de voiture</div>
-                    </div>
-                </div>
-                <div className="text-green-500 text-end mt-3 cursor-pointer border border-green-500 py-1 px-3 rounded text-sm">Démarrer</div>
-            </div>
-            <div className="mt-3 border p-4 rounded bg-white flex place-content-between items-start">
-                <div className="flex items-start">
-                    <div className="p-3 bg-red-100 circle text-center mx-auto"><FontAwesomeIcon icon={faArrowTrendDown} className="mt-1" style={{ fontSize : 25 }} color={'#E91E63'} /></div>
-                    <div className="ms-2">
-                        <div>Expert Mobilité Douce</div>
-                        <div className="text-xs text-gray-500">30 jours sans utiliser de voiture</div>
-                    </div>
-                </div>
-                <div className="text-green-500 text-end mt-3 cursor-pointer border border-green-500 py-1 px-3 rounded text-sm">Démarrer</div>
-            </div>
+            <Tabs defaultValue="badges" className="w-full">
+                <TabsContent value="badges" className="space-y-6 mt-6">
+                    {/* Mes badges */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-blue-950 text-2xl font-semibold">Mes badges</CardTitle>
+                            <p className="text-sm text-muted-foreground">
+                                Continuez à améliorer votre impact
+                            </p>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid md:grid-cols-2 gap-4">
+                                {badges.map((badge) => (
+                                    <div key={badge.id} className="p-4 rounded-lg border border-border">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <div className="text-2xl">{badge.icon}</div>
+                                            <div className="flex-1">
+                                                <h4 className="font-semibold">{badge.title}</h4>
+                                                <p className="text-sm text-muted-foreground">{badge.description}</p>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <div className="flex justify-between text-sm">
+                                                <span>Progression</span>
+                                                <span>{badge.progress}%</span>
+                                            </div>
+                                            <Progress
+                                                value={badge.progress}
+                                                className="h-2 bg-progress [&>div]:bg-blue-950"
+                                            />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Prochains défis */}
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-blue-950 text-2xl font-semibold">Prochains défis</CardTitle>
+                            <p className="text-sm text-muted-foreground">
+                                Relevez ces défis pour obtenir de nouveaux badges
+                            </p>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            {nextChallenges.map((challenge, index) => (
+                                <div key={index} className="flex items-center justify-between p-4 rounded-lg border border-dashed border-border">
+                                    <div className="flex items-center gap-3">
+                                        <div className="text-2xl opacity-50">{challenge.icon}</div>
+                                        <div>
+                                            <h4 className="font-medium text-muted-foreground">{challenge.title}</h4>
+                                            <p className="text-sm text-muted-foreground">{challenge.description}</p>
+                                        </div>
+                                    </div>
+                                    <Button variant="outline" className="text-green-600 hover:bg-green-600 hover:text-white">
+                                        Démarrer
+                                    </Button>
+                                </div>
+                            ))}
+                        </CardContent>
+                    </Card>
+                </TabsContent>
+            </Tabs>
         </div>
     )
 }

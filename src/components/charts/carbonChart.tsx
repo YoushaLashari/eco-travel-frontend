@@ -76,7 +76,6 @@ export default function CarbonChart({ trips }: Props){
         maintainAspectRatio: false,
         plugins: {
             legend: { position: 'top' as const },
-            title: { display: true, text: 'Émissions de carbone par mois' },
         },
     };
 

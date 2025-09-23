@@ -266,6 +266,10 @@ tr, th, td{
         width: calc(var(--spacing) * 6) !important;
         height: calc(var(--spacing) * 6) !important;
     }
+    .laptop-position{
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 @media(min-width: 1800px){
@@ -285,5 +289,9 @@ tr, th, td{
         margin-left: 2px;
         width: calc(var(--spacing) * 6) !important;
         height: calc(var(--spacing) * 6) !important;
+    }
+    .laptop-position{
+        position: absolute;
+        bottom: 0;
     }
 }

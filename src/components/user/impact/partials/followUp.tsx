@@ -1,9 +1,13 @@
 import axiosInstance from "@/api/config";
 import { capitalizeWords, firstLastWord } from "@/assets/helpers";
 import CarbonChart from "@/components/charts/carbonChart";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
 import { useUser } from "@/context/userContext";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Leaf } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 type AdemKey = "food" | "miscellaneous" | "housing" | "social_services" | "transportation";
@@ -127,102 +131,77 @@ export default function FollowUp(){
     
     return (
         <div className='mx-10 my-5'>
-            <div className="bg-green-custom p-4 rounded">
-                <div className="flex items-center place-content-between">
-                    <span><strong>Mon Bilan</strong></span>
-                    <span className="text-sm text-gray-500"><FontAwesomeIcon icon={faCalendar} /> Dernier 12 mois</span>
-                </div>
-                <div className={`grid gap-4 my-5 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-2`}>
-                    <div className='bg-white rounded-lg p-5 flex items-start'>
-                        <div className='ms-5'>
-                            <div className="text-sm text-gray-500">Empreinte Totale</div>
-                            <h2 className='mt-3'><strong>{trip?.total_carbon_emission.toFixed(2)}</strong> kg CO₂</h2>
+            <Card className="bg-white">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <Leaf className="w-5 h-5 text-green-600" />
+                        <span className="text-blue-950 text-2xl font-semibold">Mon Bilan</span>
+                        <Badge variant="outline" className="ml-auto">
+                            📅 Dernier 12 mois
+                        </Badge>
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                            <h3 className="text-sm text-muted-foreground">Empreinte Totale</h3>
+                            <p className="text-2xl font-bold text-blue-950">
+                                {trip?.total_carbon_emission.toFixed(2)} kg CO<sub>2</sub>
+                            </p>
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-sm text-muted-foreground">Décarbonation</h3>
+                            <p className="text-2xl font-bold text-green-600">
+                                50 kg CO<sub>2</sub>
+                            </p>
                         </div>
                     </div>
-                    <div className='bg-white rounded-lg p-5 flex items-start'>
-                        <div className='ms-5'>
-                            <div className="text-sm text-gray-500">Décarbonation</div>
-                            <h2 className='mt-3'><strong>50</strong> kg CO₂</h2>
+                    
+                    {/* Progress Bar */}
+                    <div className="mt-4">
+                        <div className="flex justify-between text-sm mb-2 text-blue-950">
+                            <span className="text-blue-950">Émissions compensées</span>
+                            <span>{carbonPercent}%</span>
                         </div>
+                        <Progress value={Number(carbonPercent)} className="h-2 bg-progress [&>div]:bg-blue-950" />
                     </div>
-                </div>
-                <div className="mt-3">
-                    <div className="flex items-center place-content-between">
-                        <div>Émissions compensées</div>
-                        <div>{carbonPercent}%</div>
-                    </div>
-                    <div className="progress-bar-follow-up-container w-full bg-gray-200 h-4 mt-2">
-                        <div className="progress-bar-follow-up bg-green-500 h-4 transition-all duration-300" style={{ width: `${carbonPercent}%` }}></div>
-                    </div>
-                </div>
-            </div>
-            <div className="mt-3 border p-4 rounded bg-white">
-                <div><strong>Évolution sur 12 mois</strong></div>
+                </CardContent>
+            </Card>
+            <div className="mt-3 border p-4 bg-white rounded-2xl">
+                <div className="text-blue-950 text-2xl font-semibold">Évolution sur 12 mois</div>
+                <h3 className="text-sm text-muted-foreground">Émissions de carbone par mois</h3>
                 <CarbonChart trips={trips}/>
             </div>
-            <div className="mt-3 border p-4 rounded bg-white">
-                <div><strong>Répartition de mon empreinte</strong></div>
-                <div className={`grid gap-4 my-5 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-2`}>
-                    {adems.map((adem, index) => {
-                        const bgColor = colorMap[adem.name] || 'bg-gray-400';
-                        const names = nameMap[adem.name] || 'Alimentation';
-                        const percent = (adem.total / 2000) * 100;
-                        
-                        return(
-                            <>
-                                <div key={index}>
-                                    <div className="flex place-content-between items-start"> 
-                                        <div className="flex">
-                                            <div className={`${bgColor} pad circle`}></div>
-                                            <div className="ml-2">{names}</div>
+            <div className="mt-3">
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="text-blue-950 text-2xl font-semibold">Répartition de mon empreinte</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4 text-blue-950">
+                            {adems.map((adem, index) => {
+                                const bgColor = colorMap[adem.name] || 'bg-gray-400';
+                                const names = nameMap[adem.name] || 'Alimentation';
+                                const percent = (adem.total / 2000) * 100;
+                                return(
+                                    <>
+                                        <div key={index} className="flex items-center justify-between">
+                                            <div className="flex items-center gap-3">
+                                                <div 
+                                                    className={`w-4 h-4 rounded-full ${bgColor}`} 
+                                                />
+                                                <span className="font-medium">{names}</span>
+                                            </div>
+                                            <div className="text-right">
+                                                <span className="font-semibold">{percent}%</span>
+                                            </div>
                                         </div>
-                                        <span>{percent}%</span>
-                                    </div>
-                                    <div
-                                        className="progress-bar-follow-up-container w-full bg-gray-200 h-4 mt-2"
-                                    >
-                                        <div
-                                            className={`progress-bar-follow-up ${bgColor} h-4 transition-all duration-300`}
-                                            style={{ width: `${percent}%` }}
-                                        >
-                                        </div>
-                                    </div>
-                                </div>
-                            </>
-                         );
-                    })}
-                </div>
-            </div>
-            <div className="mt-3 border p-4 rounded bg-white">
-                <div className="flex items-center place-content-between">
-                    <div><strong>Classement communauté</strong></div>
-                    <div className="text-green-600 text-sm">Voir tout</div>
-                </div>
-                <div className="mt-3">
-                    {emissions.map((user_t, index) => (
-                        <div key={index}>
-                            {user_t.user_id === user.id ?
-                                <div className="flex place-content-between bg-green-custom p-4 rounded">
-                                    <div className="flex items-center">
-                                        <span className="py-1 px-3 bg-green-600 circle text-white">{user_t.rank}</span>
-                                        <div className="ms-3">
-                                            <div>Votre position</div>
-                                            <div className="text-xs text-gray-400">Mieux que {((user_t.rank / total) * 100).toFixed(2)}% d'utilisateurs</div>
-                                        </div>
-                                    </div>
-                                    <div className="text-green-600"><strong>- {((50 / user_t.total_emission) * 100).toFixed(2)}% CO₂</strong></div>
-                                </div> :
-                                <div className="flex place-content-between">
-                                    <div className="flex items-center">
-                                        <div className="bg-gray-100 pad circle">{user_t.rank}</div>
-                                        <div className="ms-2">{capitalizeWords(firstLastWord(user_t.user_name))}</div>
-                                    </div>
-                                    <div className="text-green-600"><strong>- {((50 / user_t.total_emission) * 100).toFixed(2)}% CO₂</strong></div>
-                                </div>
-                            }
+                                    </>
+                                )
+                            })}
                         </div>
-                    ))}
-                </div>
+                    </CardContent>
+                </Card>
             </div>
         </div>
     )

@@ -1,27 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router";
-import placeholder from "/images/placeholder.svg";
+import { useNavigate, useParams } from "react-router";
 import heart from "/images/heart.svg";
-import restaurant from "/images/restaurant.jpg";
 import photo from "/images/photo.jpg";
 import photo2 from "/images/photo-2.jpg";
-import tegallalang from "/images/tegallalang.webp";
-import earth from "/images/earth.svg";
-import flower from "/images/flower.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight, faArrowUpRightFromSquare, faAward, faBuilding, faBullseye, faCalendar, faCamera, faCircleCheck, faClock, faCloudSun, faHandPointRight, faLeaf, faLightbulb, faLocation, faMap, faMoon, faPen, faStar, faSun, faTrainSubway } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUpRightFromSquare, faBuilding, faCalendar, faCamera, faClock, faCloudSun,  faLeaf, faLightbulb, faMap, faPen, faStar, faTrainSubway } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { useUser } from "@/context/userContext";
 import axiosInstance from "@/api/config";
-import { NavbarAdmin } from "@/components/navbar/navbarAdmin";
 import { calculateDurationDays, capitalizeWords, formatDateRange, getDate } from "@/assets/helpers";
 import Map from "@/components/navbar/map";
 import Suggestions from "./suggestions";
-import Weather from "./weather";
-import { ResponsiveNavbarAdmin } from "@/components/navbar/ResponsiveNavbarAdmin";
-import { log } from "console";
-import { url } from "@/api/url";
-import axios from "axios";
 import Slider from "./slider";
 import Button from "./button";
 
@@ -67,6 +56,13 @@ interface Tip{
     trip_id: number;
 }
 
+interface Food{
+    id: number;
+    items: [];
+    name: string;
+    slug: string;
+}
+
 export default function Details(){
     const navigate = useNavigate();
     const { auth, loading, sidebarOpen, setSidebarOpen } = useUser(); 
@@ -74,6 +70,7 @@ export default function Details(){
     const [trip, setTrip] = useState<Trip | null>(null);
     const [program, setProgram] = useState<Program | null>(null);
     const [tip, setTip] = useState<Tip | null>(null);
+    const [food, setFood] = useState<Food[]>([]);
     const [selectedDayIndex, setSelectedDayIndex] = useState(0);
     useEffect(() => {
         if(!loading && !auth){
@@ -115,6 +112,17 @@ export default function Details(){
     }, [id]);
 
     useEffect(() => {
+        const getFood = async () => {
+            const response = await axiosInstance.get("adems/alimentation", {
+      params: { category: "group", language: "fr" }
+    });
+            console.log(response.data);
+        };
+
+        getFood();
+    }, []);
+
+    useEffect(() => {
         const getTip = async () =>{
             if (!id) return;
             
@@ -132,31 +140,7 @@ export default function Details(){
         <div>
             <div className='flex relative'>
                 {trip && 
-                    <>
-                        {/* Desktop sidebar (visible on large screens) */}
-                        <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-auto hidden lg:block">
-                            <NavbarAdmin />
-                        </div>
-                        {/* Mobile sidebar (visible when sidebarOpen is true) */}
-                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-50`}>
-                            <ResponsiveNavbarAdmin sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                        </div>
-                    </>
-                }
-                {trip && 
-                    <div className='bg-main rounded-r-lg w-screen lg:px-20 px-5'>
-                        <div className="mt-4 ml-2">
-                            <button
-                                className="lg:hidden text-blue-900"
-                                onClick={() => setSidebarOpen(!sidebarOpen)}
-                            >
-                                <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                        d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                                    />
-                                </svg>
-                            </button>
-                        </div>
+                    <div className='bg-main rounded-r-lg w-full lg:px-20 px-5'>
                         <h2 className="text-2xl sm:text-2xl lg:text-4xl text-center mt-3 font-semibold">
                             <span className="text-blue-950">
                                 {capitalizeWords(trip.name)}
@@ -179,35 +163,11 @@ export default function Details(){
                                     <div className="text-green-600 font-bold text-lg lg:text-2xl">245 kg</div>
                                     <div className="text-gray-500 text-sm mt-1">CO₂ économisé</div>
                                 </div>
-                                {/* <div className="text-center">
-                                    <div className="text-orange-600 font-bold text-lg lg:text-2xl">1250</div>
-                                    <div className="text-gray-500 text-sm mt-1">Green Points</div>
-                                </div> */}
                                 <div className="text-center">
                                     <div className="text-blue-950 font-bold text-lg lg:text-2xl">200 €</div>
                                     <div className="text-gray-500 text-sm mt-1">Budget total</div>
                                 </div>
                             </div>
-                            {/* <div className="mt-6">
-                                <div className="flex items-center place-content-between">
-                                    <div className="text-blue-950 font-semibold text-sm">Impact écologique</div>
-                                    <div className="text-green-600">Excellent</div>
-                                </div>
-                                <div className="progress-bar-follow-up-container w-full bg-gray-200 h-4 mt-2">
-                                    <div className="progress-bar-follow-up bg-blue-950 h-4 transition-all duration-300" style={{ width: `90%` }}></div>
-                                </div>
-                            </div>
-                            <div className="mt-4 flex items-center">
-                                <div className="bg-trip text-trip-color text-xs font-semibold rounded-xl py-1 px-3">
-                                    <FontAwesomeIcon icon={faLeaf} /> Voyage Eco-friendly
-                                </div>
-                                <div className="bg-explore text-explore-color text-xs font-semibold rounded-xl py-1 px-3 mx-2">
-                                    <FontAwesomeIcon icon={faAward} /> Explorateur Vert
-                                </div>
-                                <div className="bg-adem text-adem-color text-xs font-semibold rounded-xl py-1 px-3">
-                                    <FontAwesomeIcon icon={faBullseye} /> Challenge ADEME
-                                </div>
-                            </div> */}
                         </div>
                         <div className="my-5 grid gap-4 grid-cols-4 md:grid-cols-6">
                             {program?.itinerary.days.map((day, index) => (
@@ -352,15 +312,6 @@ export default function Details(){
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="mx-5">
-                            {/* <div className="my-9 bg-white p-5 w-full mx-auto rounded-lg shadow-2xl">
-                                <div className="flex items-center place-content-between">
-                                    <h2 className="text-blue-950"><strong>Itinéraire du jour</strong></h2>
-                                    <Weather/>
-                                </div>
-                                <Map/>
-                            </div> */}
                         </div>
                         <Button trip={trip.destination}/>
                     </div>

@@ -571,3 +571,40 @@ tr, th, td{
     #1a9447 100%
   );
 }
+.sidebar-expanded{
+  width: 265px;
+}
+
+.sidebar-collapsed{
+  width: 85px;
+}
+.navbar-color{
+    transition: 0.4s;
+}
+.navbar-color:hover{
+    transition: 0.4s;
+    background-color: #F4F4F5 !important;
+    color: 616164 !important;
+}
+.active-navbar{
+  background-color: #0F2D57 !important;
+  color: #fff !important;
+}
+.navbar-hover{
+  transition: 0.1s;
+}
+.nav-col{
+    color: #616164 !important;
+}
+.bg-progress{
+    background-color: #DDAF9C !important;
+}
+.bg-gradient-primary {
+  background-image: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
+}
+.text-pink{
+    color: #E5C3B7;
+}
+.bg-pink{
+    background-color: #F3E9E7;
+}

@@ -1,18 +1,20 @@
 import { url } from "@/api/url";
 import { api_post, capitalizeWords, firstWord } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
-import { faBarChart, faBars, faGear, faHouse, faPlane, faPuzzlePiece, faQuestionCircle, faRightFromBracket, faSackDollar, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBarChart, faBars, faBullseye, faChartColumn, faGear, faHouse, faListUl, faPlane, faPuzzlePiece, faQuestionCircle, faRightFromBracket, faSackDollar, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router";
 import logo from "/images/logo-slogan.jpg";
+import { cardIcon, destinationDotIcon, houseIcon, questionMarkIcon, userIcon } from "../ui/icons";
 
 interface SideBar{
     setSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
     sidebarOpen: boolean;
+    pathname: string;
 }
 
-export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
+export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen, pathname}: SideBar){
     const { setAuth, token, user, setUser } = useUser();
 
     const logOut = async ()=>{
@@ -32,12 +34,15 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
 
     return(
         <div>
-            <div className="flex items-start justify-between">
-                <div className="text-center w-full mx-auto">
-                    <img src={logo} alt="logo" className="w-90 text-center" />
+            <div className="flex items-start justify-between py-4">
+                <div className="pl-6 flex items-center">
+                    <div className="border bg-blue-950 rounded-full py-2 px-2 text-white w-8 h-8 font-semibold flex items-center justify-center">
+                        T
+                    </div>
+                    <div className={`text-blue-950 font-semibold text-lg ml-5`}>Trekr</div>
                 </div>
                 <button
-                    className="lg:hidden text-blue-900"
+                    className="lg:hidden text-blue-900 cursor-pointer"
                     onClick={() => setSidebarOpen(!sidebarOpen)}
                 >
                     <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -47,78 +52,74 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen}: SideBar){
                     </svg>
                 </button>
             </div>
-            <hr />
             <div className="flex ml-4 items-center my-5">
-                <div className={`${user.picture == null && "border bg-color"} mr-3 rounded-full py-2 px-2 text-white text-xs`}>
+                <div className={`${user.picture == null ? "border bg-color rounded-full py-2 px-2 text-white text-xs" : ""} mr-3`}>
                     {user.picture !== null ? 
                         <img
                             src={`${url}/images/${user.picture}`}
                             alt="Profile"
-                            className="object-cover w-12 h-12 rounded-full"
+                            className="object-cover w-12 h-12 rounded-full block"
                         />: 
                         <span>{firstWord(user && user.name)}</span>
                     }
                 </div>
-                <span className="font-semibold text-blue-900">{capitalizeWords(user && user.name)}</span>
-            </div>
-            <hr />
-            <div className="mt-5">
-                <h5 className="text-blue-800">Menu principal</h5>
-                <div className="flex ml-5 mt-4 text-blue-800">
-                    <span><FontAwesomeIcon icon={faHouse}/></span> 
-                    <span className="ml-2">Accueil</span>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800"
-                    onClick={() => setSidebarOpen(false)}
-                >
-                    <span><FontAwesomeIcon icon={faUser}/></span> 
-                    <Link to="/profile" className="ml-2">Mon profile</Link>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800"
-                    onClick={() => setSidebarOpen(false)}
-                >
-                    <Link to="/dashboard">
-                        <span><FontAwesomeIcon icon={faBars}/></span> 
-                        <span className="ml-2">Dashboard Décarbonation</span>
-                    </Link>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800"
-                    onClick={() => setSidebarOpen(false)}
-                >
-                    <span><FontAwesomeIcon icon={faPlane}/></span> 
-                    <Link to="/plans" className="ml-2">Mes Planners</Link>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800"
-                    onClick={() => setSidebarOpen(false)}
-                >
-                    <span><FontAwesomeIcon icon={faBarChart}/></span> 
-                    <Link to="/impacts" className="ml-2">Mon impact</Link>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800">
-                    <span><FontAwesomeIcon icon={faPuzzlePiece}/></span> 
-                    <Link to="/" className="ml-2">Fonctionnalités</Link>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800">
-                    <span><FontAwesomeIcon icon={faSackDollar}/></span> 
-                    <Link to="/" className="ml-2">Tarifs</Link>
-                </div>
-                <div className="flex ml-5 mt-4 text-blue-800">
-                    <span><FontAwesomeIcon icon={faQuestionCircle}/></span> 
-                    <Link to="/" className="ml-2">FAQ</Link>
+                <div>
+                    <div className={`font-semibold text-gray-500`}>{capitalizeWords(user && user.name)}</div>
+                    <div className={`text-gray-500 text-xs`}>{user.email}</div>
                 </div>
             </div>
-            <div className="mt-5">
-                <h5 className="text-blue-800">Paramètres</h5>
-                <div className="flex ml-5 mt-4 text-blue-800">
+            <div className="p-5 text-center">
+                <span className={`text-gray-500`}>Prêt pour votre prochaine aventure ?</span>
+            </div>
+            <div className="p-5">
+                <h5 className={`text-gray-500 text-xs`}>Menu principal</h5>
+                <Link to="/dashboard" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/dashboard" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span>{houseIcon(15, 15)}</span> 
+                    <span className={`ml-2`}>Dashboard</span>
+                </Link>
+                <Link to="/my-trips" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname.includes("trip") ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span><FontAwesomeIcon icon={faListUl}/></span> 
+                    <span className={`ml-5.5`}>Mes voyages</span>
+                </Link>
+                <Link to="/impacts" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span><FontAwesomeIcon icon={faBullseye}/></span> 
+                    <span className={`ml-5.5`}>Mission Carbone</span>
+                </Link>
+                <Link to="/impacts" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span><FontAwesomeIcon icon={faChartColumn}/></span> 
+                    <span className={`ml-5.5`}>Suivre impact</span>
+                </Link>
+                <Link to="/impacts" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span>{destinationDotIcon(15, 15)}</span> 
+                    <span className={`ml-2`}>Destinations</span>
+                </Link>
+                <Link to="/profile" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/profile" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span>{userIcon(15, 15)}</span> 
+                    <span className={`ml-3`}>Mon profile</span>
+                </Link>
+            </div>
+            <div className="p-5">
+                <h5 className={`text-gray-500 text-xs`}>Paramètres</h5>
+                <Link to="/impacts" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
                     <span><FontAwesomeIcon icon={faGear}/></span> 
-                    <span className="ml-2">Paramètres</span>
-                </div>
+                    <span className={`ml-5.5`}>Paramètres</span>
+                </Link>
+                <Link to="/impacts" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span>{cardIcon(15, 15)}</span> 
+                    <span className={`ml-2`}>Tarifs</span>
+                </Link>
+                <Link to="/impacts" className={`flex items-center text-sm mt-2 raduis pl-2 py-1.5 ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <span>{questionMarkIcon(15, 15)}</span> 
+                    <span className={`ml-2`}>FAQ</span>
+                </Link>
                 <div 
-                    className="flex ml-5 mt-4 text-blue-800 cursor-pointer"
+                    className="laptop-position py-2 cursor-pointer"
                     onClick={logOut}
                 >
-                    <span><FontAwesomeIcon icon={faRightFromBracket}/></span> 
-                    <span className="ml-2">Se déconnecter</span>
+                    <div className={`flex items-center text-sm mt-2 text-red-700`}>
+                        <span><FontAwesomeIcon icon={faRightFromBracket}/></span> 
+                        <span className={`ml-2`}>Se déconnecter</span>
+                    </div>
                 </div>
             </div>
         </div>

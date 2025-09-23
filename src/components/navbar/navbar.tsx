@@ -1,48 +1,80 @@
-import { Link, Outlet, useLocation } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import "../../assets/css/main.css";
 import { useState } from "react";
 import React from "react";
 import { useUser } from "@/context/userContext";
-import logo from "/images/logo.jpg";
+import { NavbarAdmin } from "./navbarAdmin";
+import { ResponsiveNavbarAdmin } from "./ResponsiveNavbarAdmin";
+import Header from "./header";
 
-export function Navbar(){
-    const {auth} = useUser();
+export function Navbar() {
+    const [collapsed, setCollapsed] = useState(false);
+    const { user, sidebarOpen, setSidebarOpen } = useUser();
     const location = useLocation();
-    const [menuOpen, setMenuOpen] = useState(false);
+    const responsive = window.innerWidth < 1024;
 
-    return(
-        <div className="mt-8">
-            <div className="relative flex items-center flex-wrap px-4">
-                <div className="text-main-color text-xl font-bold z-10 lg:w-1/3"><img src={logo} alt="logo" className="w-20" /></div>
-                {!auth && 
-                    <>
-                        <div className={`w-full lg:flex-1 lg:flex lg:justify-end ${menuOpen ? 'block' : 'hidden'}`}>
-                            <div className="text-main-color flex flex-col lg:flex-row lg:items-center lg:space-x-6 mt-4 lg:mt-0 justify-center">
-                                <a href="/" className="block py-2 lg:py-0"><strong>Fonctionnalités</strong></a>
-                                <a href="/" className="block py-2 lg:py-0"><strong>Tarifs</strong></a>
-                                <a href="/" className="block py-2 lg:py-0"><strong>FAQ</strong></a>
+    // normalize path (remove trailing slash)
+    const path = location.pathname.replace(/\/+$/, "") || "/";
+    const noMarginPaths = ["/", "/how-it-works", '/contact', '/legals', '/b2b', '/prices'];
+    const shouldHaveNoMargin = responsive || noMarginPaths.includes(path);
+    console.log(path);
+    
+    return (
+        <div>
+            <div className="flex" style={{ minHeight: "100vh" }}>
+                {user &&
+                    location.pathname !== "/" &&
+                    location.pathname !== "/how-it-works" &&
+                    location.pathname !== "/contact" &&
+                    location.pathname !== "/contact" &&
+                    location.pathname !== "/legals" &&
+                    location.pathname !== "/b2b" &&
+                    location.pathname !== "/prices" &&
+                     (
+                        <>
+                            {/* Desktop sidebar (visible on large screens) */}
+                            <div className="rounded-l-lg h-auto hidden lg:block">
+                                <NavbarAdmin
+                                    pathname={location.pathname}
+                                    collapsed={collapsed}
+                                    setCollapsed={setCollapsed}
+                                />
                             </div>
-                        </div>
-                        <div className={`lg:w-1/3 lg:flex lg:justify-end ${menuOpen ? 'block' : 'hidden'}`}>
-                            {(location.pathname === "/" || location.pathname === "/register") && (
-                                <div className="text-color mt-4 lg:mt-0 flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4">
-                                    <Link to="/" className={location.pathname === "/" ? "active" : ""} onClick={() => setMenuOpen(false)}>Connexion</Link>
-                                    <Link to="/register" className={location.pathname === "/register" ? "active" : ""} onClick={() => setMenuOpen(false)}>Inscription</Link>
-                                </div>
-                            )}
-                        </div><button
-                            className="block lg:hidden text-main-color absolute top-0 right-4"
-                            onClick={() => setMenuOpen(!menuOpen)}
-                        >
-                            <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                    d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
-                            </svg>
-                        </button>
-                    </>
-                }
+
+                            {/* Mobile sidebar (visible when sidebarOpen is true) */}
+                            <div
+                                className={`${sidebarOpen ? "block" : "hidden"
+                                    } bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-50`}
+                            >
+                                <ResponsiveNavbarAdmin
+                                    sidebarOpen={sidebarOpen}
+                                    setSidebarOpen={setSidebarOpen}
+                                    pathname={location.pathname}
+                                />
+                            </div>
+                        </>
+                    )}
+
+                <div
+                    className="flex-grow-1 d-flex flex-column"
+                    style={{
+                        marginLeft: shouldHaveNoMargin ? 0 : collapsed ? "85px" : "265px",
+                    }}
+                >
+                    {location.pathname !== "/how-it-works" && location.pathname !== "/contact" && location.pathname !== "/legals" && location.pathname !== "/b2b" && location.pathname !== "/prices" && (
+                        <Header
+                            pathname={location.pathname}
+                            collapsed={collapsed}
+                            responsive={responsive}
+                            setCollapsed={setCollapsed}
+                        />
+                    )}
+
+                    <div className="flex-grow-1 overflow-auto">
+                        <Outlet context={{ collapsed }} />
+                    </div>
+                </div>
             </div>
-            <Outlet/>
         </div>
-    )
+    );
 }

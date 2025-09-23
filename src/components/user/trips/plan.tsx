@@ -7,7 +7,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { TripName } from "./steps/name";
 import { TripType } from "./steps/type";
 import { TripOrigin } from "./steps/origin";
-import { TripLocation } from "./steps/location";
 import TripTransport from "./steps/transport";
 import { TripDate } from "./steps/date";
 import { TripBudget } from "./steps/budget";
@@ -355,31 +354,7 @@ export default function Plan(){
     return(
         <div>
             <div className='flex relative min-h-screen'>
-                {user && 
-                    <>
-                        {/* Desktop sidebar (visible on large screens) */}
-                        <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-auto hidden lg:block">
-                            <NavbarAdmin />
-                        </div>
-                        {/* Mobile sidebar (visible when sidebarOpen is true) */}
-                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-50`}>
-                            <ResponsiveNavbarAdmin sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                        </div>
-                    </>
-                }
                 <div className={`bg-create rounded-r-lg w-full pb-5 ${(steps === 10 || steps === 2) && width <= 700 ? '' : 'h-auto'}`}>
-                    <div className="mt-4 ml-10">
-                        <button
-                            className="lg:hidden text-blue-900"
-                            onClick={() => setSidebarOpen(!sidebarOpen)}
-                        >
-                            <svg className="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                    d={sidebarOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-                                />
-                            </svg>
-                        </button>
-                    </div>
                     <div className={`ml-10 lg:mt-10 mt-5 mr-10 flex justify-center`}>
                         <div className={`w-full max-w-4xl`}>
                             <div className="py-2 rounded-2xl font-semibold text-sm w-75 mx-auto text-center mt-4 flex items-center justify-center text-blue-950 bg-white border border-gray-300">
