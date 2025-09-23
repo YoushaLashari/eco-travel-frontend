@@ -149,18 +149,6 @@ export default function Profile(){
     return(
         <div>
             <div className='flex relative'>
-                {user && (
-                    <>
-                        {/* Desktop sidebar (visible on large screens) */}
-                        <div className="bg-white w-100 p-5 drop-shadow-md rounded-l-lg h-auto hidden lg:block">
-                            <NavbarAdmin />
-                        </div>
-                        {/* Mobile sidebar (visible when sidebarOpen is true) */}
-                        <div className={`${sidebarOpen ? 'block' : 'hidden'} bg-white w-full p-5 drop-shadow-md h-full lg:hidden absolute top-0 z-50`}>
-                            <ResponsiveNavbarAdmin sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-                        </div>
-                    </>
-                )}
                 <div className="bg-main flex flex-col lg:items-center justify-center min-h-screen px-4 sm:px-0 flex-1">
                     <div className="ms-2 my-3">
                         <button
