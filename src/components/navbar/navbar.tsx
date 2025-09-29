@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router";
-import "../../assets/css/main.css";
+// import "../../assets/css/main.css";
 import { useState } from "react";
 import React from "react";
 import { useUser } from "@/context/userContext";

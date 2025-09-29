@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -59,6 +59,7 @@ const UserNavbar = () => {
                     </div>
                 </div>
             )}
+            <Outlet />
         </header>
     );
 };
