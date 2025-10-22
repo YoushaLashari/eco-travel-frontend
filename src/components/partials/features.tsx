@@ -28,10 +28,10 @@ const Features = () => {
                     {features.map((f, i) => (
                         <Card key={i} className={`rounded-3xl border-border/70 shadow-soft animate-scale-in hover-glow stagger-${i + 1}`}>
                             <CardHeader>
-                                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-blue-950 flex items-center justify-center">
                                     <f.icon className="w-6 h-6" />
                                 </div>
-                                <CardTitle className="mt-4 text-xl text-primary">{f.title}</CardTitle>
+                                <CardTitle className="mt-4 text-xl text-blue-950">{f.title}</CardTitle>
                             </CardHeader>
                             <CardContent>
                                 <p className="text-muted-foreground">{f.description}</p>

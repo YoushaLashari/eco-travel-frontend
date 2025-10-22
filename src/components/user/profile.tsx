@@ -1,7 +1,5 @@
 import { useUser } from "@/context/userContext";
 import React, { useEffect, useRef, useState } from "react";
-import { NavbarAdmin } from "../navbar/navbarAdmin";
-import { ResponsiveNavbarAdmin } from "../navbar/ResponsiveNavbarAdmin";
 import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "../ui/card";
 import earth from "/images/earth.svg";

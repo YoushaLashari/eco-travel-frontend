@@ -167,7 +167,7 @@ export default function Destinations() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up [animation-delay:400ms]">
                             <Link
-                                to="/inscription"
+                                to="/register"
                                 className="bg-white text-primary hover:bg-white/90 px-8 py-4 rounded-2xl font-semibold text-lg shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105"
                             >
                                 Commencer Maintenant

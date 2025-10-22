@@ -20,9 +20,11 @@ import dublinTravel from "/images/dublin.jpg";
 import mountainNature from "/images/mountain.jpg";
 import coastalNature from "/images/coastal.jpg";
 import forestTravel from "/images/forest.jpg";
+import { useUser } from "@/context/userContext";
 
 const Hero = () => {
     const [api, setApi] = React.useState<CarouselApi>();
+    const { auth } = useUser();
 
     const travelDestinations = [
         { image: travelHeroBg, name: "Nature", alt: "Destination voyage nature avec sentiers de randonnée et paysages montagneux" },
@@ -52,16 +54,16 @@ const Hero = () => {
             <div className="container mx-auto px-4">
                 <div className="grid md:grid-cols-12 gap-8 items-center">
                     <div className="md:col-span-7 animate-slide-up">
-                        <h1 className="font-display text-4xl md:text-6xl font-bold text-primary">
-                            Voyagez mieux. <span className="animate-bounce-subtle">Vivez plus.</span>
+                        <h1 className="font-display text-4xl md:text-6xl font-bold text-blue-950">
+                            Voyagez mieux. <span className="animate-bounce-subtle text-blue-950">Vivez plus.</span>
                         </h1>
                         <p className="mt-4 text-lg md:text-xl text-muted-foreground max-w-2xl">
                             Trekr crée des voyages personnalisés, respectueux de la planète,
                             et enrichis par vos choix au quotidien.
                         </p>
                         <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                            <Button asChild size="lg" className="rounded-2xl">
-                                <Link to="/dashboard" aria-label="Commencer mon voyage">
+                            <Button asChild size="lg" className="rounded-2xl bg-blue-950">
+                                <Link to={`${auth ? '/dashboard' : '/login'}`} aria-label="Commencer mon voyage">
                                     <Train className="w-5 h-5 mr-2" />
                                     Commencer mon voyage
                                 </Link>

@@ -8,7 +8,7 @@ const Business = () => {
             <div className="container mx-auto px-4">
                 <div className="rounded-3xl border border-border bg-card p-8 md:p-10 shadow-soft flex flex-col md:flex-row items-start md:items-center justify-between gap-6 animate-slide-up hover-glow">
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-semibold text-primary">
+                        <h2 className="text-2xl md:text-3xl font-semibold text-blue-950">
                             Trekr accompagne aussi les entreprises
                         </h2>
                         <p className="mt-2 text-muted-foreground max-w-2xl">

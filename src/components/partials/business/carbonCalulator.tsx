@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from "react";
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calculator } from "lucide-react";
 import { Link } from "react-router-dom";
-import TransportStep from './partials/business/transportStep';
-import AccommodationStep from './partials/business/accomodationStep';
-import FoodNetworkingStep from './partials/business/foodNetworkingStep';
-import ResultsScreen from './partials/business/resultsScreen';
+import TransportStep from "./transportStep";
+import AccommodationStep from "./accomodationStep";
+import FoodNetworkingStep from "./foodNetworkingStep";
+import ResultsScreen from "./resultsScreen";
 
 export interface TransportData {
     mode: string;
@@ -47,7 +48,7 @@ export interface CarbonResults {
     total: number;
 }
 
-const AccueilB2B = () => {
+const CarbonCalculator = () => {
     const [currentStep, setCurrentStep] = useState<'home' | 'transport' | 'accommodation' | 'food' | 'results'>('home');
     const [transportData, setTransportData] = useState<TransportData[]>([]);
     const [accommodationData, setAccommodationData] = useState<AccommodationData | null>(null);
@@ -238,4 +239,4 @@ const AccueilB2B = () => {
     );
 };
 
-export default AccueilB2B;
+export default CarbonCalculator;

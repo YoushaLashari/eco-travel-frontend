@@ -1,3 +1,6 @@
+body{
+    background-color: #FAFAFA !important;
+}
 .text-main-color{
     color: #0C2D57;
 }
@@ -15,6 +18,9 @@
     background-color: #0C2D57 !important;
     padding: 10px 25px 10px 25px;
     border-radius: 20px;
+}
+.bg-input{
+    background-color: #FAFAFA !important;
 }
 .mt-10{
     margin-top: 10rem;

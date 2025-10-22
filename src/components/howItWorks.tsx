@@ -11,11 +11,11 @@ const HowItWorks = () => {
             <div className="bg-white py-16">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12">
-                        <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-8 transition-colors">
+                        <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-blue-950 mb-8 transition-colors">
                             <ArrowLeft className="h-4 w-4 mr-2" />
                             Retour à l'accueil
                         </Link>
-                        <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-primary">
+                        <h1 className="text-4xl lg:text-5xl font-bold mb-6 text-blue-950">
                             Comment ça marche avec Trekr
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
@@ -23,8 +23,8 @@ const HowItWorks = () => {
                         </p>
 
                         <div className="flex justify-center">
-                            <Link to="/inscription">
-                                <Button variant="outline" size="lg" className="px-8 py-3 text-lg border-2 border-primary text-primary hover:bg-primary/5 rounded-full">
+                            <Link to="/register">
+                                <Button variant="outline" size="lg" className="px-8 py-3 text-lg border-2 border-primary text-blue-950 cursor-pointer hover:bg-blue-950/5 rounded-full">
                                     Créer mon compte gratuit
                                 </Button>
                             </Link>
@@ -46,7 +46,7 @@ const HowItWorks = () => {
                                 </div>
                             </div>
                             <div className="flex-1 text-center md:text-left">
-                                <h3 className="text-2xl font-bold text-primary mb-4">1. Planifiez votre voyage, simplement</h3>
+                                <h3 className="text-2xl font-bold text-blue-950 mb-4">1. Planifiez votre voyage, simplement</h3>
                                 <p className="text-lg text-muted-foreground leading-relaxed">
                                     Choisissez votre destination et vos envies. Trekr crée un itinéraire sur mesure, déjà optimisé pour réduire votre empreinte carbone.
                                 </p>
@@ -61,7 +61,7 @@ const HowItWorks = () => {
                                 </div>
                             </div>
                             <div className="flex-1 text-center md:text-left">
-                                <h3 className="text-2xl font-bold text-primary mb-4">2. Visualisez l'impact réel</h3>
+                                <h3 className="text-2xl font-bold text-blue-950 mb-4">2. Visualisez l'impact réel</h3>
                                 <p className="text-lg text-muted-foreground leading-relaxed">
                                     Chaque trajet, chaque hébergement et chaque activité est traduit en impact carbone clair et lisible. Vous comprenez vos choix, sans complexité technique.
                                 </p>
@@ -76,7 +76,7 @@ const HowItWorks = () => {
                                 </div>
                             </div>
                             <div className="flex-1 text-center md:text-left">
-                                <h3 className="text-2xl font-bold text-primary mb-4">3. Voyagez mieux, en temps réel</h3>
+                                <h3 className="text-2xl font-bold text-blue-950 mb-4">3. Voyagez mieux, en temps réel</h3>
                                 <p className="text-lg text-muted-foreground leading-relaxed">
                                     Trekr vous accompagne tout au long de votre voyage : météo, qualité de l'air. Vous pouvez à tout moment adapter votre itinéraire et vos activités pour profiter d'une expérience fluide, confortable et personnalisée.
                                 </p>
@@ -91,7 +91,7 @@ const HowItWorks = () => {
                                 </div>
                             </div>
                             <div className="flex-1 text-center md:text-left">
-                                <h3 className="text-2xl font-bold text-primary mb-4">4. Après le voyage : décarbonez au quotidien</h3>
+                                <h3 className="text-2xl font-bold text-blue-950 mb-4">4. Après le voyage : décarbonez au quotidien</h3>
                                 <p className="text-lg text-muted-foreground leading-relaxed">
                                     Trekr prolonge l'expérience en vous suggérant des habitudes simples et efficaces dans la vie de tous les jours : vélo, alimentation moins carbonée, réduction d'énergie. Vos choix ramènent progressivement votre voyage à 0 carbone net.
                                 </p>
@@ -125,7 +125,7 @@ const HowItWorks = () => {
                         </h2>
 
                         <div className="flex justify-center">
-                            <Link to="/inscription">
+                            <Link to="/register">
                                 <Button size="lg" style={{ backgroundColor: '#fd490f' }} className="hover:opacity-90 text-white px-8 py-3 text-lg font-semibold rounded-full">
                                     Créer mon compte gratuit
                                 </Button>
