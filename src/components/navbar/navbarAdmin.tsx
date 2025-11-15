@@ -73,42 +73,42 @@ export function NavbarAdmin({ pathname, collapsed, setCollapsed, }: LaptopNavbar
                 </div>
                 <div className="p-5">
                     <h5 className={`text-gray-500 text-xs ${collapsed ? 'hidden' : 'block'}`}>Menu principal</h5>
-                    <Link to="/dashboard" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/dashboard" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/dashboard" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/dashboard" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center" : ""}`}>{houseIcon(15, 15)}</span> 
                         <span className={`ml-2 ${collapsed ? 'hidden' : 'block'}`}>Dashboard</span>
                     </Link>
-                    <Link to="/my-trips" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname.includes("trip") ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/my-trips" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname.includes("trip") ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center justify-center" : ""}`}><FontAwesomeIcon icon={faListUl}/></span> 
                         <span className={`ml-5.5 ${collapsed ? 'hidden' : 'block'}`}>Mes voyages</span>
                     </Link>
-                    <Link to="/mission-carbon" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/mission-carbon" || pathname.includes('habits') ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/mission-carbon" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/mission-carbon" || pathname.includes('habits') ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center justify-center" : ""}`}><FontAwesomeIcon icon={faBullseye}/></span> 
                         <span className={`ml-5.5 ${collapsed ? 'hidden' : 'block'}`}>Mission Carbone</span>
                     </Link>
-                    <Link to="/impacts" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/impacts" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/impacts" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center justify-center" : ""}`}><FontAwesomeIcon icon={faChartColumn}/></span> 
                         <span className={`ml-5.5 ${collapsed ? 'hidden' : 'block'}`}>Suivre impact</span>
                     </Link>
-                    <Link to="/destinations" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/destinations" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/destinations" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/destinations" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center" : ""}`}>{destinationDotIcon(15, 15)}</span> 
                         <span className={`ml-2 ${collapsed ? 'hidden' : 'block'}`}>Destinations</span>
                     </Link>
-                    <Link to="/profile" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/profile" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/profile" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/profile" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "flex items-center ml-1.5" : ""}`}>{userIcon(15, 15)}</span> 
                         <span className={`ml-3 ${collapsed ? 'hidden' : 'block'}`}>Mon profile</span>
                     </Link>
                 </div>
                 <div className="p-5">
                     <h5 className={`text-gray-500 text-xs ${collapsed ? 'hidden' : 'block'}`}>Paramètres</h5>
-                    <Link to="/settings" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/settings" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/settings" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/settings" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center justify-center" : ""}`}><FontAwesomeIcon icon={faGear}/></span> 
                         <span className={`ml-5.5 ${collapsed ? 'hidden' : 'block'}`}>Paramètres</span>
                     </Link>
-                    <Link to="/prices" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/prices" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/prices" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/prices" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center" : ""}`}>{cardIcon(15, 15)}</span> 
                         <span className={`ml-2 ${collapsed ? 'hidden' : 'block'}`}>Tarifs</span>
                     </Link>
-                    <Link to="/faq" className={`flex items-center text-sm mt-2 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/faq" ? "active-navbar" : "navbar-color nav-col"}`}>
+                    <Link to="/faq" className={`flex items-center text-sm mt-2 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'} ${pathname === "/faq" ? "active-navbar" : "navbar-color nav-col"}`}>
                         <span className={`${collapsed ? "w-4 h-4 flex items-center content-center" : ""}`}>{questionMarkIcon(15, 15)}</span> 
                         <span className={`ml-2 ${collapsed ? 'hidden' : 'block'}`}>FAQ</span>
                     </Link>
@@ -116,7 +116,7 @@ export function NavbarAdmin({ pathname, collapsed, setCollapsed, }: LaptopNavbar
                         className="laptop-position py-2 cursor-pointer"
                         onClick={logOut}
                     >
-                        <div className={`flex items-center text-sm mt-2 text-red-700 ${collapsed ? 'w-8 h-8 rounded-full justify-center' : 'raduis pl-2 py-1.5'}`}>
+                        <div className={`flex items-center text-sm mt-2 text-red-700 rounded-full ${collapsed ? 'w-8 h-8 justify-center' : 'raduis pl-2 py-1.5'}`}>
                             <span className={`${collapsed ? "w-4 h-4 flex items-center content-center" : ""}`}><FontAwesomeIcon icon={faRightFromBracket}/></span> 
                             <span className={`ml-2 ${collapsed ? 'hidden' : 'block'}`}>Se déconnecter</span>
                         </div>

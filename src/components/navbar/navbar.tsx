@@ -17,7 +17,6 @@ export function Navbar() {
     const path = location.pathname.replace(/\/+$/, "") || "/";
     const noMarginPaths = ["/", "/how-it-works", '/contact', '/legals', '/b2b', '/prices'];
     const shouldHaveNoMargin = responsive || noMarginPaths.includes(path);
-    console.log(path);
     
     return (
         <div>

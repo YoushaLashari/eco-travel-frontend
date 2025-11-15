@@ -33,11 +33,10 @@ export function TripBudget({handleData, trip, error}: TripBudgetProps){
                         <SelectValue placeholder={trip.budget.length > 0 ? trip.budget : "Sélectionnez votre budget"} />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="Moins de 500€">Moins de 500€</SelectItem>
-                        <SelectItem value="500€ - 1000€">500€ - 1000€</SelectItem>
-                        <SelectItem value="1000€ - 2000€">1000€ - 2000€</SelectItem>
-                        <SelectItem value="2000€ - 3000€">2000€ - 3000€</SelectItem>
-                        <SelectItem value="Plus de 3000€">Plus de 3000€</SelectItem>
+                        <SelectItem value="500">500€</SelectItem>
+                        <SelectItem value="1000€">1000€</SelectItem>
+                        <SelectItem value="2000€">2000€</SelectItem>
+                        <SelectItem value="3000€">3000€</SelectItem>
                     </SelectContent>
                 </Select>
             </div>
