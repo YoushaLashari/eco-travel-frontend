@@ -52,7 +52,7 @@ export function TripConfirm({trip, startDate, endDate, adults, childrens}: TripC
                 </div>
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Budget de votre voyage:</p>
-                    <p className="text-left w-full"><strong>{trip.budget}</strong></p>
+                    <p className="text-left w-full"><strong>{trip.budget} €</strong></p>
                 </div>
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Date de début:</p>

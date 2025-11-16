@@ -34,9 +34,9 @@ export function TripBudget({handleData, trip, error}: TripBudgetProps){
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="500">500€</SelectItem>
-                        <SelectItem value="1000€">1000€</SelectItem>
-                        <SelectItem value="2000€">2000€</SelectItem>
-                        <SelectItem value="3000€">3000€</SelectItem>
+                        <SelectItem value="1000">1000€</SelectItem>
+                        <SelectItem value="2000">2000€</SelectItem>
+                        <SelectItem value="3000">3000€</SelectItem>
                     </SelectContent>
                 </Select>
             </div>
