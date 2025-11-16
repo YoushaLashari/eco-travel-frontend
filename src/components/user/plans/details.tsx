@@ -164,7 +164,7 @@ export default function Details(){
                                     <div className="text-gray-500 text-sm mt-1">CO₂ économisé</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-blue-950 font-bold text-lg lg:text-2xl">200 €</div>
+                                    <div className="text-blue-950 font-bold text-lg lg:text-2xl">{trip.budget} €</div>
                                     <div className="text-gray-500 text-sm mt-1">Budget total</div>
                                 </div>
                             </div>
