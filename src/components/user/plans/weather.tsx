@@ -19,7 +19,7 @@ export default function Weather(){
   useEffect(() => {
     const fetchWeather = async () => {
       try{
-        const response = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);  
+        const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`);  
         
         setWeather(response.data);
       }catch(err){

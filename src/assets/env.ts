@@ -1,1 +1,1 @@
-export const google_client = "270107033468-6fu77vfths5i14ioav29ii3beibmiqo8.apps.googleusercontent.com";
+export const google_client = "672713890922-qn0geve4kalfapkhdmmeah2sj32j8urc.apps.googleusercontent.com";

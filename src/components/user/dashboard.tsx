@@ -64,12 +64,15 @@ const Dashboard = () => {
     const getTrips = async () =>{
       if (!user?.id) return;
 
-      const response = await axiosInstance.get("trips/get", {
-        params : {user_id : user.id}
-      });
-          
-      if(response.status === 200){
-        setTrips(response.data.trips);
+      try {
+          const response = await axiosInstance.get("trips/get", {
+            params : {user_id : user.id}
+          });
+          if(response.status === 200){
+            setTrips(response.data.trips ?? []);
+          }
+      } catch (error) {
+        setTrips([]); // Stay on empty state, don't crash
       }
     }  
     
@@ -93,7 +96,7 @@ const Dashboard = () => {
       title: "Découvrir",
       description: "Explorez de nouvelles destinations",
       icon: Compass,
-      path: "/trip"
+      path: "/destinations"
     }
   ];
   

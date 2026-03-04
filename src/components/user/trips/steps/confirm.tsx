@@ -47,7 +47,7 @@ export function TripConfirm({trip, startDate, endDate, adults, childrens}: TripC
                 <div className="flex place-content-around mt-2">
                     <p className="text-left w-full">Type de transport de votre voyage:</p>
                     <p className="text-left w-full"><strong>
-                        {capitalizeWords(trip.transport === "plane" ? "Avion" : trip.transport === "train" ? "Train" : "Voiture")}
+                        {capitalizeWords(trip.transport === "flight" ? "Avion" : trip.transport === "train" ? "Train" : "Voiture")}
                     </strong></p>
                 </div>
                 <div className="flex place-content-around mt-2">

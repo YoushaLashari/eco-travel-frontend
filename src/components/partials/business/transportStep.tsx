@@ -107,7 +107,7 @@ const TransportStep = ({ onComplete, onBack }: TransportStepProps) => {
                                                 <SelectValue placeholder="Sélectionner..." />
                                             </SelectTrigger>
                                             <SelectContent>
-                                                <SelectItem value="plane">✈️ Avion</SelectItem>
+                                                <SelectItem value="flight">✈️ Avion</SelectItem>
                                                 <SelectItem value="train">🚆 Train</SelectItem>
                                                 <SelectItem value="car">🚗 Voiture</SelectItem>
                                                 <SelectItem value="bus">🚌 Bus</SelectItem>
@@ -115,7 +115,7 @@ const TransportStep = ({ onComplete, onBack }: TransportStepProps) => {
                                         </Select>
                                     </div>
 
-                                    {trip.mode === 'plane' && (
+                                    {trip.mode === 'flight' && (
                                         <div>
                                             <Label htmlFor={`class-${index}`}>Classe</Label>
                                             <Select value={trip.class} onValueChange={(value) => updateTrip(index, 'class', value)}>

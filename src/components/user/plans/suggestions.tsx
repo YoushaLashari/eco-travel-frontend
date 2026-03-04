@@ -1,95 +1,62 @@
-import { faCarSide, faPersonRunning, faRecycle, faUtensils, faVanShuttle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 interface TipComponent {
     tip: any;
 }
 
-export default function Suggestions({ tip }: TipComponent){
-    if(!tip){
-        return <p>Loading tips...</p>;
+export default function Suggestions({ tip }: TipComponent) {
+    if (!tip) {
+        return <p className="text-sm text-gray-400 px-5 py-3">Chargement des astuces...</p>;
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-4 py-4 mx-5">
-            {tip.ecofriendly_tips.map((item, index) => (
-                <div 
-                    className="bg-astuce-globe p-4 raduis mb-1"
-                    key={index}
-                >
-                    <div className="flex items-start">
-                        <div>
-                            🚶‍♂️
-                        </div>
-                        <div className="ml-4">
-                            <div className="bg-astuce text-astuce-color text-xs font-semibold rounded-xl py-1 px-3 w-24 text-center">
-                                {item.category}
-                            </div>
-                            <div className="text-sm mt-1">
-                                {item.impact}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ))}
-            {/* Card 1: Conseils éco-responsables */}
-            {/* <div className="flex flex-col h-full">
-                <p className="text-center bg-card-program text-white p-3 rounded-t-lg text-lg font-bold">
-                    Conseils éco-responsables
-                </p>
-                <div className="flex-1 rounded-b-lg shadow-lg bg-white">
-                    {tip.ecofriendly_tips.map((item, index) => (
-                        <div key={index} className="flex card-select items-center">
-                            <div className={`${item.category === 'Transportation' ? "p-4 bg-blue-400" : item.category === "Accommodation" ? "py-4 px-5 bg-red-400" : "p-4 bg-amber-400"} ms-2 circle`}>
-                                <FontAwesomeIcon icon={item.category === 'Transportation' ? faVanShuttle : item.category === "Accommodation" ? faUtensils : faRecycle} />
-                            </div>
-                            <div className="w-full border-astuce p-4">
-                                <div className="mt-2">{item.category}</div>
-                                <div className="text-sm text-gray-500 mt-2">{item.tip}</div>
-                                <div className={`${item.category === "Transportation" ? "bg-green-200" : item.category === "Accommodation" ? "bg-yellow-200" : "bg-red-200"} rounded-full w-full text-center mt-2 text-sm p-2`}>
-                                    <span className={`${item.category === "Transportation" ? "text-green-700" : item.category === "Accommodation" ? "text-yellow-700" : "text-red-700"}`}>
-                                        <strong>{item.impact}</strong>
-                                    </span>
-                                </div>
+        <div className="grid grid-cols-1 gap-3 py-4 mx-5">
+
+            {/* ── Eco-friendly tips ── */}
+            {/* FIX: API returns plain strings [], not objects with .category/.impact */}
+            {tip.ecofriendly_tips?.length > 0 && (
+                <div>
+                    <p className="text-xs font-semibold text-green-700 uppercase mb-2">
+                        🌿 Conseils éco-responsables
+                    </p>
+                    {tip.ecofriendly_tips.map((item: string, index: number) => (
+                        <div
+                            className="bg-astuce-globe p-4 raduis mb-2"
+                            key={index}
+                        >
+                            <div className="flex items-start">
+                                <span className="mr-2 text-lg">🚶‍♂️</span>
+                                <div className="text-sm text-gray-700 mt-0.5">{item}</div>
                             </div>
                         </div>
                     ))}
                 </div>
-            </div> */}
+            )}
 
-            {/* Card 2: Options de transport local */}
-            {/* <div className="flex flex-col h-full">
-                <p className="text-center bg-card-program text-white p-3 rounded-t-lg text-lg font-bold">
-                    Options de transport local
-                </p>
-                <div className="flex-1 rounded-b-lg shadow-lg bg-white">
-                    {tip.local_transport_options.map((item, index) => (
+            {/* ── Local transport options ── */}
+            {/* FIX: API returns plain strings [], not objects with .mode/.eco_impact/.cost */}
+            {tip.local_transport_options?.length > 0 && (
+                <div className="mt-2">
+                    <p className="text-xs font-semibold text-blue-700 uppercase mb-2">
+                        🚌 Transport local
+                    </p>
+                    {tip.local_transport_options.map((item: string, index: number) => (
                         <div
                             key={index}
-                            className={`flex place-content-between items-center ${index !== tip.local_transport_options.length - 1 ? "border-astuce" : ""} card-select`}
+                            className="flex items-center bg-white border border-gray-200 raduis p-3 mb-2"
                         >
-                            <div className={`${item.mode === "Walking" ? "py-4 px-5" : "p-4"} bg-green-500 ms-2 circle`}>
-                                <FontAwesomeIcon icon={item.mode === 'Public Bus' ? faVanShuttle : item.mode === "Taxi" ? faCarSide : faPersonRunning} />
-                            </div>
-                            <div className="p-4 w-full">
-                                <div>{item.mode}</div>
-                                <div className="text-sm text-gray-500 mt-2">{item.eco_impact}</div>
-                            </div>
-                            <div
-                                className={`${item.mode === "Public Bus"
-                                    ? "bg-amber-500"
-                                    : item.mode === "Taxi"
-                                        ? "bg-red-500"
-                                        : "bg-green-500"
-                                    } circle ${item.cost > 9 ? "pad-cost-big" : "pad-cost-small"} shadow-lg m-5 text-white font-bold`}
-                            >
-                                <strong>{item.cost}€</strong>
-                            </div>
+                            <span className="mr-3 text-lg">🚆</span>
+                            <div className="text-sm text-gray-700">{item}</div>
                         </div>
                     ))}
                 </div>
-            </div> */}
+            )}
+
+            {/* Fallback if both arrays are empty */}
+            {tip.ecofriendly_tips?.length === 0 && tip.local_transport_options?.length === 0 && (
+                <p className="text-sm text-gray-400">Aucune astuce disponible pour ce voyage.</p>
+            )}
+
         </div>
     );
 }

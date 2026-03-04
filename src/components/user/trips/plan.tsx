@@ -273,7 +273,7 @@ export default function Plan(){
             setLoading(true);
             
             try{
-                const response = await axiosInstance.post("trips/create", data);
+                const response = await axiosInstance.post("trips/create/", data);
                 
                 if(response.data.status === "success"){
                     const tripId = response.data.trip.id;

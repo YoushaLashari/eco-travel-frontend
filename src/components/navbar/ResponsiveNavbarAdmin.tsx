@@ -54,7 +54,7 @@ export function ResponsiveNavbarAdmin({sidebarOpen, setSidebarOpen, pathname}: S
             </div>
             <div className="flex ml-4 items-center my-5">
                 <div className={`${user.picture == null ? "border bg-color rounded-full py-2 px-2 text-white text-xs" : ""} mr-3`}>
-                    {user.picture !== null ? 
+                    {user.picture && user.picture !== 'null' && user.picture !== 'undefined' ?
                         <img
                             src={`${url}/images/${user.picture}`}
                             alt="Profile"
