@@ -2,7 +2,7 @@ import earth from "/images/earth.svg";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBoxes, faCarSide, faHandsHolding, faHouse, faUtensils, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBoxes, faTrainSubway, faHandsHolding, faHouse, faUtensils, faXmark } from "@fortawesome/free-solid-svg-icons";
 import Food from "../carbon/food";
 import Transportation from "../carbon/transportation";
 import Housing from "../carbon/housing";
@@ -79,6 +79,7 @@ export default function Compensate(){
             
             if(response.status === 200){
                 setAdems(response.data.adems);
+                console.log(response.data.adems);
             }
         }
 
@@ -127,7 +128,7 @@ export default function Compensate(){
         miscellaneous: { icon: faBoxes, label: "Divers" },
         housing: { icon: faHouse, label: "Logement" },
         social_services: { icon: faHandsHolding, label: "Services sociétaux" },
-        transportation: { icon: faCarSide, label: "Transport" },
+        transportation: { icon: faTrainSubway, label: "Transport" },
     };
     
     useEffect(() => {

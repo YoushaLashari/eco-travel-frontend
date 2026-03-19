@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { Leaf, Plane, Home, Utensils, MapPin, Plus, Check, Target } from 'lucide-react';
+import { Leaf, Plane, Home, Utensils, MapPin, Plus, Check, Target, Train } from 'lucide-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 // Simulation de données ADEME
@@ -72,7 +72,7 @@ const mockHabits = [
 
 const categories = [
     { name: "Tout", icon: Leaf },
-    { name: "Transport", icon: Plane },
+    { name: "Transport", icon: Train },
     { name: "Hébergement", icon: Home },
     { name: "Alimentation", icon: Utensils },
     { name: "Activités", icon: MapPin }
@@ -145,7 +145,7 @@ const Habits = () => {
             localStorage.setItem('trips', JSON.stringify(trips));
         }
 
-        navigate('/mission-carbone');
+        navigate('/mission-carbon', { state: { activeTab: 'En cours' } });
     };
 
     return (

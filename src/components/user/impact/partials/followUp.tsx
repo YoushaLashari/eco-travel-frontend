@@ -48,8 +48,34 @@ export default function FollowUp(){
     const [adems, setAdems] = useState<Adems[]>([]);
     const [emissions, setEmissions] = useState<EmissionData[]>([]);
     const [total, setTotal] = useState<number>(0);
+    const [totalCO2Saved, setTotalCO2Saved] = useState<number>(0);
+    const [totalGreenPoints, setTotalGreenPoints] = useState<number>(0);
 
-    let carbonPercent = ((50 / trip?.total_carbon_emission) * 100).toFixed(2);
+    useEffect(() => {
+        // Read completed Mission Carbone actions from localStorage
+        const savedTrips = JSON.parse(localStorage.getItem('trips') || '[]');
+    
+        let co2Total = 0;
+        let pointsTotal = 0;
+
+        savedTrips.forEach((t: any) => {
+            if (t.status === 'decarborise' || t.status === 'En cours') {
+                (t.actions || []).forEach((action: any) => {
+                    if (action.completed) {
+                        co2Total += action.co2Saved || 0;
+                        pointsTotal += action.points || 0;
+                    }
+                });
+            }
+        });
+
+        setTotalCO2Saved(co2Total);
+        setTotalGreenPoints(pointsTotal);
+    }, []);
+
+    let carbonPercent = trip?.total_carbon_emission 
+    ? Math.min(((totalCO2Saved / trip.total_carbon_emission) * 100), 100).toFixed(2)
+    : "0";
     const colorMap: Record<AdemKey, string> = {
         food: 'bg-green-500',
         miscellaneous: 'bg-violet-600',
@@ -152,7 +178,7 @@ export default function FollowUp(){
                         <div className="space-y-2">
                             <h3 className="text-sm text-muted-foreground">Décarbonation</h3>
                             <p className="text-2xl font-bold text-green-600">
-                                50 kg CO<sub>2</sub>
+                                {totalCO2Saved} kg CO<sub>2</sub>
                             </p>
                         </div>
                     </div>

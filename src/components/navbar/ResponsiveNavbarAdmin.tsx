@@ -1,7 +1,7 @@
 import { url } from "@/api/url";
 import { api_post, capitalizeWords, firstWord } from "@/assets/helpers";
 import { useUser } from "@/context/userContext";
-import { faBarChart, faBars, faBullseye, faChartColumn, faGear, faHouse, faListUl, faPlane, faPuzzlePiece, faQuestionCircle, faRightFromBracket, faSackDollar, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faBarChart, faBars, faBullseye, faChartColumn, faGear, faHouse, faListUl, faTrainSubway, faPuzzlePiece, faQuestionCircle, faRightFromBracket, faSackDollar, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router";

@@ -1,4 +1,4 @@
-import { faAngleLeft, faAngleRight, faCalendar, faClipboardList, faDollarSign, faGlobe, faLanguage, faLocation, faLocationArrow, faLocationDot, faPen, faPlane, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight, faCalendar, faClipboardList, faDollarSign, faGlobe, faLanguage, faLocation, faLocationArrow, faLocationDot, faPen, faTrainSubway, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -65,7 +65,7 @@ export default function Plan(){
         { icon: <FontAwesomeIcon icon={faLocationDot}/> },
         { icon: <FontAwesomeIcon icon={faGlobe}/> },
         { icon: <FontAwesomeIcon icon={faLocationDot}/> },
-        { icon: <FontAwesomeIcon icon={faPlane}/> },
+        { icon: <FontAwesomeIcon icon={faTrainSubway}/> },
         { icon: <FontAwesomeIcon icon={faCalendar}/> },
         { icon: <FontAwesomeIcon icon={faDollarSign}/> },
         { icon: <FontAwesomeIcon icon={faUsers}/> },
@@ -250,8 +250,27 @@ export default function Plan(){
             }
         }
 
-        if(data.num_adult > 0 && steps === 7){
-            setSteps(steps + 1);
+        if(steps === 7){
+            const totalPeople = adults + childrens;
+            const budgetPerPerson = Number(data.budget) / totalPeople;
+
+            // Minimum viable budget per person per day
+            const tripDays = Math.max(
+                1,
+                Math.ceil((new Date(data.end_date).getTime() - new Date(data.start_date).getTime()) / (1000 * 60 * 60 * 24))
+            );
+            const budgetPerPersonPerDay = budgetPerPerson / tripDays;
+
+            if (budgetPerPersonPerDay < 50) {
+                setError(errorData=>({
+                    ...errorData,
+                    budget: `Budget insuffisant : ${data.budget}€ pour ${totalPeople} personne(s) sur ${tripDays} jour(s) — soit ${Math.round(budgetPerPerson)}€/pers. Le minimum recommandé est 50€/pers/jour.`,
+                }));
+                // Go back to budget step so user can fix it
+                setSteps(6);
+            } else {
+                setSteps(steps + 1);
+            }
         }
 
         if(steps === 8){

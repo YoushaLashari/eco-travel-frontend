@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Clock, Train, Home, Utensils, Plus , Calendar } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useLocation } from 'react-router-dom';
 
 type TabType = "nouveaux" | "En cours" | "decarbonises";
 
@@ -117,6 +118,12 @@ export default function Actions() {
     const [activeTab, setActiveTab] = useState<TabType>("nouveaux");
     const [trips, setTrips] = useState<Trip[]>(mockTrips);
     const [visibleActions, setVisibleActions] = useState<Record<string, boolean>>({});
+    const location = useLocation();
+    useEffect(() => {
+        if (location.state?.activeTab) {
+            setActiveTab(location.state.activeTab as TabType);
+        }
+    }, [location.state]);
 
     // Charger le plan de décarbonisation depuis localStorage au chargement
     useEffect(() => {
@@ -513,6 +520,10 @@ export default function Actions() {
                                             <Button 
                                                 variant="outline" 
                                                 className="text-red-600 border-red-200 text-sm md:text-base w-full sm:w-auto order-1 sm:order-2"
+                                                onClick={() => {
+                                                    setTrips(prev => prev.filter(t => t.id !== trip.id));
+                                                    localStorage.setItem('trips', JSON.stringify(trips.filter(t => t.id !== trip.id)));
+                                                }}
                                             >
                                                 <span className="hidden sm:inline">Supprimer définitivement</span>
                                                 <span className="sm:hidden">Supprimer</span>

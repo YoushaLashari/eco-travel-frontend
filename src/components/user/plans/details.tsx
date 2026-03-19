@@ -12,6 +12,7 @@ import { calculateDurationDays, capitalizeWords, formatDateRange, getDate } from
 import Map from "@/components/navbar/map";
 import Suggestions from "./suggestions";
 import Slider from "./slider";
+import EditTripModal from "./EditTripModal";
 import Button from "./button";
 
 interface Trip {
@@ -77,6 +78,7 @@ export default function Details() {
     const [tip, setTip] = useState<Tip | null>(null);
     const [food, setFood] = useState<Food[]>([]);
     const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+    const [showEditModal, setShowEditModal] = useState(false);
 
     useEffect(() => {
         if (!loading && !auth) {
@@ -95,7 +97,13 @@ export default function Details() {
         getTrip();
     }, [id]);
 
-    const slides = [
+    const slides = program?.activities?.length > 0
+    ? program.activities.map((activity: any) => ({
+        image: activity.photos?.[0] || photo,
+        text_1: activity.name || "",
+        text_2: activity.details?.description || activity.eco_impact?.sustainability_note || "",
+    }))
+    : [
         { image: photo, text_1: "Vieux Lyon", text_2: "Découverte des traboules historiques" },
         { image: photo2, text_1: "Balade à Vélo", text_2: "Le long du Rhône au coucher du soleil" }
     ];
@@ -533,9 +541,20 @@ export default function Details() {
                                         <div className="mb-4">
                                             <div className="text-blue-950 font-semibold ms-2">Actions</div>
                                         </div>
-                                        <div className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-full text-center me-2 text-blue-950 mt-2`}>
+                                        <div 
+                                            onClick={() => setShowEditModal(true)}
+                                            className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-full text-center me-2 text-blue-950 mt-2`}
+                                        >
                                             <FontAwesomeIcon icon={faPen} /> <span className="ms-2">Modifier le voyage</span>
                                         </div>
+
+                                        {showEditModal && program && (
+                                            <EditTripModal
+                                                program={program}
+                                                onClose={() => setShowEditModal(false)}
+                                                onSave={(updatedProgram) => setProgram(updatedProgram)}
+                                            />
+                                        )}
                                         <div className={`py-2 border rounded-2xl font-semibold text-sm link-hover cursor-pointer w-full text-center me-2 text-blue-950 mt-2`}>
                                             <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> <span className="ms-2">Partager l'itinéraire</span>
                                         </div>

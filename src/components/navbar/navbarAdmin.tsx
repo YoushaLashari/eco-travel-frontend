@@ -65,7 +65,6 @@ export function NavbarAdmin({ pathname, collapsed, setCollapsed, }: LaptopNavbar
                     </div>
                     <div className={`${collapsed ? 'hidden' : 'block'}`}>
                         <div className={`font-semibold text-gray-500`}>{capitalizeWords(user && user.name)}</div>
-                        <div className={`text-gray-500 text-xs`}>{user.email}</div>
                     </div>
                 </div>
                 <div className="p-5 text-center">

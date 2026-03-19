@@ -43,7 +43,7 @@ export const UserProvider = ({children}: UserProviderProps) => {
 
         const getUser = async () => {
             try{
-                const response = await api_get('users/profile', token);
+                const response = await api_get('users/profile/', token);
                 
                 setUser(response.data);
             }catch(error){

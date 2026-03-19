@@ -54,12 +54,31 @@ const getStatutBadge = (statut: Trip['status']) => {
     }
 };
 
+function CityImage({ image, alt }: { image: string | null; alt: string }) {
+    return (
+        <img
+            src={image || '/images/paris.jpg'}
+            alt={alt}
+            className="w-full h-full object-cover"
+            onError={(e) => { (e.target as HTMLImageElement).src = '/images/paris.jpg'; }}
+        />
+    );
+}
+
 export default function Plans(){
     const navigate = useNavigate(); 
     const { user, auth, loading } = useUser(); 
     const [trips, setTrips] = useState<Trips[]>([]);
     const [trip, setTrip] = useState<Trip | null>(null);
     const [activeTab, setActiveTab] = useState("tous");
+    const handleDelete = async (tripId: number) => {
+        if (!confirm("Êtes-vous sûr de vouloir supprimer ce voyage ?")) return;
+    
+        const response = await axiosInstance.delete(`trips/delete/${tripId}`);
+        if (response.status === 200) {
+            setTrips(prev => prev.filter(t => t.id !== tripId));
+        }
+    }
 
     useEffect(() => {
         if(!loading && !auth){
@@ -227,11 +246,7 @@ export default function Plans(){
                             className="overflow-hidden hover:shadow-lg transition-shadow pt-0"
                         >
                             <div className="aspect-video relative">
-                                <img
-                                    src="/images/paris.jpg"
-                                    alt={voyage.name}
-                                    className="w-full h-full object-cover"
-                                />
+                                <CityImage image={voyage.image} alt={voyage.name} />
                                 <div className="absolute top-2 right-2">
                                     {getStatutBadge(voyage.status)}
                                 </div>
@@ -305,6 +320,7 @@ export default function Plans(){
                                         variant="outline"
                                         size="sm"
                                         className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                                        onClick={() => handleDelete(voyage.id)}
                                     >
                                         <Trash2 className="w-4 h-4" />
                                     </Button>

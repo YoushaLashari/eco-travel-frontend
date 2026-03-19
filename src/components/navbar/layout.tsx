@@ -45,6 +45,7 @@ export default function Layout(){
                         <Route path="destinations" element={<Destinations/>}/>
                         <Route path="trip/:id" element={<Details />} />
                         <Route path="compensate/:id" element={<Compensate />} />
+                        <Route path="settings" element={<Profile/>}/>
                         <Route path="habits/:id" element={<Habits />} />
                     </Route>
                     <Route path="how-it-works" element={<HowItWorks/>}/>
