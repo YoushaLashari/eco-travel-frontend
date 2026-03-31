@@ -177,8 +177,18 @@ export default function Details() {
                                     <div className="text-gray-500 text-sm mt-1">CO₂ émis</div>
                                 </div>
                                 <div className="text-center">
-                                    <div className="text-blue-950 font-bold text-lg lg:text-2xl">{trip.budget} €</div>
-                                    <div className="text-gray-500 text-sm mt-1">Budget total</div>
+                                    <div className="text-blue-950 font-bold text-lg lg:text-2xl">
+                                        {program?.price_breakdown?.total
+                                            ? `${program.price_breakdown.total.toFixed(0)} €`
+                                            : `${trip.budget} €`
+                                        }
+                                    </div>
+                                    <div className="text-gray-500 text-sm mt-1">
+                                        Coût total
+                                        {program?.price_breakdown?.total && (
+                                            <span className="block text-xs text-gray-400">Budget max: {trip.budget}€</span>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </div>
